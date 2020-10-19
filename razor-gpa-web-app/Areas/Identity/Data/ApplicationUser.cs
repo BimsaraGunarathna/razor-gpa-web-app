@@ -17,7 +17,7 @@ namespace razor_gpa_web_app.Areas.Identity.Data
 
         [PersonalData]
         public string LastName { get; set; }
-
+        
         [PersonalData]
         public string DegreeName { get; set; }
 

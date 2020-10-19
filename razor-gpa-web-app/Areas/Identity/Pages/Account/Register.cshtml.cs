@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using razor_gpa_web_app.Areas.Identity.Data;
+using razor_gpa_web_app.Data;
+using razor_gpa_web_app.Utility;
 
 namespace razor_gpa_web_app.Areas.Identity.Pages.Account
 {
@@ -24,13 +26,22 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly DBContext _db;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager,
+            DBContext db
+            )
         {
+            //
+            _db = db;
+            _roleManager = roleManager;
+            //
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -51,7 +62,7 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            //
+            //Custom attribute definitions
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Registration number")]
@@ -112,6 +123,7 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                //Adding custom attributes to the quene. 
                 var user = new ApplicationUser { 
                     UserName = Input.Email, 
                     Email = Input.Email,
@@ -126,6 +138,29 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    //Create a admin user.
+                    if(!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(SD.StaffEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.StaffEndUser));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(SD.StudentEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(SD.HODEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.HODEndUser));
+                    }
+                    //create an admin
+                    await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

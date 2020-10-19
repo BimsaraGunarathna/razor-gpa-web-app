@@ -19,9 +19,15 @@ namespace razor_gpa_web_app.Areas.Identity
                 services.AddDbContext<DBContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("DBContextConnection")));
-
-                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<DBContext>();
+                //known Issue: Application user is replaced with Identity User. ApplicationUser is a derived by extending IdentityUser 
+                //services.AddIdentity<ApplicationUser, IdentityRole>().AddDefaultTokenProviders().AddEntityFrameworkStores<DBContext>();
+                //.AddDefaultTokenProviders() is removed.
+                services
+                    .AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddEntityFrameworkStores<DBContext>()
+                    //Known issue: fixed by adding AddDefualtUI()
+                    .AddDefaultUI();
+                //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBContext>();
             });
         }
     }
