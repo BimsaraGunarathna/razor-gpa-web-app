@@ -25,6 +25,8 @@ namespace razor_gpa_web_app.Areas.Identity
                 services
                     .AddIdentity<ApplicationUser, IdentityRole>()
                     .AddEntityFrameworkStores<DBContext>()
+                    //Known issue: Added to fix error in register page.
+                    .AddDefaultTokenProviders()
                     //Known issue: fixed by adding AddDefualtUI()
                     .AddDefaultUI();
                 //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBContext>();
