@@ -16,9 +16,11 @@ namespace razor_gpa_web_app.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
+                
                 services.AddDbContext<DBContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("DBContextConnection")));
+                
                 //known Issue: Application user is replaced with Identity User. ApplicationUser is a derived by extending IdentityUser 
                 //services.AddIdentity<ApplicationUser, IdentityRole>().AddDefaultTokenProviders().AddEntityFrameworkStores<DBContext>();
                 //.AddDefaultTokenProviders() is removed.
