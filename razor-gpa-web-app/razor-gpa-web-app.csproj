@@ -20,12 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< Updated upstream
     <Folder Include="Pages\Degrees\" />
     <Folder Include="Pages\YGPAs\" />
-=======
-    <Folder Include="Pages\TestUser\" />
->>>>>>> Stashed changes
   </ItemGroup>
 
 </Project>
