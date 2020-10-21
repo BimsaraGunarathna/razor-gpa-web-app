@@ -26,6 +26,8 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+
+        //later added.
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly DBContext _db;
 
@@ -138,28 +140,14 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    //Create a admin user.
+                    //Create a admin if there is no admin in database.
                     if(!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
                     }
 
-                    if (!await _roleManager.RoleExistsAsync(SD.StaffEndUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.StaffEndUser));
-                    }
-
-                    if (!await _roleManager.RoleExistsAsync(SD.StudentEndUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
-                    }
-
-                    if (!await _roleManager.RoleExistsAsync(SD.HODEndUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.HODEndUser));
-                    }
-                    //create an admin
-                    await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
+                    //create a Student as defualt course of action.
+                    await _userManager.AddToRoleAsync(user, SD.StudentEndUser);
 
                     _logger.LogInformation("User created a new account with password.");
 

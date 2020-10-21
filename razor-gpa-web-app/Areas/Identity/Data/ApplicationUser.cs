@@ -31,6 +31,6 @@ namespace razor_gpa_web_app.Areas.Identity.Data
         public string Department { get; set; }
 
 
-
+        public int UserRole { get; set;  }
     }
 }

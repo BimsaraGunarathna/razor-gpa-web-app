@@ -98,6 +98,11 @@ namespace razor_gpa_web_app.Pages.UserModels
             [DataType(DataType.Text)]
             [Display(Name = "Department")]
             public string Department { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "User role")]
+            public int UserRole { get; set; }
             //
 
             [Required]
@@ -136,32 +141,29 @@ namespace razor_gpa_web_app.Pages.UserModels
                     Intake = Input.Intake,
                     Faculty = Input.Faculty,
                     Department = Input.Department,
+                    UserRole = Input.UserRole,
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    //Create a admin user.
-                    if (!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
+                    if (user.UserRole == 1)
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
+                    } 
+                    else if (user.UserRole == 2) {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.HODEndUser));
+                    }
+                    else if (user.UserRole == 3)
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.StaffEndUser));
+                    }
+                    else if (user.UserRole == 4)
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
                     }
 
-                    if (!await _roleManager.RoleExistsAsync(SD.StaffEndUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.StaffEndUser));
-                    }
-
-                    if (!await _roleManager.RoleExistsAsync(SD.StudentEndUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
-                    }
-
-                    if (!await _roleManager.RoleExistsAsync(SD.HODEndUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.HODEndUser));
-                    }
-                    //create an admin
-                    await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
+                        //create an Staff accounts as Admin.
+                       // await _userManager.AddToRoleAsync(user, SD.StaffEndUser);
 
                     _logger.LogInformation("User created a new account with password.");
 
