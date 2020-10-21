@@ -1,0 +1,73 @@
+﻿@page
+@model razor_gpa_web_app.Pages.UserModels.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].DegreeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].Intake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].Faculty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].Department)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ApplicationUser) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DegreeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Intake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faculty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

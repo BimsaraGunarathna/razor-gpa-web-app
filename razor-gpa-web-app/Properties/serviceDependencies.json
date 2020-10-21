@@ -3,6 +3,10 @@
     "mssql1": {
       "type": "mssql",
       "connectionId": "DBContextConnection"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "AppDBContext"
     }
   }
 }

@@ -11,5 +11,7 @@ namespace razor_gpa_web_app.Utility
         public const string StudentEndUser = "Student";
         public const string StaffEndUser = "Staff";
         public const string HODEndUser = "HOD";
+
+        public const int PaginationUsersPageSize = 2;
     }
 }

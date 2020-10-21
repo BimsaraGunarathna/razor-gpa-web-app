@@ -1,0 +1,26 @@
+﻿@page
+@model razor_gpa_web_app.Pages.UserModels.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+<div class="alert alert-warning" role="alert">
+    <p>
+        <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+    </p>
+</div>
+
+<div>
+    <form id="delete-user" method="post" class="form-group">
+        <input type="hidden" asp-for="AppUserId" />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        
+        <button class="btn btn-danger" type="submit">Delete data and close my account</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
