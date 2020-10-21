@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Identity.UI.V3.Pages.Account.Internal;
@@ -21,6 +22,7 @@ using razor_gpa_web_app.Utility;
 
 namespace razor_gpa_web_app.Pages.UserModels
 {
+    [Authorize(Roles = SD.AdminEndUser)]
     public class CreateModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -143,23 +145,29 @@ namespace razor_gpa_web_app.Pages.UserModels
                     Department = Input.Department,
                     UserRole = Input.UserRole,
                 };
+                Console.WriteLine("Hi!");
+                Console.WriteLine("Hi!");
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     if (user.UserRole == 1)
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
+                        await _userManager.AddToRoleAsync(user, SD.StudentEndUser);
                     } 
                     else if (user.UserRole == 2) {
                         await _roleManager.CreateAsync(new IdentityRole(SD.HODEndUser));
+                        await _userManager.AddToRoleAsync(user, SD.HODEndUser);
                     }
                     else if (user.UserRole == 3)
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.StaffEndUser));
+                        await _userManager.AddToRoleAsync(user, SD.StaffEndUser);
                     }
                     else if (user.UserRole == 4)
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
+                        await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
                     }
 
                         //create an Staff accounts as Admin.

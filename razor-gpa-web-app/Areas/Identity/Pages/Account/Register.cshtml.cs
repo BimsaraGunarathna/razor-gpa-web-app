@@ -144,10 +144,15 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
                     if(!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
+                        await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
+                    } else
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
+                        await _userManager.AddToRoleAsync(user, SD.StudentEndUser);
                     }
 
                     //create a Student as defualt course of action.
-                    await _userManager.AddToRoleAsync(user, SD.StudentEndUser);
+                    //await _userManager.AddToRoleAsync(user, SD.StudentEndUser);
 
                     _logger.LogInformation("User created a new account with password.");
 
