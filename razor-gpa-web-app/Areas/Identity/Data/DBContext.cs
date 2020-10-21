@@ -17,6 +17,22 @@ namespace razor_gpa_web_app.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
-        
+
+        public DbSet<gpa_system.Models.Department> Department { get; set; }
+
+        public DbSet<razor_gpa_web_app.Models.Year> Year { get; set; }
+
+        public DbSet<razor_gpa_web_app.Models.Degree> Degree { get; set; }
+
+        public DbSet<razor_gpa_web_app.Models.Semester> Semester { get; set; }
+
+        public DbSet<razor_gpa_web_app.Models.Grade> Grade { get; set; }
+
+        public DbSet<gpa_system.Models.SGPA> SGPA { get; set; }
+
+        public DbSet<gpa_system.Models.SubjectModule> SubjectModule { get; set; }
+
+        public DbSet<razor_gpa_web_app.Models.GPA> GPA { get; set; }
+
     }
 }

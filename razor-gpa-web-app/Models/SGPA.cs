@@ -1,4 +1,5 @@
-﻿using System;
+﻿using razor_gpa_web_app.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,18 +9,21 @@ namespace gpa_system.Models
 {
     public class SGPA
     {
-        public int SGPAId { get; set; }
+        public string SGPAID { get; set; }
 
-        public string StudentID { get; set; }
-
-        public string SubjectModuleID { get; set; }
-
-        [Display(Name = "Semester GPA value")]
+        [Display(Name = "SGPA value")]
         [DataType(DataType.Text)]
         public string SGPAValue { get; set; }
 
-        [Display(Name = "Semester of the SGPA")]
-        [DataType(DataType.Text)]
-        public string SemesterNo { get; set; }
+        //
+        public string YearID { get; set; }
+
+        public string StudentID { get; set; }
+
+        public string SemesterID { get; set; }
+
+        public Year Year { get; set; }
+
+        public Semester Semester { get; set; }
     }
 }

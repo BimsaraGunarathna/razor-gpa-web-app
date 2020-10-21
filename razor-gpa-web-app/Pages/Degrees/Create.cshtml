@@ -1,0 +1,53 @@
+﻿@page
+@model razor_gpa_web_app.Pages.Degrees.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Degree</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Degree.DegreeName" class="control-label"></label>
+                <input asp-for="Degree.DegreeName" class="form-control" />
+                <span asp-validation-for="Degree.DegreeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Degree.facultyName" class="control-label"></label>
+                <input asp-for="Degree.facultyName" class="form-control" />
+                <span asp-validation-for="Degree.facultyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Degree.DegreeCode" class="control-label"></label>
+                <input asp-for="Degree.DegreeCode" class="form-control" />
+                <span asp-validation-for="Degree.DegreeCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Degree.NumOfYears" class="control-label"></label>
+                <input asp-for="Degree.NumOfYears" class="form-control" />
+                <span asp-validation-for="Degree.NumOfYears" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Degree.DepartmentID" class="control-label"></label>
+                <select asp-for="Degree.DepartmentID" class ="form-control" asp-items="ViewBag.DepartmentID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

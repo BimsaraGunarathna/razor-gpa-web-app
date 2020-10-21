@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Pages\Degrees\" />
     <Folder Include="Pages\YGPAs\" />
   </ItemGroup>
 

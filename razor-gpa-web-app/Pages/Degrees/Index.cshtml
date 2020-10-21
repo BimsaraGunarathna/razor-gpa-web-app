@@ -1,0 +1,60 @@
+﻿@page
+@model razor_gpa_web_app.Pages.Degrees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree[0].DegreeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree[0].facultyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree[0].DegreeCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree[0].NumOfYears)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree[0].Department)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Degree) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DegreeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.facultyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DegreeCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfYears)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepartmentID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DegreeID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DegreeID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DegreeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

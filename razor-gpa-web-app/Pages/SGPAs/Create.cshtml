@@ -1,0 +1,53 @@
+﻿@page
+@model razor_gpa_web_app.Pages.SGPAs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SGPA</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SGPA.SGPAID" class="control-label"></label>
+                <input asp-for="SGPA.SGPAID" class="form-control" />
+                <span asp-validation-for="SGPA.SGPAID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SGPA.SGPAValue" class="control-label"></label>
+                <input asp-for="SGPA.SGPAValue" class="form-control" />
+                <span asp-validation-for="SGPA.SGPAValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SGPA.YearID" class="control-label"></label>
+                <input asp-for="SGPA.YearID" class="form-control" />
+                <span asp-validation-for="SGPA.YearID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SGPA.StudentID" class="control-label"></label>
+                <input asp-for="SGPA.StudentID" class="form-control" />
+                <span asp-validation-for="SGPA.StudentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SGPA.SemesterID" class="control-label"></label>
+                <select asp-for="SGPA.SemesterID" class ="form-control" asp-items="ViewBag.SemesterID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,54 @@
+﻿@page
+@model razor_gpa_web_app.Pages.SGPAs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SGPA[0].SGPAValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SGPA[0].YearID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SGPA[0].StudentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SGPA[0].Semester)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SGPA) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SGPAValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester.SemesterID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SGPAID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SGPAID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SGPAID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

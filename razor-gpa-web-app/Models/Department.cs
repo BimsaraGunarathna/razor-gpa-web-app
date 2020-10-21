@@ -1,4 +1,5 @@
-﻿using System;
+﻿using razor_gpa_web_app.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,14 +9,18 @@ namespace gpa_system.Models
 {
     public class Department
     {
-        public int DepartmentID { get; set; }
-        public int FacultyID { get; set; }
-
-        [DataType(DataType.Text)]
-        public string HODID { get; set; }
+        public string DepartmentID { get; set; }
 
         [Display(Name = "Department Name")]
         [DataType(DataType.Text)]
         public string DepartmentName { get; set; }
+
+        [Display(Name = "Faculty name")]
+        [DataType(DataType.Text)]
+        public string FacultyName { get; set; }
+
+        //
+        public ICollection<Degree> Degrees { get; set; }
+
     }
 }
