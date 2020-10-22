@@ -18,12 +18,6 @@
             @Html.DisplayFor(model => model.Grade.GradeChar)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Grade.DegreeID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Grade.DegreeID)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Grade.StudentID)
         </dt>
         <dd class="col-sm-10">
@@ -40,6 +34,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Grade.Semester.SemesterID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade.Degree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade.Degree.DegreeID)
         </dd>
     </dl>
 </div>

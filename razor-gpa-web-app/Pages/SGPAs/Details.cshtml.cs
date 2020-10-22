@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using gpa_system.Models;
 using razor_gpa_web_app.Data;
+using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.SGPAs
 {
     public class DetailsModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public DetailsModel(razor_gpa_web_app.Data.DBContext context)
+        public DetailsModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
@@ -29,7 +29,8 @@ namespace razor_gpa_web_app.Pages.SGPAs
             }
 
             SGPA = await _context.SGPA
-                .Include(s => s.Semester).FirstOrDefaultAsync(m => m.SGPAID == id);
+                .Include(s => s.Semester)
+                .Include(s => s.Year).FirstOrDefaultAsync(m => m.SGPAID == id);
 
             if (SGPA == null)
             {

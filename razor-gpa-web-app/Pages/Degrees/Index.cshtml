@@ -17,13 +17,16 @@
                 @Html.DisplayNameFor(model => model.Degree[0].DegreeName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Degree[0].facultyName)
+                @Html.DisplayNameFor(model => model.Degree[0].FacultyName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Degree[0].DegreeCode)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Degree[0].NumOfYears)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Degree[0].DepartmentName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Degree[0].Department)
@@ -38,13 +41,16 @@
                 @Html.DisplayFor(modelItem => item.DegreeName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.facultyName)
+                @Html.DisplayFor(modelItem => item.FacultyName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DegreeCode)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NumOfYears)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Department.DepartmentID)

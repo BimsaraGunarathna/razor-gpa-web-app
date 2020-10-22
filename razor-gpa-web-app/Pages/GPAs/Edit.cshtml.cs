@@ -13,9 +13,9 @@ namespace razor_gpa_web_app.Pages.GPAs
 {
     public class EditModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public EditModel(razor_gpa_web_app.Data.DBContext context)
+        public EditModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
@@ -32,14 +32,16 @@ namespace razor_gpa_web_app.Pages.GPAs
 
             GPA = await _context.GPA
                 .Include(g => g.Semester)
-                .Include(g => g.SubjectModule).FirstOrDefaultAsync(m => m.GPAID == id);
+                .Include(g => g.SubjectModule)
+                .Include(g => g.Year).FirstOrDefaultAsync(m => m.GPAID == id);
 
             if (GPA == null)
             {
                 return NotFound();
             }
-           ViewData["SemesterID"] = new SelectList(_context.Semester, "SemesterID", "SemesterID");
-           ViewData["SubjectModuleID"] = new SelectList(_context.SubjectModule, "SubjectModuleID", "SubjectModuleID");
+           ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
+           ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
+           ViewData["YearID"] = new SelectList(_context.Year, "YearID", "YearID");
             return Page();
         }
 

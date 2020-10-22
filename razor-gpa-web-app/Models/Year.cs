@@ -1,4 +1,4 @@
-﻿using gpa_system.Models;
+﻿using razor_gpa_web_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,8 +9,9 @@ namespace razor_gpa_web_app.Models
 {
     public class Year
     {
-        public int YearID { get; set; }
+        public string YearID { get; set; }
 
+        [Required]
         [Display(Name = "Year")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy}", ApplyFormatInEditMode = true)]

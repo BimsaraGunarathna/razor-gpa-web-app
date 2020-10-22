@@ -25,8 +25,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="SGPA.YearID" class="control-label"></label>
-                <input asp-for="SGPA.YearID" class="form-control" />
-                <span asp-validation-for="SGPA.YearID" class="text-danger"></span>
+                <select asp-for="SGPA.YearID" class ="form-control" asp-items="ViewBag.YearID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="SGPA.StudentID" class="control-label"></label>

@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using gpa_system.Models;
 using razor_gpa_web_app.Data;
+using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.SubjectModules
 {
     public class EditModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public EditModel(razor_gpa_web_app.Data.DBContext context)
+        public EditModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
@@ -30,12 +30,14 @@ namespace razor_gpa_web_app.Pages.SubjectModules
                 return NotFound();
             }
 
-            SubjectModule = await _context.SubjectModule.FirstOrDefaultAsync(m => m.SubjectModuleID == id);
+            SubjectModule = await _context.SubjectModule
+                .Include(s => s.Degree).FirstOrDefaultAsync(m => m.SubjectModuleID == id);
 
             if (SubjectModule == null)
             {
                 return NotFound();
             }
+           ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeID");
             return Page();
         }
 

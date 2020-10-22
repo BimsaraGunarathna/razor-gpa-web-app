@@ -8,16 +8,17 @@ namespace razor_gpa_web_app.Models
 {
     public class YGPA
     {
-        public int YGPAID { get; set; }
-        public string StudentID { get; set; }
-        public string SubjectModuleID { get; set; }
+        public string YGPAID { get; set; }
 
+        [Required]
         [Display(Name = "Year GPA value")]
         [DataType(DataType.Text)]
         public string YGPAValue { get; set; }
 
-        [Display(Name = "Year of the GPA")]
-        [DataType(DataType.Text)]
-        public string YGPAYear { get; set; }
+        //
+        public string StudentID { get; set; }
+        public string SubjectModuleID { get; set; }
+        public Year Year { get; set; }
+
     }
 }

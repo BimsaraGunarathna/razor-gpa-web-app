@@ -12,9 +12,9 @@ namespace razor_gpa_web_app.Pages.GPAs
 {
     public class IndexModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public IndexModel(razor_gpa_web_app.Data.DBContext context)
+        public IndexModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
@@ -25,7 +25,8 @@ namespace razor_gpa_web_app.Pages.GPAs
         {
             GPA = await _context.GPA
                 .Include(g => g.Semester)
-                .Include(g => g.SubjectModule).ToListAsync();
+                .Include(g => g.SubjectModule)
+                .Include(g => g.Year).ToListAsync();
         }
     }
 }

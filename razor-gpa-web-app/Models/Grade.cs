@@ -10,13 +10,15 @@ namespace razor_gpa_web_app.Models
 {
     public enum GradeChar
     {
-        A, B, C, D, F
+        Aplus, A, Aminus, Bplus, B, Bminus, Cplus, C, Cminus, Dplus, Ie, Ia, Ib, Ne, Ab
     }
 
     public class Grade
     {
         public string GradeID { get; set; }
 
+        [Required]
+        [StringLength(2)]
         [DisplayFormat(NullDisplayText = "No grade")]
         public GradeChar? GradeChar { get; set; }
 

@@ -14,6 +14,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Year.YearID" class="control-label"></label>
+                <input asp-for="Year.YearID" class="form-control" />
+                <span asp-validation-for="Year.YearID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Year.YearNumber" class="control-label"></label>
                 <input asp-for="Year.YearNumber" class="form-control" />
                 <span asp-validation-for="Year.YearNumber" class="text-danger"></span>

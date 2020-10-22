@@ -1,4 +1,4 @@
-﻿using gpa_system.Models;
+﻿using razor_gpa_web_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +11,9 @@ namespace razor_gpa_web_app.Models
     {
         public string GPAID { get; set; }
 
+        [Required]
         [Display(Name = "GPA value")]
+        [StringLength(50)]
         [DataType(DataType.Text)]
         public Double GPAValue { get; set; }
 

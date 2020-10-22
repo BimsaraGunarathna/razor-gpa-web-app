@@ -12,9 +12,9 @@ namespace razor_gpa_web_app.Pages.Grades
 {
     public class DeleteModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public DeleteModel(razor_gpa_web_app.Data.DBContext context)
+        public DeleteModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
@@ -30,6 +30,7 @@ namespace razor_gpa_web_app.Pages.Grades
             }
 
             Grade = await _context.Grade
+                .Include(g => g.Degree)
                 .Include(g => g.GPA)
                 .Include(g => g.Semester).FirstOrDefaultAsync(m => m.GradeID == id);
 

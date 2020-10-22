@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace gpa_system.Models
+namespace razor_gpa_web_app.Models
 {
     public class SubjectModule
     {
@@ -13,6 +13,8 @@ namespace gpa_system.Models
 
         [Display(Name = "Subject module name")]
         [DataType(DataType.Text)]
+        [Required]
+        [StringLength(60)]
         public string SubjectModuleName { get; set; }
 
         //

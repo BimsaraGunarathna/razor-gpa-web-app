@@ -12,17 +12,18 @@ namespace razor_gpa_web_app.Pages.GPAs
 {
     public class CreateModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public CreateModel(razor_gpa_web_app.Data.DBContext context)
+        public CreateModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["SemesterID"] = new SelectList(_context.Semester, "SemesterID", "SemesterID");
-        ViewData["SubjectModuleID"] = new SelectList(_context.SubjectModule, "SubjectModuleID", "SubjectModuleID");
+        ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
+        ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
+        ViewData["YearID"] = new SelectList(_context.Year, "YearID", "YearID");
             return Page();
         }
 

@@ -12,9 +12,9 @@ namespace razor_gpa_web_app.Pages.Years
 {
     public class DeleteModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public DeleteModel(razor_gpa_web_app.Data.DBContext context)
+        public DeleteModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
@@ -22,7 +22,7 @@ namespace razor_gpa_web_app.Pages.Years
         [BindProperty]
         public Year Year { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null)
             {
@@ -38,7 +38,7 @@ namespace razor_gpa_web_app.Pages.Years
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(string id)
         {
             if (id == null)
             {

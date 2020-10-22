@@ -12,16 +12,16 @@ namespace razor_gpa_web_app.Pages.Degrees
 {
     public class DetailsModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public DetailsModel(razor_gpa_web_app.Data.DBContext context)
+        public DetailsModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
 
         public Degree Degree { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null)
             {

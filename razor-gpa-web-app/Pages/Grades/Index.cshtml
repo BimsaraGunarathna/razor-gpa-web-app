@@ -17,9 +17,6 @@
                 @Html.DisplayNameFor(model => model.Grade[0].GradeChar)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Grade[0].DegreeID)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Grade[0].StudentID)
             </th>
             <th>
@@ -27,6 +24,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Grade[0].Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade[0].Degree)
             </th>
             <th></th>
         </tr>
@@ -38,9 +38,6 @@
                 @Html.DisplayFor(modelItem => item.GradeChar)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DegreeID)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.StudentID)
             </td>
             <td>
@@ -48,6 +45,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Semester.SemesterID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Degree.DegreeID)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.GradeID">Edit</a> |

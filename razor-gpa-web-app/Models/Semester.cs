@@ -1,4 +1,4 @@
-﻿using gpa_system.Models;
+﻿using razor_gpa_web_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,12 +11,14 @@ namespace razor_gpa_web_app.Models
     {
         public string SemesterID { get; set; }
 
+        [Required]
+        [StringLength(2)]
         [Display(Name = "Semester number")]
         [DataType(DataType.Text)]
         public int SemesterNumber { get; set; }
 
         //
-        public int YearID { get; set; }
+        public string YearID { get; set; }
 
         public Year Year { get; set; }
 

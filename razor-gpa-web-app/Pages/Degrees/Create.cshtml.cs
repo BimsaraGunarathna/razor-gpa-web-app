@@ -12,16 +12,16 @@ namespace razor_gpa_web_app.Pages.Degrees
 {
     public class CreateModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public CreateModel(razor_gpa_web_app.Data.DBContext context)
+        public CreateModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentID");
+        ViewData["DepartmentID"] = new SelectList(_context.Set<Department>(), "DepartmentID", "DepartmentID");
             return Page();
         }
 

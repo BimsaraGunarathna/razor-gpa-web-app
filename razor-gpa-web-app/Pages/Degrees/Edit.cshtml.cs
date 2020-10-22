@@ -13,9 +13,9 @@ namespace razor_gpa_web_app.Pages.Degrees
 {
     public class EditModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public EditModel(razor_gpa_web_app.Data.DBContext context)
+        public EditModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace razor_gpa_web_app.Pages.Degrees
         [BindProperty]
         public Degree Degree { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null)
             {
@@ -37,7 +37,7 @@ namespace razor_gpa_web_app.Pages.Degrees
             {
                 return NotFound();
             }
-           ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentID");
+           ViewData["DepartmentID"] = new SelectList(_context.Set<Department>(), "DepartmentID", "DepartmentID");
             return Page();
         }
 
@@ -71,7 +71,7 @@ namespace razor_gpa_web_app.Pages.Degrees
             return RedirectToPage("./Index");
         }
 
-        private bool DegreeExists(int id)
+        private bool DegreeExists(string id)
         {
             return _context.Degree.Any(e => e.DegreeID == id);
         }

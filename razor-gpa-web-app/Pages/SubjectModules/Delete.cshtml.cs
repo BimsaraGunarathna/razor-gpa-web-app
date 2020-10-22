@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using gpa_system.Models;
 using razor_gpa_web_app.Data;
+using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.SubjectModules
 {
     public class DeleteModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public DeleteModel(razor_gpa_web_app.Data.DBContext context)
+        public DeleteModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }
@@ -29,7 +29,8 @@ namespace razor_gpa_web_app.Pages.SubjectModules
                 return NotFound();
             }
 
-            SubjectModule = await _context.SubjectModule.FirstOrDefaultAsync(m => m.SubjectModuleID == id);
+            SubjectModule = await _context.SubjectModule
+                .Include(s => s.Degree).FirstOrDefaultAsync(m => m.SubjectModuleID == id);
 
             if (SubjectModule == null)
             {

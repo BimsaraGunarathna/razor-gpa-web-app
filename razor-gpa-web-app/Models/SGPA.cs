@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace gpa_system.Models
+namespace razor_gpa_web_app.Models
 {
     public class SGPA
     {

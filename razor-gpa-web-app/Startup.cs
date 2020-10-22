@@ -30,6 +30,9 @@ namespace razor_gpa_web_app
             //services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders();
             //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DBContext>();
             services.AddRazorPages();
+
+            services.AddDbContext<AppDBContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AppDBContext")));
             
         }
 
