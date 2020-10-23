@@ -12,9 +12,9 @@ namespace razor_gpa_web_app.Pages.Departments
 {
     public class DetailsModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.AppDBContext _context;
+        private readonly razor_gpa_web_app.Data.DBContext _context;
 
-        public DetailsModel(razor_gpa_web_app.Data.AppDBContext context)
+        public DetailsModel(razor_gpa_web_app.Data.DBContext context)
         {
             _context = context;
         }

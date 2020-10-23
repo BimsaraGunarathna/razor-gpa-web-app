@@ -13,9 +13,9 @@ namespace razor_gpa_web_app.Pages.SubjectModules
 {
     public class EditModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.AppDBContext _context;
+        private readonly razor_gpa_web_app.Data.DBContext _context;
 
-        public EditModel(razor_gpa_web_app.Data.AppDBContext context)
+        public EditModel(razor_gpa_web_app.Data.DBContext context)
         {
             _context = context;
         }

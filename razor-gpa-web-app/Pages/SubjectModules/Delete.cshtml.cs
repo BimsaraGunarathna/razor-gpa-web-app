@@ -12,9 +12,9 @@ namespace razor_gpa_web_app.Pages.SubjectModules
 {
     public class DeleteModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.AppDBContext _context;
+        private readonly razor_gpa_web_app.Data.DBContext _context;
 
-        public DeleteModel(razor_gpa_web_app.Data.AppDBContext context)
+        public DeleteModel(razor_gpa_web_app.Data.DBContext context)
         {
             _context = context;
         }
