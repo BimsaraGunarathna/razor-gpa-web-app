@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
@@ -21,8 +22,10 @@ namespace razor_gpa_web_app.Pages.GPAs
 
         public IActionResult OnGet()
         {
-        ViewData["SemesterID"] = new SelectList(_context.Semester, "SemesterID", "SemesterID");
-        ViewData["SubjectModuleID"] = new SelectList(_context.SubjectModule, "SubjectModuleID", "SubjectModuleID");
+        ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+        ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
+        ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
+        ViewData["YearID"] = new SelectList(_context.Set<Year>(), "YearID", "YearID");
             return Page();
         }
 

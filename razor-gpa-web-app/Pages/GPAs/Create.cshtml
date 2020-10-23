@@ -14,19 +14,13 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="GPA.GPAID" class="control-label"></label>
-                <input asp-for="GPA.GPAID" class="form-control" />
-                <span asp-validation-for="GPA.GPAID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="GPA.GPAValue" class="control-label"></label>
                 <input asp-for="GPA.GPAValue" class="form-control" />
                 <span asp-validation-for="GPA.GPAValue" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="GPA.StudentID" class="control-label"></label>
-                <input asp-for="GPA.StudentID" class="form-control" />
-                <span asp-validation-for="GPA.StudentID" class="text-danger"></span>
+                <select asp-for="GPA.StudentID" class ="form-control" asp-items="ViewBag.StudentID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="GPA.SemesterID" class="control-label"></label>
@@ -38,8 +32,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="GPA.YearID" class="control-label"></label>
-                <input asp-for="GPA.YearID" class="form-control" />
-                <span asp-validation-for="GPA.YearID" class="text-danger"></span>
+                <select asp-for="GPA.YearID" class ="form-control" asp-items="ViewBag.YearID"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

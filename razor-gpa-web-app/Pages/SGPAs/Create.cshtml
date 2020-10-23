@@ -14,24 +14,17 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="SGPA.SGPAID" class="control-label"></label>
-                <input asp-for="SGPA.SGPAID" class="form-control" />
-                <span asp-validation-for="SGPA.SGPAID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="SGPA.SGPAValue" class="control-label"></label>
                 <input asp-for="SGPA.SGPAValue" class="form-control" />
                 <span asp-validation-for="SGPA.SGPAValue" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SGPA.YearID" class="control-label"></label>
-                <input asp-for="SGPA.YearID" class="form-control" />
-                <span asp-validation-for="SGPA.YearID" class="text-danger"></span>
+                <select asp-for="SGPA.YearID" class ="form-control" asp-items="ViewBag.YearID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="SGPA.StudentID" class="control-label"></label>
-                <input asp-for="SGPA.StudentID" class="form-control" />
-                <span asp-validation-for="SGPA.StudentID" class="text-danger"></span>
+                <select asp-for="SGPA.StudentID" class ="form-control" asp-items="ViewBag.StudentID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="SGPA.SemesterID" class="control-label"></label>

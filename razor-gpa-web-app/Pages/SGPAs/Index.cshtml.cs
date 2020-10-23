@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using gpa_system.Models;
 using razor_gpa_web_app.Data;
+using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.SGPAs
 {
@@ -24,7 +24,9 @@ namespace razor_gpa_web_app.Pages.SGPAs
         public async Task OnGetAsync()
         {
             SGPA = await _context.SGPA
-                .Include(s => s.Semester).ToListAsync();
+                .Include(s => s.Semester)
+                .Include(s => s.User)
+                .Include(s => s.Year).ToListAsync();
         }
     }
 }

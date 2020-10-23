@@ -23,7 +23,7 @@ namespace razor_gpa_web_app.Pages.Years
         [BindProperty]
         public Year Year { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null)
             {
@@ -69,7 +69,7 @@ namespace razor_gpa_web_app.Pages.Years
             return RedirectToPage("./Index");
         }
 
-        private bool YearExists(int id)
+        private bool YearExists(string id)
         {
             return _context.Year.Any(e => e.YearID == id);
         }

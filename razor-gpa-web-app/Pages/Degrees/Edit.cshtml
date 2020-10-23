@@ -20,9 +20,9 @@
                 <span asp-validation-for="Degree.DegreeName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Degree.facultyName" class="control-label"></label>
-                <input asp-for="Degree.facultyName" class="form-control" />
-                <span asp-validation-for="Degree.facultyName" class="text-danger"></span>
+                <label asp-for="Degree.FacultyName" class="control-label"></label>
+                <input asp-for="Degree.FacultyName" class="form-control" />
+                <span asp-validation-for="Degree.FacultyName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Degree.DegreeCode" class="control-label"></label>
@@ -38,6 +38,11 @@
                 <label asp-for="Degree.DepartmentID" class="control-label"></label>
                 <select asp-for="Degree.DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
                 <span asp-validation-for="Degree.DepartmentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Degree.DepartmentName" class="control-label"></label>
+                <input asp-for="Degree.DepartmentName" class="form-control" />
+                <span asp-validation-for="Degree.DepartmentName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

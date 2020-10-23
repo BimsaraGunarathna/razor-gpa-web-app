@@ -17,7 +17,7 @@
                 @Html.DisplayNameFor(model => model.SubjectModule[0].SubjectModuleName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SubjectModule[0].DegreeID)
+                @Html.DisplayNameFor(model => model.SubjectModule[0].Degree)
             </th>
             <th></th>
         </tr>
@@ -29,7 +29,7 @@
                 @Html.DisplayFor(modelItem => item.SubjectModuleName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DegreeID)
+                @Html.DisplayFor(modelItem => item.Degree.DegreeID)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.SubjectModuleID">Edit</a> |

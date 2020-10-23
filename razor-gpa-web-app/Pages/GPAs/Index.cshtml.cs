@@ -24,8 +24,10 @@ namespace razor_gpa_web_app.Pages.GPAs
         public async Task OnGetAsync()
         {
             GPA = await _context.GPA
+                .Include(g => g.ApplicationUser)
                 .Include(g => g.Semester)
-                .Include(g => g.SubjectModule).ToListAsync();
+                .Include(g => g.SubjectModule)
+                .Include(g => g.Year).ToListAsync();
         }
     }
 }

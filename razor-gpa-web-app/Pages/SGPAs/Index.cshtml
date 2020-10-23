@@ -17,10 +17,10 @@
                 @Html.DisplayNameFor(model => model.SGPA[0].SGPAValue)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SGPA[0].YearID)
+                @Html.DisplayNameFor(model => model.SGPA[0].User)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SGPA[0].StudentID)
+                @Html.DisplayNameFor(model => model.SGPA[0].Year)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SGPA[0].Semester)
@@ -35,10 +35,10 @@
                 @Html.DisplayFor(modelItem => item.SGPAValue)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.YearID)
+                @Html.DisplayFor(modelItem => item.User.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StudentID)
+                @Html.DisplayFor(modelItem => item.Year.YearID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Semester.SemesterID)

@@ -19,16 +19,10 @@
             @Html.DisplayFor(model => model.Grade.GradeChar)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Grade.DegreeID)
+            @Html.DisplayNameFor(model => model.Grade.SubjectModule)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Grade.DegreeID)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Grade.StudentID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Grade.StudentID)
+            @Html.DisplayFor(model => model.Grade.SubjectModule.SubjectModuleID)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Grade.GPA)
@@ -37,10 +31,22 @@
             @Html.DisplayFor(model => model.Grade.GPA.GPAID)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade.ApplicationUser)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade.ApplicationUser.Id)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Grade.Semester)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Grade.Semester.SemesterID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade.Degree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade.Degree.DegreeID)
         </dd>
     </dl>
     

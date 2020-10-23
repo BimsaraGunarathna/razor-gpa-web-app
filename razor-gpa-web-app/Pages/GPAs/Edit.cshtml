@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="GPA.StudentID" class="control-label"></label>
-                <input asp-for="GPA.StudentID" class="form-control" />
+                <select asp-for="GPA.StudentID" class="form-control" asp-items="ViewBag.StudentID"></select>
                 <span asp-validation-for="GPA.StudentID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="GPA.YearID" class="control-label"></label>
-                <input asp-for="GPA.YearID" class="form-control" />
+                <select asp-for="GPA.YearID" class="form-control" asp-items="ViewBag.YearID"></select>
                 <span asp-validation-for="GPA.YearID" class="text-danger"></span>
             </div>
             <div class="form-group">

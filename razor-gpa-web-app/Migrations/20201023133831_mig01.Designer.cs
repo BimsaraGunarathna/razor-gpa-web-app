@@ -10,8 +10,8 @@ using razor_gpa_web_app.Data;
 namespace razor_gpa_web_app.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20201021171034_Mig03")]
-    partial class Mig03
+    [Migration("20201023133831_mig01")]
+    partial class mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -152,72 +152,6 @@ namespace razor_gpa_web_app.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("gpa_system.Models.Department", b =>
-                {
-                    b.Property<string>("DepartmentID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("DepartmentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FacultyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DepartmentID");
-
-                    b.ToTable("Department");
-                });
-
-            modelBuilder.Entity("gpa_system.Models.SGPA", b =>
-                {
-                    b.Property<string>("SGPAID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("SGPAValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SemesterID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("StudentID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("YearID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("YearID1")
-                        .HasColumnType("int");
-
-                    b.HasKey("SGPAID");
-
-                    b.HasIndex("SemesterID");
-
-                    b.HasIndex("YearID1");
-
-                    b.ToTable("SGPA");
-                });
-
-            modelBuilder.Entity("gpa_system.Models.SubjectModule", b =>
-                {
-                    b.Property<string>("SubjectModuleID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("DegreeID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("DegreeID1")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SubjectModuleName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("SubjectModuleID");
-
-                    b.HasIndex("DegreeID1");
-
-                    b.ToTable("SubjectModule");
-                });
-
             modelBuilder.Entity("razor_gpa_web_app.Areas.Identity.Data.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -230,10 +164,16 @@ namespace razor_gpa_web_app.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DegreeID")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("DegreeName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Department")
+                    b.Property<string>("DepartmentID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DepartmentName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -243,13 +183,13 @@ namespace razor_gpa_web_app.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Faculty")
+                    b.Property<string>("FacultyName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Intake")
+                    b.Property<int>("IntakeNumber")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -284,6 +224,9 @@ namespace razor_gpa_web_app.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SubjectModuleID")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -296,6 +239,10 @@ namespace razor_gpa_web_app.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DegreeID");
+
+                    b.HasIndex("DepartmentID");
+
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
@@ -304,15 +251,16 @@ namespace razor_gpa_web_app.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("SubjectModuleID");
+
                     b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("razor_gpa_web_app.Models.Degree", b =>
                 {
-                    b.Property<int>("DegreeID")
+                    b.Property<string>("DegreeID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DegreeCode")
                         .IsRequired()
@@ -327,13 +275,16 @@ namespace razor_gpa_web_app.Migrations
                     b.Property<string>("DepartmentID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("NumOfYears")
-                        .HasColumnType("int");
+                    b.Property<string>("DepartmentName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("facultyName")
+                    b.Property<string>("FacultyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
+
+                    b.Property<int>("NumOfYears")
+                        .HasColumnType("int");
 
                     b.HasKey("DegreeID");
 
@@ -342,36 +293,58 @@ namespace razor_gpa_web_app.Migrations
                     b.ToTable("Degree");
                 });
 
+            modelBuilder.Entity("razor_gpa_web_app.Models.Department", b =>
+                {
+                    b.Property<string>("DepartmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DepartmentName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("FacultyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("DepartmentID");
+
+                    b.ToTable("Department");
+                });
+
             modelBuilder.Entity("razor_gpa_web_app.Models.GPA", b =>
                 {
                     b.Property<string>("GPAID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("GPAValue")
-                        .HasColumnType("float");
+                        .HasColumnType("float")
+                        .HasMaxLength(50);
 
                     b.Property<string>("SemesterID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("StudentID")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("SubjectModuleID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("YearID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("YearID1")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("GPAID");
 
                     b.HasIndex("SemesterID");
 
+                    b.HasIndex("StudentID");
+
                     b.HasIndex("SubjectModuleID");
 
-                    b.HasIndex("YearID1");
+                    b.HasIndex("YearID");
 
                     b.ToTable("GPA");
                 });
@@ -379,47 +352,83 @@ namespace razor_gpa_web_app.Migrations
             modelBuilder.Entity("razor_gpa_web_app.Models.Grade", b =>
                 {
                     b.Property<string>("GradeID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DegreeID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("DegreeID1")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GPAID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("GradeChar")
-                        .HasColumnType("int");
+                    b.Property<int>("GradeChar")
+                        .HasColumnType("int")
+                        .HasMaxLength(10);
 
                     b.Property<string>("SemesterID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("StudentID")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SubjectModuleID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("GradeID");
 
-                    b.HasIndex("DegreeID1");
+                    b.HasIndex("DegreeID");
 
                     b.HasIndex("GPAID");
 
                     b.HasIndex("SemesterID");
 
+                    b.HasIndex("StudentID");
+
+                    b.HasIndex("SubjectModuleID");
+
                     b.ToTable("Grade");
+                });
+
+            modelBuilder.Entity("razor_gpa_web_app.Models.SGPA", b =>
+                {
+                    b.Property<string>("SGPAID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("SGPAValue")
+                        .HasColumnType("float");
+
+                    b.Property<string>("SemesterID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("StudentID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("YearID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("SGPAID");
+
+                    b.HasIndex("SemesterID");
+
+                    b.HasIndex("StudentID");
+
+                    b.HasIndex("YearID");
+
+                    b.ToTable("SGPA");
                 });
 
             modelBuilder.Entity("razor_gpa_web_app.Models.Semester", b =>
                 {
                     b.Property<string>("SemesterID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("SemesterNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("YearID")
-                        .HasColumnType("int");
+                    b.Property<string>("YearID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("SemesterID");
 
@@ -428,12 +437,37 @@ namespace razor_gpa_web_app.Migrations
                     b.ToTable("Semester");
                 });
 
+            modelBuilder.Entity("razor_gpa_web_app.Models.SubjectModule", b =>
+                {
+                    b.Property<string>("SubjectModuleID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DegreeID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SubjectModuleCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
+
+                    b.Property<string>("SubjectModuleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
+
+                    b.HasKey("SubjectModuleID");
+
+                    b.HasIndex("DegreeID");
+
+                    b.ToTable("SubjectModule");
+                });
+
             modelBuilder.Entity("razor_gpa_web_app.Models.Year", b =>
                 {
-                    b.Property<int>("YearID")
+                    b.Property<string>("YearID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("YearNumber")
                         .HasColumnType("datetime2");
@@ -494,27 +528,24 @@ namespace razor_gpa_web_app.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("gpa_system.Models.SGPA", b =>
-                {
-                    b.HasOne("razor_gpa_web_app.Models.Semester", "Semester")
-                        .WithMany("SGPAs")
-                        .HasForeignKey("SemesterID");
-
-                    b.HasOne("razor_gpa_web_app.Models.Year", "Year")
-                        .WithMany("SGPAs")
-                        .HasForeignKey("YearID1");
-                });
-
-            modelBuilder.Entity("gpa_system.Models.SubjectModule", b =>
+            modelBuilder.Entity("razor_gpa_web_app.Areas.Identity.Data.ApplicationUser", b =>
                 {
                     b.HasOne("razor_gpa_web_app.Models.Degree", "Degree")
-                        .WithMany()
-                        .HasForeignKey("DegreeID1");
+                        .WithMany("ApplicationUsers")
+                        .HasForeignKey("DegreeID");
+
+                    b.HasOne("razor_gpa_web_app.Models.Department", "Department")
+                        .WithMany("ApplicationUsers")
+                        .HasForeignKey("DepartmentID");
+
+                    b.HasOne("razor_gpa_web_app.Models.SubjectModule", null)
+                        .WithMany("ApplicationUsers")
+                        .HasForeignKey("SubjectModuleID");
                 });
 
             modelBuilder.Entity("razor_gpa_web_app.Models.Degree", b =>
                 {
-                    b.HasOne("gpa_system.Models.Department", "Department")
+                    b.HasOne("razor_gpa_web_app.Models.Department", "Department")
                         .WithMany("Degrees")
                         .HasForeignKey("DepartmentID");
                 });
@@ -525,20 +556,24 @@ namespace razor_gpa_web_app.Migrations
                         .WithMany("GPAs")
                         .HasForeignKey("SemesterID");
 
-                    b.HasOne("gpa_system.Models.SubjectModule", "SubjectModule")
+                    b.HasOne("razor_gpa_web_app.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany("GPAs")
+                        .HasForeignKey("StudentID");
+
+                    b.HasOne("razor_gpa_web_app.Models.SubjectModule", "SubjectModule")
                         .WithMany("GPAs")
                         .HasForeignKey("SubjectModuleID");
 
                     b.HasOne("razor_gpa_web_app.Models.Year", "Year")
                         .WithMany("GPAs")
-                        .HasForeignKey("YearID1");
+                        .HasForeignKey("YearID");
                 });
 
             modelBuilder.Entity("razor_gpa_web_app.Models.Grade", b =>
                 {
                     b.HasOne("razor_gpa_web_app.Models.Degree", "Degree")
                         .WithMany("Grades")
-                        .HasForeignKey("DegreeID1");
+                        .HasForeignKey("DegreeID");
 
                     b.HasOne("razor_gpa_web_app.Models.GPA", "GPA")
                         .WithMany("Grades")
@@ -547,15 +582,43 @@ namespace razor_gpa_web_app.Migrations
                     b.HasOne("razor_gpa_web_app.Models.Semester", "Semester")
                         .WithMany("Grades")
                         .HasForeignKey("SemesterID");
+
+                    b.HasOne("razor_gpa_web_app.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany("Grades")
+                        .HasForeignKey("StudentID");
+
+                    b.HasOne("razor_gpa_web_app.Models.SubjectModule", "SubjectModule")
+                        .WithMany()
+                        .HasForeignKey("SubjectModuleID");
+                });
+
+            modelBuilder.Entity("razor_gpa_web_app.Models.SGPA", b =>
+                {
+                    b.HasOne("razor_gpa_web_app.Models.Semester", "Semester")
+                        .WithMany("SGPAs")
+                        .HasForeignKey("SemesterID");
+
+                    b.HasOne("razor_gpa_web_app.Areas.Identity.Data.ApplicationUser", "User")
+                        .WithMany("SGPAs")
+                        .HasForeignKey("StudentID");
+
+                    b.HasOne("razor_gpa_web_app.Models.Year", "Year")
+                        .WithMany("SGPAs")
+                        .HasForeignKey("YearID");
                 });
 
             modelBuilder.Entity("razor_gpa_web_app.Models.Semester", b =>
                 {
                     b.HasOne("razor_gpa_web_app.Models.Year", "Year")
                         .WithMany("Semesters")
-                        .HasForeignKey("YearID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("YearID");
+                });
+
+            modelBuilder.Entity("razor_gpa_web_app.Models.SubjectModule", b =>
+                {
+                    b.HasOne("razor_gpa_web_app.Models.Degree", "Degree")
+                        .WithMany()
+                        .HasForeignKey("DegreeID");
                 });
 #pragma warning restore 612, 618
         }

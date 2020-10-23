@@ -59,10 +59,7 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
+            
 
             //Custom attribute definitions
             [Required]
@@ -88,18 +85,31 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Intake")]
-            public int Intake { get; set; }
+            public int IntakeNumber { get; set; }
 
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Faculty")]
-            public string Faculty { get; set; }
+            public string FacultyName { get; set; }
 
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Department")]
-            public string Department { get; set; }
+            public string DepartmentName { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            public string DegreeID { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            public string DepartmentID { get; set; }
             //
+
+            [Required]
+            [EmailAddress]
+            [Display(Name = "Email")]
+            public string Email { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -126,26 +136,30 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 //Adding custom attributes to the quene. 
-                var user = new ApplicationUser { 
-                    UserName = Input.Email, 
+                var user = new ApplicationUser
+                {
+                    UserName = Input.Email,
                     Email = Input.Email,
                     RegNum = Input.RegNum,
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     DegreeName = Input.DegreeName,
-                    Intake = Input.Intake,
-                    Faculty = Input.Faculty,
-                    Department = Input.Department,
+                    IntakeNumber = Input.IntakeNumber,
+                    FacultyName = Input.FacultyName,
+                    DepartmentName = Input.DepartmentName,
+                    DegreeID = Input.DegreeID,
+                    DepartmentID = Input.DepartmentID
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     //Create a admin if there is no admin in database.
-                    if(!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
+                    if (!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
                         await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
-                    } else
+                    }
+                    else
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
                         await _userManager.AddToRoleAsync(user, SD.StudentEndUser);

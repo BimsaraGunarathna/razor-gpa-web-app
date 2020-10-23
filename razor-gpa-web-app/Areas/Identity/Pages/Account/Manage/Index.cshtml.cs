@@ -33,41 +33,6 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Registration number")]
-            public string RegNum { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "First name")]
-            public string FirstName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Last name")]
-            public string LastName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Degree name")]
-            public string DegreeName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Intake")]
-            public int Intake { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Faculty")]
-            public string Faculty { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Department")]
-            public string Department { get; set; }
-
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -82,14 +47,6 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                RegNum = user.RegNum,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                DegreeName = user.DegreeName,
-                Intake = user.Intake,
-                Faculty = user.Faculty,
-                Department = user.Department,
-
                 PhoneNumber = phoneNumber
             };
         }
@@ -130,43 +87,6 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
-
-            if (Input.RegNum != user.RegNum)
-            {
-                user.RegNum = Input.RegNum;
-            }
-
-            if (Input.FirstName != user.FirstName)
-            {
-                user.FirstName = Input.FirstName;
-            }
-
-            if (Input.LastName != user.LastName)
-            {
-                user.LastName = Input.LastName;
-            }
-
-            if (Input.DegreeName != user.DegreeName)
-            {
-                user.DegreeName = Input.DegreeName;
-            }
-
-            if (Input.Intake != user.Intake)
-            {
-                user.Intake = Input.Intake;
-            }
-
-            if (Input.Faculty != user.Faculty)
-            {
-                user.Faculty = Input.Faculty;
-            }
-
-            if (Input.Department != user.Department)
-            {
-                user.Department = Input.Department;
-            }
-
-            await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

@@ -60,6 +60,7 @@ namespace razor_gpa_web_app.Pages.UserModels
 
         public class InputModel
         {
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -89,22 +90,30 @@ namespace razor_gpa_web_app.Pages.UserModels
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Intake")]
-            public int Intake { get; set; }
+            public int IntakeNumber { get; set; }
 
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Faculty")]
-            public string Faculty { get; set; }
+            public string FacultyName { get; set; }
 
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Department")]
-            public string Department { get; set; }
+            public string DepartmentName { get; set; }
 
             [Required]
             [DataType(DataType.Text)]
             [Display(Name = "User role")]
             public int UserRole { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            public string DegreeID { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            public string DepartmentID { get; set; }
             //
 
             [Required]
@@ -140,10 +149,12 @@ namespace razor_gpa_web_app.Pages.UserModels
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     DegreeName = Input.DegreeName,
-                    Intake = Input.Intake,
-                    Faculty = Input.Faculty,
-                    Department = Input.Department,
+                    IntakeNumber = Input.IntakeNumber,
+                    FacultyName = Input.FacultyName,
+                    DepartmentName = Input.DepartmentName,
                     UserRole = Input.UserRole,
+                    DegreeID = Input.DegreeID,
+                    DepartmentID = Input.DepartmentID
                 };
                 Console.WriteLine("Hi!");
                 Console.WriteLine("Hi!");

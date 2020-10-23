@@ -10,7 +10,7 @@ using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.Degrees
 {
-    public class CreateModel : PageModel
+    public class CreateModel : DepartmentNamePageModel
     {
         private readonly razor_gpa_web_app.Data.DBContext _context;
 
@@ -21,7 +21,8 @@ namespace razor_gpa_web_app.Pages.Degrees
 
         public IActionResult OnGet()
         {
-        ViewData["DepartmentID"] = new SelectList(_context.Department, "DepartmentID", "DepartmentID");
+            ViewData["DepartmentID"] = new SelectList(_context.Set<Department>(), "DepartmentID", "DepartmentID");
+            PopulateDepartmentsDropDownList(_context);
             return Page();
         }
 
@@ -32,6 +33,25 @@ namespace razor_gpa_web_app.Pages.Degrees
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            //
+            var emptyCourse = new Degree();
+
+            if (await TryUpdateModelAsync<Degree>(
+                 emptyCourse,
+                 "degree",   // Prefix for form value.
+                 s => s.DegreeID, s => s.DepartmentID, s => s.DegreeName, s => s.DegreeCode))
+            {
+                _context.Degree.Add(emptyCourse);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+
+            // Select DepartmentID if TryUpdateModelAsync fails.
+            PopulateDepartmentsDropDownList(_context, emptyCourse.DepartmentID);
+            return Page();
+            //
+
+            /*
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -41,6 +61,7 @@ namespace razor_gpa_web_app.Pages.Degrees
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+            */
         }
     }
 }

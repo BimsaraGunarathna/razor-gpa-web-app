@@ -21,7 +21,7 @@ namespace razor_gpa_web_app.Pages.Degrees
 
         public Degree Degree { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null)
             {

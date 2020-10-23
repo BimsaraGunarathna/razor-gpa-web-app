@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using gpa_system.Models;
+using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
+using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.SGPAs
 {
@@ -31,13 +32,17 @@ namespace razor_gpa_web_app.Pages.SGPAs
             }
 
             SGPA = await _context.SGPA
-                .Include(s => s.Semester).FirstOrDefaultAsync(m => m.SGPAID == id);
+                .Include(s => s.Semester)
+                .Include(s => s.User)
+                .Include(s => s.Year).FirstOrDefaultAsync(m => m.SGPAID == id);
 
             if (SGPA == null)
             {
                 return NotFound();
             }
            ViewData["SemesterID"] = new SelectList(_context.Semester, "SemesterID", "SemesterID");
+           ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+           ViewData["YearID"] = new SelectList(_context.Set<Year>(), "YearID", "YearID");
             return Page();
         }
 

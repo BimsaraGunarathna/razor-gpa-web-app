@@ -37,7 +37,7 @@ namespace razor_gpa_web_app.Pages.Semesters
             {
                 return NotFound();
             }
-           ViewData["YearID"] = new SelectList(_context.Year, "YearID", "YearID");
+           ViewData["YearID"] = new SelectList(_context.Set<Year>(), "YearID", "YearID");
             return Page();
         }
 

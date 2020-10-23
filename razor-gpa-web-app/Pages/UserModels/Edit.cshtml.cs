@@ -62,10 +62,11 @@ namespace razor_gpa_web_app.Pages.UserModels
                     userInDb.FirstName = ApplicationUser.FirstName;
                     userInDb.LastName = ApplicationUser.LastName;
                     userInDb.DegreeName = ApplicationUser.DegreeName;
-                    userInDb.Intake = ApplicationUser.Intake;
-                    userInDb.Faculty = ApplicationUser.Faculty;
-                    userInDb.Department = ApplicationUser.Department;
-                    
+                    userInDb.IntakeNumber = ApplicationUser.IntakeNumber;
+                    userInDb.FacultyName = ApplicationUser.FacultyName;
+                    userInDb.DepartmentName = ApplicationUser.DepartmentName;
+                    userInDb.DegreeID = ApplicationUser.DegreeID;
+                    userInDb.DepartmentID = ApplicationUser.DepartmentID;
 
                     await _context.SaveChangesAsync();
                     return RedirectToPage("Index");

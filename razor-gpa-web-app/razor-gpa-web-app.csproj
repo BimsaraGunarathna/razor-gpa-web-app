@@ -7,8 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+    <Compile Remove="Migrations\20201023070648_Mig05.cs" />
+    <Compile Remove="Migrations\20201023070648_Mig05.Designer.cs" />
+    <Compile Remove="Migrations\20201023110155_mig01.cs" />
+    <Compile Remove="Migrations\20201023110155_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201023110209_mig02.cs" />
+    <Compile Remove="Migrations\20201023110209_mig02.Designer.cs" />
+    <Compile Remove="Migrations\20201023110455_mig01.cs" />
+    <Compile Remove="Migrations\20201023110455_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201023120812_mig02.cs" />
+    <Compile Remove="Migrations\20201023120812_mig02.Designer.cs" />
+    <Compile Remove="Migrations\20201023120914_mig01.cs" />
+    <Compile Remove="Migrations\20201023120914_mig01.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />

@@ -1,7 +1,8 @@
-﻿using gpa_system.Models;
+﻿using razor_gpa_web_app.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,11 +10,13 @@ namespace razor_gpa_web_app.Models
 {
     public class Year
     {
-        public int YearID { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string YearID { get; set; }
 
+        [Required]
         [Display(Name = "Year")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy}", ApplyFormatInEditMode = true)]
         public DateTime YearNumber { get; set; }
 
         //

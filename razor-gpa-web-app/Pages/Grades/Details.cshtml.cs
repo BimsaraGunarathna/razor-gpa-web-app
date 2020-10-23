@@ -29,8 +29,11 @@ namespace razor_gpa_web_app.Pages.Grades
             }
 
             Grade = await _context.Grade
+                .Include(g => g.ApplicationUser)
+                .Include(g => g.Degree)
                 .Include(g => g.GPA)
-                .Include(g => g.Semester).FirstOrDefaultAsync(m => m.GradeID == id);
+                .Include(g => g.Semester)
+                .Include(g => g.SubjectModule).FirstOrDefaultAsync(m => m.GradeID == id);
 
             if (Grade == null)
             {

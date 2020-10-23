@@ -14,19 +14,13 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="SubjectModule.SubjectModuleID" class="control-label"></label>
-                <input asp-for="SubjectModule.SubjectModuleID" class="form-control" />
-                <span asp-validation-for="SubjectModule.SubjectModuleID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="SubjectModule.SubjectModuleName" class="control-label"></label>
                 <input asp-for="SubjectModule.SubjectModuleName" class="form-control" />
                 <span asp-validation-for="SubjectModule.SubjectModuleName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="SubjectModule.DegreeID" class="control-label"></label>
-                <input asp-for="SubjectModule.DegreeID" class="form-control" />
-                <span asp-validation-for="SubjectModule.DegreeID" class="text-danger"></span>
+                <select asp-for="SubjectModule.DegreeID" class ="form-control" asp-items="ViewBag.DegreeID"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

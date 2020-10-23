@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using gpa_system.Models;
 using razor_gpa_web_app.Data;
+using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.SubjectModules
 {
@@ -23,7 +23,8 @@ namespace razor_gpa_web_app.Pages.SubjectModules
 
         public async Task OnGetAsync()
         {
-            SubjectModule = await _context.SubjectModule.ToListAsync();
+            SubjectModule = await _context.SubjectModule
+                .Include(s => s.Degree).ToListAsync();
         }
     }
 }

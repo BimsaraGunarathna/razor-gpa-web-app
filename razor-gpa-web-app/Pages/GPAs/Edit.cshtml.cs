@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
@@ -31,15 +32,19 @@ namespace razor_gpa_web_app.Pages.GPAs
             }
 
             GPA = await _context.GPA
+                .Include(g => g.ApplicationUser)
                 .Include(g => g.Semester)
-                .Include(g => g.SubjectModule).FirstOrDefaultAsync(m => m.GPAID == id);
+                .Include(g => g.SubjectModule)
+                .Include(g => g.Year).FirstOrDefaultAsync(m => m.GPAID == id);
 
             if (GPA == null)
             {
                 return NotFound();
             }
-           ViewData["SemesterID"] = new SelectList(_context.Semester, "SemesterID", "SemesterID");
-           ViewData["SubjectModuleID"] = new SelectList(_context.SubjectModule, "SubjectModuleID", "SubjectModuleID");
+           ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+           ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
+           ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
+           ViewData["YearID"] = new SelectList(_context.Set<Year>(), "YearID", "YearID");
             return Page();
         }
 
