@@ -1,0 +1,45 @@
+﻿@page
+@model razor_gpa_web_app.Pages.YGPAs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>YGPA</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="YGPA.YGPAID" />
+            <div class="form-group">
+                <label asp-for="YGPA.YGPAValue" class="control-label"></label>
+                <input asp-for="YGPA.YGPAValue" class="form-control" />
+                <span asp-validation-for="YGPA.YGPAValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YGPA.StudentID" class="control-label"></label>
+                <input asp-for="YGPA.StudentID" class="form-control" />
+                <span asp-validation-for="YGPA.StudentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YGPA.SubjectModuleID" class="control-label"></label>
+                <input asp-for="YGPA.SubjectModuleID" class="form-control" />
+                <span asp-validation-for="YGPA.SubjectModuleID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

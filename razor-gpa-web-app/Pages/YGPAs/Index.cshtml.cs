@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.SubjectModules
+namespace razor_gpa_web_app.Pages.YGPAs
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,11 @@ namespace razor_gpa_web_app.Pages.SubjectModules
             _context = context;
         }
 
-        public IList<SubjectModule> SubjectModule { get;set; }
+        public IList<YGPA> YGPA { get;set; }
 
         public async Task OnGetAsync()
         {
-            SubjectModule = await _context.SubjectModule
-                .Include(s => s.Degree).ToListAsync();
+            YGPA = await _context.YGPA.ToListAsync();
         }
     }
 }

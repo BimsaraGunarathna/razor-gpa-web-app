@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.Years
+namespace razor_gpa_web_app.Pages.YGPAs
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace razor_gpa_web_app.Pages.Years
             _context = context;
         }
 
-        public Year Year { get; set; }
+        public YGPA YGPA { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -28,9 +28,9 @@ namespace razor_gpa_web_app.Pages.Years
                 return NotFound();
             }
 
-            Year = await _context.Year.FirstOrDefaultAsync(m => m.YearID == id);
+            YGPA = await _context.YGPA.FirstOrDefaultAsync(m => m.YGPAID == id);
 
-            if (Year == null)
+            if (YGPA == null)
             {
                 return NotFound();
             }

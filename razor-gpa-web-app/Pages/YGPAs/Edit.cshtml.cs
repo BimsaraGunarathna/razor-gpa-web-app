@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.Semesters
+namespace razor_gpa_web_app.Pages.YGPAs
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace razor_gpa_web_app.Pages.Semesters
         }
 
         [BindProperty]
-        public Semester Semester { get; set; }
+        public YGPA YGPA { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -30,14 +30,12 @@ namespace razor_gpa_web_app.Pages.Semesters
                 return NotFound();
             }
 
-            Semester = await _context.Semester
-                .Include(s => s.Year).FirstOrDefaultAsync(m => m.SemesterID == id);
+            YGPA = await _context.YGPA.FirstOrDefaultAsync(m => m.YGPAID == id);
 
-            if (Semester == null)
+            if (YGPA == null)
             {
                 return NotFound();
             }
-           ViewData["YearID"] = new SelectList(_context.Set<Year>(), "YearID", "YearID");
             return Page();
         }
 
@@ -50,7 +48,7 @@ namespace razor_gpa_web_app.Pages.Semesters
                 return Page();
             }
 
-            _context.Attach(Semester).State = EntityState.Modified;
+            _context.Attach(YGPA).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +56,7 @@ namespace razor_gpa_web_app.Pages.Semesters
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SemesterExists(Semester.SemesterID))
+                if (!YGPAExists(YGPA.YGPAID))
                 {
                     return NotFound();
                 }
@@ -71,9 +69,9 @@ namespace razor_gpa_web_app.Pages.Semesters
             return RedirectToPage("./Index");
         }
 
-        private bool SemesterExists(string id)
+        private bool YGPAExists(string id)
         {
-            return _context.Semester.Any(e => e.SemesterID == id);
+            return _context.YGPA.Any(e => e.YGPAID == id);
         }
     }
 }

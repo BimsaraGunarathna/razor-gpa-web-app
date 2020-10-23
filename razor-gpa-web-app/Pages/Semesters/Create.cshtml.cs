@@ -12,9 +12,9 @@ namespace razor_gpa_web_app.Pages.Semesters
 {
     public class CreateModel : PageModel
     {
-        private readonly razor_gpa_web_app.Data.DBContext _context;
+        private readonly razor_gpa_web_app.Data.AppDBContext _context;
 
-        public CreateModel(razor_gpa_web_app.Data.DBContext context)
+        public CreateModel(razor_gpa_web_app.Data.AppDBContext context)
         {
             _context = context;
         }

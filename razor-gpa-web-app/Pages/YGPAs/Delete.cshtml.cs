@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.Degrees
+namespace razor_gpa_web_app.Pages.YGPAs
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace razor_gpa_web_app.Pages.Degrees
         }
 
         [BindProperty]
-        public Degree Degree { get; set; }
+        public YGPA YGPA { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -29,10 +29,9 @@ namespace razor_gpa_web_app.Pages.Degrees
                 return NotFound();
             }
 
-            Degree = await _context.Degree
-                .Include(d => d.Department).FirstOrDefaultAsync(m => m.DegreeID == id);
+            YGPA = await _context.YGPA.FirstOrDefaultAsync(m => m.YGPAID == id);
 
-            if (Degree == null)
+            if (YGPA == null)
             {
                 return NotFound();
             }
@@ -46,11 +45,11 @@ namespace razor_gpa_web_app.Pages.Degrees
                 return NotFound();
             }
 
-            Degree = await _context.Degree.FindAsync(id);
+            YGPA = await _context.YGPA.FindAsync(id);
 
-            if (Degree != null)
+            if (YGPA != null)
             {
-                _context.Degree.Remove(Degree);
+                _context.YGPA.Remove(YGPA);
                 await _context.SaveChangesAsync();
             }
 

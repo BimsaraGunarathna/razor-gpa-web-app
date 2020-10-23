@@ -14,6 +14,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Degree.DegreeID" class="control-label"></label>
+                <input asp-for="Degree.DegreeID" class="form-control" />
+                <span asp-validation-for="Degree.DegreeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Degree.DegreeName" class="control-label"></label>
                 <input asp-for="Degree.DegreeName" class="form-control" />
                 <span asp-validation-for="Degree.DegreeName" class="text-danger"></span>
@@ -49,6 +54,11 @@
                     <option value="">-- Select Department --</option>
                 </select>
                 <span asp-validation-for="Degree.DepartmentID" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Degree.DepartmentName" class="control-label"></label>
+                <input asp-for="Degree.DepartmentName" class="form-control" />
+                <span asp-validation-for="Degree.DepartmentName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

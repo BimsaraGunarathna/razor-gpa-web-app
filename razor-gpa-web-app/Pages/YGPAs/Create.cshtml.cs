@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.SubjectModules
+namespace razor_gpa_web_app.Pages.YGPAs
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,11 @@ namespace razor_gpa_web_app.Pages.SubjectModules
 
         public IActionResult OnGet()
         {
-        ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeID");
             return Page();
         }
 
         [BindProperty]
-        public SubjectModule SubjectModule { get; set; }
+        public YGPA YGPA { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -37,7 +36,7 @@ namespace razor_gpa_web_app.Pages.SubjectModules
                 return Page();
             }
 
-            _context.SubjectModule.Add(SubjectModule);
+            _context.YGPA.Add(YGPA);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
