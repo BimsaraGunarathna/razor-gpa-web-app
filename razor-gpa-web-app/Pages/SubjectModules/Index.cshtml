@@ -17,6 +17,9 @@
                 @Html.DisplayNameFor(model => model.SubjectModule[0].SubjectModuleName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.SubjectModule[0].SubjectModuleCode)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.SubjectModule[0].Degree)
             </th>
             <th></th>
@@ -27,6 +30,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.SubjectModuleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectModuleCode)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Degree.DegreeID)

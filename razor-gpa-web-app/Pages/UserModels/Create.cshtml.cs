@@ -130,6 +130,8 @@ namespace razor_gpa_web_app.Pages.UserModels
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            ViewData["DegreeID"] = new SelectList(_db.Set<Degree>(), "DegreeID", "DegreeName");
+            ViewData["DepartmentID"] = new SelectList(_db.Set<Department>(), "DepartmentID", "DepartmentName");
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }

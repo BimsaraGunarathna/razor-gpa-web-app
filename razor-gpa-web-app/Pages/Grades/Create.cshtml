@@ -19,24 +19,45 @@
                 <span asp-validation-for="Grade.GradeChar" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Grade.SemesterID" class="control-label"></label>
-                <select asp-for="Grade.SemesterID" class ="form-control" asp-items="ViewBag.SemesterID"></select>
+                <label asp-for="Grade.Semester" class="control-label"></label>
+                <select asp-for="Grade.SemesterID" class="form-control"
+                        asp-items="@Model.SemesterNameSL">
+                    <option value="">-- Select Semester --</option>
+                </select>
+                <span asp-validation-for="Grade.SemesterID" class="text-danger" />
             </div>
             <div class="form-group">
-                <label asp-for="Grade.GPAID" class="control-label"></label>
-                <select asp-for="Grade.GPAID" class ="form-control" asp-items="ViewBag.GPAID"></select>
+                <label asp-for="Grade.GPA" class="control-label"></label>
+                <select asp-for="Grade.GPAID" class="form-control"
+                        asp-items="@Model.GPANameSL">
+                    <option value="">-- Select GPA --</option>
+                </select>
+                <span asp-validation-for="Grade.GPAID" class="text-danger" />
             </div>
             <div class="form-group">
-                <label asp-for="Grade.DegreeID" class="control-label"></label>
-                <select asp-for="Grade.DegreeID" class ="form-control" asp-items="ViewBag.DegreeID"></select>
+                <label asp-for="Grade.Degree" class="control-label"></label>
+                <select asp-for="Grade.DegreeID" class="form-control"
+                        asp-items="@Model.DegreeNameSL">
+                    <option value="">-- Select Degree --</option>
+                </select>
+                <span asp-validation-for="Grade.DegreeID" class="text-danger" />
             </div>
             <div class="form-group">
                 <label asp-for="Grade.StudentID" class="control-label"></label>
-                <select asp-for="Grade.StudentID" class ="form-control" asp-items="ViewBag.StudentID"></select>
+                <select asp-for="Grade.StudentID" class="form-control"
+                        asp-items="@Model.StudentNameSL">
+                    <option value="">-- Select Semester --</option>
+                </select>
+                <span asp-validation-for="Grade.StudentID" class="text-danger" />
             </div>
             <div class="form-group">
-                <label asp-for="Grade.SubjectModuleID" class="control-label"></label>
-                <select asp-for="Grade.SubjectModuleID" class ="form-control" asp-items="ViewBag.SubjectModuleID"></select>
+                <label asp-for="Grade.SubjectModule" class="control-label"></label>
+                <select asp-for="Grade.SubjectModuleID" class="form-control"
+                        asp-items="@Model.SubjectModuleNameSL">
+                    <option value="">-- Select Semester --</option>
+                </select>
+                <span asp-validation-for="Grade.SubjectModuleID" class="text-danger" />
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

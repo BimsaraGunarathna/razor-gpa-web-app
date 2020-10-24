@@ -10,7 +10,7 @@ using razor_gpa_web_app.Data;
 namespace razor_gpa_web_app.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20201023133831_mig01")]
+    [Migration("20201024051855_mig01")]
     partial class mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

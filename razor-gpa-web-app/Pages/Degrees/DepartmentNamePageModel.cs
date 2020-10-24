@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using razor_gpa_web_app.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace razor_gpa_web_app.Pages.Degrees
 {

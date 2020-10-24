@@ -12,6 +12,13 @@
     <h4>Degree</h4>
     <hr />
     <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Degree.DegreeID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Degree.DegreeID)
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Degree.DegreeName)
         </dt>
@@ -47,6 +54,9 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Degree.Department.DepartmentID)
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Degree.Department.DepartmentName)
         </dd>
     </dl>
     

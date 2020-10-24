@@ -30,7 +30,9 @@ namespace razor_gpa_web_app.Pages.Degrees
             }
 
             Degree = await _context.Degree
-                .Include(d => d.Department).FirstOrDefaultAsync(m => m.DegreeID == id);
+                .AsNoTracking()
+                .Include(d => d.Department).
+                FirstOrDefaultAsync(m => m.DegreeID == id);
 
             if (Degree == null)
             {

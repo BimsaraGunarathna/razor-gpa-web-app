@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201022074314_Mig11.cs" />
+    <Compile Remove="Migrations\20201022074314_Mig11.Designer.cs" />
+    <Compile Remove="Migrations\20201022091734_Mig09.cs" />
+    <Compile Remove="Migrations\20201022091734_Mig09.Designer.cs" />
+    <Compile Remove="Migrations\20201022092401_Mig10.cs" />
+    <Compile Remove="Migrations\20201022092401_Mig10.Designer.cs" />
     <Compile Remove="Migrations\20201023070648_Mig05.cs" />
     <Compile Remove="Migrations\20201023070648_Mig05.Designer.cs" />
     <Compile Remove="Migrations\20201023110155_mig01.cs" />
@@ -19,6 +25,12 @@
     <Compile Remove="Migrations\20201023120812_mig02.Designer.cs" />
     <Compile Remove="Migrations\20201023120914_mig01.cs" />
     <Compile Remove="Migrations\20201023120914_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201023151903_mig02.cs" />
+    <Compile Remove="Migrations\20201023151903_mig02.Designer.cs" />
+    <Compile Remove="Migrations\20201024050427_mig01.cs" />
+    <Compile Remove="Migrations\20201024050427_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024050504_mig01.cs" />
+    <Compile Remove="Migrations\20201024050504_mig01.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +49,7 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Pages\YGPAs\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>
