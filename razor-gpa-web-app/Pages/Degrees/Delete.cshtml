@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -12,24 +13,11 @@
     <h4>Degree</h4>
     <hr />
     <dl class="row">
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Degree.DegreeID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Degree.DegreeID)
-        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Degree.DegreeName)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Degree.DegreeName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Degree.FacultyName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Degree.FacultyName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Degree.DegreeCode)
@@ -44,19 +32,10 @@
             @Html.DisplayFor(model => model.Degree.NumOfYears)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Degree.DepartmentName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Degree.DepartmentName)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Degree.Department)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Degree.Department.DepartmentID)
-        </dd>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Degree.Department.DepartmentName)
         </dd>
     </dl>
     

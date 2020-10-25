@@ -10,64 +10,37 @@ using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.Degrees
 {
-    public class CreateModel : DepartmentNamePageModel
+    public class CreateModel : PageModel
     {
-        private readonly DBContext _context;
+        private readonly razor_gpa_web_app.Data.DBContext _context;
 
-        public CreateModel(DBContext context)
+        public CreateModel(razor_gpa_web_app.Data.DBContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-            PopulateDepartmentsDropDownList(_context);
+        ViewData["DepartmentID"] = new SelectList(_context.Set<Department>(), "DepartmentID", "DepartmentID");
             return Page();
         }
 
         [BindProperty]
         public Degree Degree { get; set; }
 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-
-            var emptyCourse = new Degree();
-            /*
-            if (await TryUpdateModelAsync<Degree>(
-                 emptyCourse,
-                 "degree",   // Prefix for form value.
-                 s => s.DegreeID, 
-                 s => s.DegreeName, 
-                 s => s.FacultyName, 
-                 s => s.DegreeCode,
-                 s => s.NumOfYears,
-                 s => s.DepartmentID,
-                 s => s.DepartmentName
-                 ))
+            if (!ModelState.IsValid)
             {
-                _context.Degree.Add(emptyCourse);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return Page();
             }
-            */
-            await TryUpdateModelAsync<Degree>(
-                 emptyCourse,
-                 "degree",   // Prefix for form value.
-                 s => s.DegreeID,
-                 s => s.DegreeName,
-                 s => s.FacultyName,
-                 s => s.DegreeCode,
-                 s => s.NumOfYears,
-                 s => s.DepartmentID,
-                 s => s.DepartmentName
-            );
-            _context.Degree.Add(emptyCourse);
-            await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
 
-            // Select DepartmentID if TryUpdateModelAsync fails.
-            PopulateDepartmentsDropDownList(_context, emptyCourse.DepartmentID);
-            return Page();
+            _context.Degree.Add(Degree);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
     }
 }

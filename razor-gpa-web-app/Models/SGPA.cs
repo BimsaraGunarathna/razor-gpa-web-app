@@ -16,11 +16,10 @@ namespace razor_gpa_web_app.Models
         public string SGPAID { get; set; }
 
         [Display(Name = "SGPA value")]
-        [DataType(DataType.Text)]
-        public Double SGPAValue { get; set; }
+        public Double? SGPAValue { get; set; }
 
         //
-        public string YearID { get; set; }
+        public string AcademicYearID { get; set; }
 
         public string StudentID { get; set; }
 
@@ -29,10 +28,12 @@ namespace razor_gpa_web_app.Models
         [ForeignKey("StudentID")]
         public virtual ApplicationUser User { get; set; }
 
-        [ForeignKey("YearID")]
-        public Year Year { get; set; }
 
         [ForeignKey("SemesterID")]
         public Semester Semester { get; set; }
+
+
+        [ForeignKey("AcademicYearID")]
+        public AcademicYear AcademicYear { get; set; }
     }
 }

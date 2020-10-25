@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Index</h1>
@@ -20,6 +21,9 @@
                 @Html.DisplayNameFor(model => model.SubjectModule[0].SubjectModuleCode)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.SubjectModule[0].SubjectModuleCreditUnit)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.SubjectModule[0].Degree)
             </th>
             <th></th>
@@ -33,6 +37,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SubjectModuleCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectModuleCreditUnit)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Degree.DegreeID)

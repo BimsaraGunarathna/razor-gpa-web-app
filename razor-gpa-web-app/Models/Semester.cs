@@ -16,20 +16,27 @@ namespace razor_gpa_web_app.Models
 
         [Required]
         [Display(Name = "Semester number")]
-        [DataType(DataType.Text)]
-        [RegularExpression("([0-9]+)")]
         public int SemesterNumber { get; set; }
 
-        //
-        public string YearID { get; set; }
+        [Required]
+        [Display(Name = "Semester name")]
+        [DataType(DataType.Text)]
+        public string SemesterName { get; set; }
 
-        [ForeignKey("YearID")]
-        public Year Year { get; set; }
+        //
+        public string AcademicYearID { get; set; }
+
+        [ForeignKey("AcademicYearID")]
+        public AcademicYear AcademicYear { get; set; }
 
         public ICollection<GPA> GPAs { get; set; }
+
+        public ICollection<Paper> Papers { get; set; }
 
         public ICollection<SGPA> SGPAs { get; set; }
 
         public ICollection<Grade> Grades { get; set; }
+
+        //public ICollection<SubjectModule> SubjectModules { get; set; }
     }
 }

@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Create</h1>
@@ -19,8 +20,8 @@
                 <span asp-validation-for="SGPA.SGPAValue" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SGPA.YearID" class="control-label"></label>
-                <select asp-for="SGPA.YearID" class ="form-control" asp-items="ViewBag.YearID"></select>
+                <label asp-for="SGPA.AcademicYearID" class="control-label"></label>
+                <select asp-for="SGPA.AcademicYearID" class ="form-control" asp-items="ViewBag.AcademicYearID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="SGPA.StudentID" class="control-label"></label>

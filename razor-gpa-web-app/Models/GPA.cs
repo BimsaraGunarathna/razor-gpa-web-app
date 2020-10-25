@@ -11,6 +11,7 @@ namespace razor_gpa_web_app.Models
 {
     public class GPA
     {
+        //Column
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string GPAID { get; set; }
@@ -21,18 +22,18 @@ namespace razor_gpa_web_app.Models
         [DataType(DataType.Text)]
         public Double GPAValue { get; set; }
 
-        //
-        
+
+        //Navigation
         public string StudentID { get; set; }
 
         public string SemesterID { get; set; }
 
         public string SubjectModuleID { get; set; }
 
-        public string YearID { get; set; }
+        public string AcademicYearID { get; set; }
 
-        [ForeignKey("YearID")]
-        public Year Year { get; set; }
+        [ForeignKey("AcademicYearID")]
+        public AcademicYear AcademicYear { get; set; }
 
         [ForeignKey("SemesterID")]
         public Semester Semester { get; set; }
@@ -40,12 +41,10 @@ namespace razor_gpa_web_app.Models
         [ForeignKey("SubjectModuleID")]
         public SubjectModule SubjectModule { get; set; }
 
-        //[ForeignKey("StudentID")]
-        //public ApplicationUser ApplicationUser { get; set; }
         [ForeignKey("StudentID")]
         public ApplicationUser ApplicationUser { get; set; }
 
-        public ICollection<Grade> Grades { get; set; }
+        public ICollection<Paper> Papers { get; set; }
 
 
     }

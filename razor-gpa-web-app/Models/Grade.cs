@@ -9,43 +9,32 @@ using razor_gpa_web_app.Areas.Identity.Data;
 
 namespace razor_gpa_web_app.Models
 {
-
+    
     public class Grade
     {
+        //Column
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string GradeID { get; set; }
 
         [Required]
+        [Display(Name = "Grade title")]
         [StringLength(10)]
-        [DisplayFormat(NullDisplayText = "No grade")]
-        public int GradeChar { get; set; }
+        [DataType(DataType.Text)]
+        public string GradeName { get; set; }
 
+        [Required]
+        [Display(Name = "Grade marks")]
+        [StringLength(25)]
+        [DataType(DataType.Text)]
+        public string FinalMarks { get; set; }
 
-        //
-        public string SemesterID { get; set; }
+        [Required]
+        [Display(Name = "Credit value")]
+        [StringLength(10)]
+        [DataType(DataType.Text)]
+        public Double CreditValue { get; set; }
 
-        public string GPAID { get; set; }
-
-        public string DegreeID { get; set; }
-
-        public string StudentID { get; set; }
-
-        public string SubjectModuleID { get; set; }
-
-        [ForeignKey("SubjectModuleID")]
-        public SubjectModule SubjectModule { get; set; }
-
-        [ForeignKey("GPAID")]
-        public GPA GPA { get; set; }
-
-        [ForeignKey("StudentID")]
-        public ApplicationUser ApplicationUser { get; set; }
-
-        [ForeignKey("SemesterID")]
-        public Semester Semester { get; set; }
-
-        [ForeignKey("DegreeID")]
-        public Degree Degree { get; set; }
+        public ICollection<Paper> Papers { get; set; }
     }
 }

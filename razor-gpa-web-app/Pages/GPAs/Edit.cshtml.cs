@@ -32,19 +32,19 @@ namespace razor_gpa_web_app.Pages.GPAs
             }
 
             GPA = await _context.GPA
+                .Include(g => g.AcademicYear)
                 .Include(g => g.ApplicationUser)
                 .Include(g => g.Semester)
-                .Include(g => g.SubjectModule)
-                .Include(g => g.Year).FirstOrDefaultAsync(m => m.GPAID == id);
+                .Include(g => g.SubjectModule).FirstOrDefaultAsync(m => m.GPAID == id);
 
             if (GPA == null)
             {
                 return NotFound();
             }
+           ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "AcademicYearID");
            ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
            ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
            ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
-           ViewData["YearID"] = new SelectList(_context.Set<Year>(), "YearID", "YearID");
             return Page();
         }
 

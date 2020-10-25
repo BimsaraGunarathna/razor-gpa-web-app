@@ -1,0 +1,67 @@
+﻿@page
+@model razor_gpa_web_app.Pages.Papers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Paper[0].Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paper[0].SubjectModule)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paper[0].GPA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paper[0].ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paper[0].Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paper[0].Degree)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Paper) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade.GradeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectModule.SubjectModuleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GPA.GPAID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester.SemesterID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Degree.DegreeID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PaperID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PaperID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PaperID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

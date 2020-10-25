@@ -150,10 +150,7 @@ namespace razor_gpa_web_app.Pages.UserModels
                     RegNum = Input.RegNum,
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
-                    DegreeName = Input.DegreeName,
-                    IntakeNumber = Input.IntakeNumber,
-                    FacultyName = Input.FacultyName,
-                    DepartmentName = Input.DepartmentName,
+                    //IntakeNumber = Input.IntakeNumber,
                     UserRole = Input.UserRole,
                     DegreeID = Input.DegreeID,
                     DepartmentID = Input.DepartmentID

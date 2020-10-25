@@ -23,7 +23,8 @@ namespace razor_gpa_web_app.Pages.Departments
 
         public async Task OnGetAsync()
         {
-            Department = await _context.Department.ToListAsync();
+            Department = await _context.Department
+                .Include(d => d.Faculty).ToListAsync();
         }
     }
 }

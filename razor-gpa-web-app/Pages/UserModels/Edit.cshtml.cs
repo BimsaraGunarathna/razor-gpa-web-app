@@ -61,10 +61,7 @@ namespace razor_gpa_web_app.Pages.UserModels
                     userInDb.Email = ApplicationUser.Email;
                     userInDb.FirstName = ApplicationUser.FirstName;
                     userInDb.LastName = ApplicationUser.LastName;
-                    userInDb.DegreeName = ApplicationUser.DegreeName;
-                    userInDb.IntakeNumber = ApplicationUser.IntakeNumber;
-                    userInDb.FacultyName = ApplicationUser.FacultyName;
-                    userInDb.DepartmentName = ApplicationUser.DepartmentName;
+                    //userInDb.IntakeNumber = ApplicationUser.IntakeNumber;
                     userInDb.DegreeID = ApplicationUser.DegreeID;
                     userInDb.DepartmentID = ApplicationUser.DepartmentID;
 

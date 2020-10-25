@@ -1,0 +1,37 @@
+﻿@page
+@model razor_gpa_web_app.Pages.Faculties.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Faculty[0].FacultyName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Faculty) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacultyName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.FacultyID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.FacultyID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.FacultyID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

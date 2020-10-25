@@ -31,6 +31,64 @@
     <Compile Remove="Migrations\20201024050427_mig01.Designer.cs" />
     <Compile Remove="Migrations\20201024050504_mig01.cs" />
     <Compile Remove="Migrations\20201024050504_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024051855_mig01.cs" />
+    <Compile Remove="Migrations\20201024051855_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024130931_mig01.cs" />
+    <Compile Remove="Migrations\20201024130931_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024132709_mig01.cs" />
+    <Compile Remove="Migrations\20201024132709_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024133253_mig01.cs" />
+    <Compile Remove="Migrations\20201024133253_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024135121_mig01.cs" />
+    <Compile Remove="Migrations\20201024135121_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024153550_mig01.cs" />
+    <Compile Remove="Migrations\20201024153550_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024165336_mig01.cs" />
+    <Compile Remove="Migrations\20201024165336_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024165908_mig02.cs" />
+    <Compile Remove="Migrations\20201024165908_mig02.Designer.cs" />
+    <Compile Remove="Migrations\20201024170012_mig01.cs" />
+    <Compile Remove="Migrations\20201024170012_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024171215_mig01.cs" />
+    <Compile Remove="Migrations\20201024171215_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024171906_mig01.cs" />
+    <Compile Remove="Migrations\20201024171906_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201024193305_mig01.cs" />
+    <Compile Remove="Migrations\20201024193305_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025091723_mig01.cs" />
+    <Compile Remove="Migrations\20201025091723_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025092722_mig01.cs" />
+    <Compile Remove="Migrations\20201025092722_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025102809_mig01.cs" />
+    <Compile Remove="Migrations\20201025102809_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025105635_mig01.cs" />
+    <Compile Remove="Migrations\20201025105635_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025110100_mig01.cs" />
+    <Compile Remove="Migrations\20201025110100_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025110959_mig01.cs" />
+    <Compile Remove="Migrations\20201025110959_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025115259_mig01.cs" />
+    <Compile Remove="Migrations\20201025115259_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025132850_mig01.cs" />
+    <Compile Remove="Migrations\20201025132850_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025134205_mig01.cs" />
+    <Compile Remove="Migrations\20201025134205_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025134951_mig01.cs" />
+    <Compile Remove="Migrations\20201025134951_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025140321_mig01.cs" />
+    <Compile Remove="Migrations\20201025140321_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025162905_mig01.cs" />
+    <Compile Remove="Migrations\20201025162905_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025163253_mig01.cs" />
+    <Compile Remove="Migrations\20201025163253_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025165418_mig01.cs" />
+    <Compile Remove="Migrations\20201025165418_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025170032_mig01.cs" />
+    <Compile Remove="Migrations\20201025170032_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025174349_mig01.cs" />
+    <Compile Remove="Migrations\20201025174349_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025174719_mig01.cs" />
+    <Compile Remove="Migrations\20201025174719_mig01.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,8 +105,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Pages\YGPAs\" />
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 

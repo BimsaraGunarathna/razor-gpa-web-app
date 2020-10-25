@@ -6,6 +6,14 @@
     },
     "mssql2": {
       "type": "mssql.local",
+      "connectionId": "DBContext"
+    },
+    "mssql3": {
+      "type": "mssql.local",
+      "connectionId": "AppDBContextConnection"
+    },
+    "mssql4": {
+      "type": "mssql.local",
       "connectionId": "AppDBContext"
     }
   }

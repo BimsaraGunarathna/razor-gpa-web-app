@@ -29,7 +29,7 @@ namespace razor_gpa_web_app.Pages.Semesters
             }
 
             Semester = await _context.Semester
-                .Include(s => s.Year).FirstOrDefaultAsync(m => m.SemesterID == id);
+                .Include(s => s.AcademicYear).FirstOrDefaultAsync(m => m.SemesterID == id);
 
             if (Semester == null)
             {

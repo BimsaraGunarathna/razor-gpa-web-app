@@ -21,32 +21,28 @@ namespace razor_gpa_web_app.Areas.Identity.Data
 
         [PersonalData]
         public string LastName { get; set; }
-        
-        [PersonalData]
-        public string DegreeName { get; set; }
-
-        [PersonalData]
-        public int IntakeNumber { get; set; }
-
-        [PersonalData]
-        public string FacultyName { get; set; }
-
-        [PersonalData]
-        public string DepartmentName { get; set; }
 
         public int UserRole { get; set;  }
 
         //
-        public  ICollection<Grade> Grades { get; set; }
         public  ICollection<GPA> GPAs { get; set; }
         public  ICollection<SGPA> SGPAs { get; set; }
+        public ICollection<YGPA> YGPAs { get; set; }
+        public ICollection<Paper> Papers { get; set; }
 
-        [PersonalData]
-        [AllowNull]
+        public string IntakeID { get; set; }
+
         public string DegreeID { get; set; }
 
-        [PersonalData]
         public string DepartmentID { get; set; }
+
+        public string FacultyID { get; set; }
+
+        [ForeignKey("IntakeID")]
+        public Intake Intake { get; set; }
+
+        [ForeignKey("FacultyID")]
+        public Faculty Faculty { get; set; }
 
         [ForeignKey("DegreeID")]
         public Degree Degree { get; set; }

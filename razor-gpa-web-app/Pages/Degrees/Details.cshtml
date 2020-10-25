@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Details</h1>
@@ -12,22 +13,10 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Degree.DegreeID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Degree.DegreeID)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Degree.DegreeName)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Degree.DegreeName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Degree.FacultyName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Degree.FacultyName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Degree.DegreeCode)
@@ -42,12 +31,11 @@
             @Html.DisplayFor(model => model.Degree.NumOfYears)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Degree.DepartmentName)
+            @Html.DisplayNameFor(model => model.Degree.Department)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Degree.DepartmentName)
+            @Html.DisplayFor(model => model.Degree.Department.DepartmentID)
         </dd>
-        
     </dl>
 </div>
 <div>

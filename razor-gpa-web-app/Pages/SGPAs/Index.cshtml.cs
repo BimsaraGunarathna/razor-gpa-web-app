@@ -24,9 +24,9 @@ namespace razor_gpa_web_app.Pages.SGPAs
         public async Task OnGetAsync()
         {
             SGPA = await _context.SGPA
+                .Include(s => s.AcademicYear)
                 .Include(s => s.Semester)
-                .Include(s => s.User)
-                .Include(s => s.Year).ToListAsync();
+                .Include(s => s.User).ToListAsync();
         }
     }
 }

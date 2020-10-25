@@ -31,13 +31,13 @@ namespace razor_gpa_web_app.Pages.Semesters
             }
 
             Semester = await _context.Semester
-                .Include(s => s.Year).FirstOrDefaultAsync(m => m.SemesterID == id);
+                .Include(s => s.AcademicYear).FirstOrDefaultAsync(m => m.SemesterID == id);
 
             if (Semester == null)
             {
                 return NotFound();
             }
-           ViewData["YearID"] = new SelectList(_context.Set<Year>(), "YearID", "YearID");
+           ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "AcademicYearID");
             return Page();
         }
 

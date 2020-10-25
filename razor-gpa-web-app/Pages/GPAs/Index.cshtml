@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Index</h1>
@@ -17,7 +18,7 @@
                 @Html.DisplayNameFor(model => model.GPA[0].GPAValue)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.GPA[0].Year)
+                @Html.DisplayNameFor(model => model.GPA[0].AcademicYear)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.GPA[0].Semester)
@@ -38,7 +39,7 @@
                 @Html.DisplayFor(modelItem => item.GPAValue)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Year.YearID)
+                @Html.DisplayFor(modelItem => item.AcademicYear.AcademicYearID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Semester.SemesterID)

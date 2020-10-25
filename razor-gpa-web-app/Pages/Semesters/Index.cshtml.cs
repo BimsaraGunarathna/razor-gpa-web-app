@@ -24,7 +24,7 @@ namespace razor_gpa_web_app.Pages.Semesters
         public async Task OnGetAsync()
         {
             Semester = await _context.Semester
-                .Include(s => s.Year).ToListAsync();
+                .Include(s => s.AcademicYear).ToListAsync();
         }
     }
 }

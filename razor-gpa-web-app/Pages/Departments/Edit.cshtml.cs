@@ -30,12 +30,14 @@ namespace razor_gpa_web_app.Pages.Departments
                 return NotFound();
             }
 
-            Department = await _context.Department.FirstOrDefaultAsync(m => m.DepartmentID == id);
+            Department = await _context.Department
+                .Include(d => d.Faculty).FirstOrDefaultAsync(m => m.DepartmentID == id);
 
             if (Department == null)
             {
                 return NotFound();
             }
+           ViewData["FacultyID"] = new SelectList(_context.Set<Faculty>(), "FacultyID", "FacultyID");
             return Page();
         }
 

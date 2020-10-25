@@ -15,7 +15,7 @@ namespace razor_gpa_web_app.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string SubjectModuleID { get; set; }
 
-        [Display(Name = "Subject module name")]
+        [Display(Name = "Name")]
         [DataType(DataType.Text)]
         [Required]
         [StringLength(60)]
@@ -27,6 +27,11 @@ namespace razor_gpa_web_app.Models
         [StringLength(60)]
         public string SubjectModuleCode { get; set; }
 
+        [Display(Name = "Credit units")]
+        [DataType(DataType.Text)]
+        [Required]
+        public int SubjectModuleCreditUnit { get; set; }
+
         //
         public string DegreeID { get; set; }
 
@@ -34,6 +39,8 @@ namespace razor_gpa_web_app.Models
         public Degree Degree { get; set; }
 
         public ICollection<GPA> GPAs { get; set; }
+
+        public ICollection<Grade> Grades { get; set; }
 
         public ICollection<ApplicationUser> ApplicationUsers { get; set; }
 

@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Edit</h1>
@@ -20,9 +21,14 @@
                 <span asp-validation-for="Semester.SemesterNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Semester.YearID" class="control-label"></label>
-                <select asp-for="Semester.YearID" class="form-control" asp-items="ViewBag.YearID"></select>
-                <span asp-validation-for="Semester.YearID" class="text-danger"></span>
+                <label asp-for="Semester.SemesterName" class="control-label"></label>
+                <input asp-for="Semester.SemesterName" class="form-control" />
+                <span asp-validation-for="Semester.SemesterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Semester.AcademicYearID" class="control-label"></label>
+                <select asp-for="Semester.AcademicYearID" class="form-control" asp-items="ViewBag.AcademicYearID"></select>
+                <span asp-validation-for="Semester.AcademicYearID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

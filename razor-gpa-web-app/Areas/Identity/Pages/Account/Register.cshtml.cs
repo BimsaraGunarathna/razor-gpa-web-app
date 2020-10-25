@@ -11,13 +11,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using razor_gpa_web_app.Areas.Identity.Data;
-using razor_gpa_web_app.Data;
-using razor_gpa_web_app.Models;
-using razor_gpa_web_app.Utility;
 
 namespace razor_gpa_web_app.Areas.Identity.Pages.Account
 {
@@ -29,23 +25,12 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
-        //later added.
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly DBContext _db;
-
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager,
-            DBContext db
-            )
+            IEmailSender emailSender)
         {
-            //
-            _db = db;
-            _roleManager = roleManager;
-            //
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -61,53 +46,6 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            
-
-            //Custom attribute definitions
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Registration number")]
-            public string RegNum { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "First name")]
-            public string FirstName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Last name")]
-            public string LastName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Degree name")]
-            public string DegreeName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Intake")]
-            public int IntakeNumber { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Faculty")]
-            public string FacultyName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Department")]
-            public string DepartmentName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            public string DegreeID { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            public string DepartmentID { get; set; }
-            //
-
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -127,8 +65,6 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            ViewData["DegreeID"] = new SelectList(_db.Set<Degree>(), "DegreeID", "DegreeName");
-            ViewData["DepartmentID"] = new SelectList(_db.Set<Department>(), "DepartmentID", "DepartmentName");
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -139,39 +75,10 @@ namespace razor_gpa_web_app.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                //Adding custom attributes to the quene. 
-                var user = new ApplicationUser
-                {
-                    UserName = Input.Email,
-                    Email = Input.Email,
-                    RegNum = Input.RegNum,
-                    FirstName = Input.FirstName,
-                    LastName = Input.LastName,
-                    DegreeName = Input.DegreeName,
-                    IntakeNumber = Input.IntakeNumber,
-                    FacultyName = Input.FacultyName,
-                    DepartmentName = Input.DepartmentName,
-                    DegreeID = Input.DegreeID,
-                    DepartmentID = Input.DepartmentID
-                };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    //Create a admin if there is no admin in database.
-                    if (!await _roleManager.RoleExistsAsync(SD.AdminEndUser))
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
-                        await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
-                    }
-                    else
-                    {
-                        await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
-                        await _userManager.AddToRoleAsync(user, SD.StudentEndUser);
-                    }
-
-                    //create a Student as defualt course of action.
-                    //await _userManager.AddToRoleAsync(user, SD.StudentEndUser);
-
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

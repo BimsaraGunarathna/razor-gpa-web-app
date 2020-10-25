@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Index</h1>
@@ -20,10 +21,10 @@
                 @Html.DisplayNameFor(model => model.SGPA[0].User)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SGPA[0].Year)
+                @Html.DisplayNameFor(model => model.SGPA[0].Semester)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SGPA[0].Semester)
+                @Html.DisplayNameFor(model => model.SGPA[0].AcademicYear)
             </th>
             <th></th>
         </tr>
@@ -38,10 +39,10 @@
                 @Html.DisplayFor(modelItem => item.User.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Year.YearID)
+                @Html.DisplayFor(modelItem => item.Semester.SemesterID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Semester.SemesterID)
+                @Html.DisplayFor(modelItem => item.AcademicYear.AcademicYearID)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.SGPAID">Edit</a> |

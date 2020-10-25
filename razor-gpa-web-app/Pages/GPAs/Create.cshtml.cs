@@ -11,7 +11,7 @@ using razor_gpa_web_app.Models;
 
 namespace razor_gpa_web_app.Pages.GPAs
 {
-    public class CreateModel : SemStuSubYearNamePageModel
+    public class CreateModel : PageModel
     {
         private readonly razor_gpa_web_app.Data.DBContext _context;
 
@@ -22,14 +22,10 @@ namespace razor_gpa_web_app.Pages.GPAs
 
         public IActionResult OnGet()
         {
-            //ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
-            //ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
-            //ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
-            //ViewData["YearID"] = new SelectList(_context.Set<Year>(), "YearID", "YearID");
-            PopulateSemesterDropDownList(_context);
-            PopulateStudentDropDownList(_context);
-            PopulateSubjectModuleDropDownList(_context);
-            PopulateYearDropDownList(_context);
+        ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "AcademicYearID");
+        ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+        ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
+        ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
             return Page();
         }
 
@@ -40,25 +36,6 @@ namespace razor_gpa_web_app.Pages.GPAs
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-
-            var emptyGPA = new GPA();
-
-            await TryUpdateModelAsync<GPA>(
-                 emptyGPA,
-                 "gpa",   // Prefix for form value.
-                 s => s.GPAID, 
-                 s => s.GPAValue, 
-                 s => s.StudentID, 
-                 s => s.SemesterID,
-                 s => s.SubjectModuleID,
-                 s => s.YearID
-            );
-
-            _context.GPA.Add(emptyGPA);
-            await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
-
-            /*
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -68,7 +45,6 @@ namespace razor_gpa_web_app.Pages.GPAs
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
-            */
         }
     }
 }
