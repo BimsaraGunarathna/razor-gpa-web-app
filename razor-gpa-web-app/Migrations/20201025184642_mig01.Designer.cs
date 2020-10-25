@@ -10,7 +10,7 @@ using razor_gpa_web_app.Data;
 namespace razor_gpa_web_app.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20201025175910_mig01")]
+    [Migration("20201025184642_mig01")]
     partial class mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,26 +50,26 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "41e980d1-d353-4f76-b4d4-5e38c4da71c1",
-                            ConcurrencyStamp = "601885d1-238d-4f08-8363-20e86fc7a99d",
+                            Id = "34510069-6892-4e5d-9e2d-a4265af6046f",
+                            ConcurrencyStamp = "fe6084b3-bef3-42e4-99c6-8a8fc91b0344",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "e80a2a67-236f-4adf-bb15-cbfd7251a1bf",
-                            ConcurrencyStamp = "99db9d7b-82b4-4e6d-bd82-7826593e6720",
+                            Id = "b202fac1-c7d9-4c14-91a0-baa7a57e27a5",
+                            ConcurrencyStamp = "62eb71d8-7190-420a-bae2-be848f648e7a",
                             Name = "Staff"
                         },
                         new
                         {
-                            Id = "3d4df0b8-6a76-4bc6-97b6-de7184952709",
-                            ConcurrencyStamp = "9c021e41-91ef-4c17-b1d7-9ee16757b5d4",
+                            Id = "5dc40113-1f11-485d-aa3b-9559b5c077ae",
+                            ConcurrencyStamp = "4b4d4c35-183c-473e-aed6-41a51507992c",
                             Name = "HOD"
                         },
                         new
                         {
-                            Id = "28d1d3bd-c333-4483-b00b-426a93ea79bb",
-                            ConcurrencyStamp = "c97cf5ea-0c52-4f21-bf0a-5d3c35e77a04",
+                            Id = "71e725e3-e954-4d32-9f6f-732d5abb6f97",
+                            ConcurrencyStamp = "20ba86d3-0ccd-4913-bdad-d52fe1263598",
                             Name = "Student"
                         });
                 });
@@ -161,23 +161,23 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "bbd18bdf-7b63-4788-8f49-c6ab5123f954",
-                            RoleId = "41e980d1-d353-4f76-b4d4-5e38c4da71c1"
+                            UserId = "8c9d244e-eb72-426f-9021-e3172c8eb459",
+                            RoleId = "34510069-6892-4e5d-9e2d-a4265af6046f"
                         },
                         new
                         {
-                            UserId = "d6f28945-e19c-4796-9559-f49f23427e6b",
-                            RoleId = "28d1d3bd-c333-4483-b00b-426a93ea79bb"
+                            UserId = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
+                            RoleId = "71e725e3-e954-4d32-9f6f-732d5abb6f97"
                         },
                         new
                         {
-                            UserId = "49b18a88-697d-4adb-b1e9-2b55c19eeb81",
-                            RoleId = "e80a2a67-236f-4adf-bb15-cbfd7251a1bf"
+                            UserId = "aa35fb85-d0a7-4410-8cb2-802af2b81e0a",
+                            RoleId = "b202fac1-c7d9-4c14-91a0-baa7a57e27a5"
                         },
                         new
                         {
-                            UserId = "23fc2b51-d48a-445b-96e6-5566602ef569",
-                            RoleId = "3d4df0b8-6a76-4bc6-97b6-de7184952709"
+                            UserId = "3dad1e22-813a-484a-a606-2ce868718708",
+                            RoleId = "5dc40113-1f11-485d-aa3b-9559b5c077ae"
                         });
                 });
 
@@ -304,7 +304,7 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bbd18bdf-7b63-4788-8f49-c6ab5123f954",
+                            Id = "8c9d244e-eb72-426f-9021-e3172c8eb459",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -328,7 +328,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "d6f28945-e19c-4796-9559-f49f23427e6b",
+                            Id = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -352,7 +352,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "49b18a88-697d-4adb-b1e9-2b55c19eeb81",
+                            Id = "aa35fb85-d0a7-4410-8cb2-802af2b81e0a",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
@@ -376,7 +376,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "23fc2b51-d48a-445b-96e6-5566602ef569",
+                            Id = "3dad1e22-813a-484a-a606-2ce868718708",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
@@ -999,6 +999,35 @@ namespace razor_gpa_web_app.Migrations
                     b.HasIndex("SubjectModuleID");
 
                     b.ToTable("Paper");
+
+                    b.HasData(
+                        new
+                        {
+                            PaperID = "f304b6f4-c108-4999-a608-96164abdaf04",
+                            DegreeID = "ddwd232",
+                            GradeID = "iiu2983",
+                            SemesterID = "kjei3322",
+                            StudentID = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
+                            SubjectModuleID = "th45hr"
+                        },
+                        new
+                        {
+                            PaperID = "73da2731-c08d-4726-8132-9ca433e275e9",
+                            DegreeID = "ddwd232",
+                            GradeID = "3r3f",
+                            SemesterID = "kjei3322",
+                            StudentID = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
+                            SubjectModuleID = "657j5j"
+                        },
+                        new
+                        {
+                            PaperID = "cee20bf5-3a20-4170-898f-3e34621bb623",
+                            DegreeID = "ddwd232",
+                            GradeID = "wff33f",
+                            SemesterID = "kjei3322",
+                            StudentID = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
+                            SubjectModuleID = "23ftgw4t5"
+                        });
                 });
 
             modelBuilder.Entity("razor_gpa_web_app.Models.SGPA", b =>

@@ -89,6 +89,8 @@
     <Compile Remove="Migrations\20201025174349_mig01.Designer.cs" />
     <Compile Remove="Migrations\20201025174719_mig01.cs" />
     <Compile Remove="Migrations\20201025174719_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201025175910_mig01.cs" />
+    <Compile Remove="Migrations\20201025175910_mig01.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -105,7 +107,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
