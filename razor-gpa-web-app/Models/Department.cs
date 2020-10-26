@@ -27,7 +27,7 @@ namespace razor_gpa_web_app.Models
         public string FacultyID { get; set; }
 
         [ForeignKey("FacultyID")]
-        public Faculty Faculty { get; set; }
+        public virtual Faculty Faculty { get; set; }
 
         public ICollection<Degree> Degrees { get; set; }
         

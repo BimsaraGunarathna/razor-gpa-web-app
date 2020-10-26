@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.Degrees
+namespace razor_gpa_web_app.Pages.ShowSGPA
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +22,17 @@ namespace razor_gpa_web_app.Pages.Degrees
 
         public IActionResult OnGet()
         {
-        ViewData["DepartmentID"] = new SelectList(_context.Set<Department>(), "DepartmentID", "DepartmentName");
+        ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+        ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeID");
+        ViewData["GPAID"] = new SelectList(_context.GPA, "GPAID", "GPAID");
+        ViewData["GradeID"] = new SelectList(_context.Grade, "GradeID", "GradeID");
+        ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
+        ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
             return Page();
         }
 
         [BindProperty]
-        public Degree Degree { get; set; }
+        public Paper Paper { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -37,7 +43,7 @@ namespace razor_gpa_web_app.Pages.Degrees
                 return Page();
             }
 
-            _context.Degree.Add(Degree);
+            _context.Paper.Add(Paper);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

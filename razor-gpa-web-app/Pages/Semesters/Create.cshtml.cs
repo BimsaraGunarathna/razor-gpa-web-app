@@ -21,7 +21,7 @@ namespace razor_gpa_web_app.Pages.Semesters
 
         public IActionResult OnGet()
         {
-        ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "AcademicYearID");
+        ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "StartDate.Year");
             return Page();
         }
 

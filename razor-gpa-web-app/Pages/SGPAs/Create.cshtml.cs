@@ -22,9 +22,9 @@ namespace razor_gpa_web_app.Pages.SGPAs
 
         public IActionResult OnGet()
         {
-        ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "AcademicYearID");
-        ViewData["SemesterID"] = new SelectList(_context.Semester, "SemesterID", "SemesterID");
-        ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+        ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "StartDate");
+        ViewData["SemesterID"] = new SelectList(_context.Semester, "SemesterID", "SemesterName");
+        ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "RegNum");
             return Page();
         }
 

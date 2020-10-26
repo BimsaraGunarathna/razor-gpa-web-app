@@ -10,7 +10,7 @@ using razor_gpa_web_app.Data;
 namespace razor_gpa_web_app.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20201025184642_mig01")]
+    [Migration("20201026093515_mig01")]
     partial class mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,26 +50,26 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "34510069-6892-4e5d-9e2d-a4265af6046f",
-                            ConcurrencyStamp = "fe6084b3-bef3-42e4-99c6-8a8fc91b0344",
+                            Id = "ee123472-f3ea-44a6-809f-1ca4fed6c16e",
+                            ConcurrencyStamp = "49723812-b59e-4389-8a0a-a0c34d1f9c98",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "b202fac1-c7d9-4c14-91a0-baa7a57e27a5",
-                            ConcurrencyStamp = "62eb71d8-7190-420a-bae2-be848f648e7a",
+                            Id = "ac4c06af-716e-4cd1-a39c-49672105ff7c",
+                            ConcurrencyStamp = "a4a9e6e0-d4b6-4b67-add6-9ff220d97cd7",
                             Name = "Staff"
                         },
                         new
                         {
-                            Id = "5dc40113-1f11-485d-aa3b-9559b5c077ae",
-                            ConcurrencyStamp = "4b4d4c35-183c-473e-aed6-41a51507992c",
+                            Id = "a24781ff-029a-4e92-8cc4-c8e6dd9f01c9",
+                            ConcurrencyStamp = "165d61bb-eaae-455a-b73e-12328f40e26b",
                             Name = "HOD"
                         },
                         new
                         {
-                            Id = "71e725e3-e954-4d32-9f6f-732d5abb6f97",
-                            ConcurrencyStamp = "20ba86d3-0ccd-4913-bdad-d52fe1263598",
+                            Id = "7ab7df3c-21fc-4881-b136-6672746bb456",
+                            ConcurrencyStamp = "6c6bf673-79b5-43d8-a0c1-7c1336b78f9a",
                             Name = "Student"
                         });
                 });
@@ -161,23 +161,23 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "8c9d244e-eb72-426f-9021-e3172c8eb459",
-                            RoleId = "34510069-6892-4e5d-9e2d-a4265af6046f"
+                            UserId = "00d001c2-1cc5-4c5a-a7a7-c1b08ba1dbfd",
+                            RoleId = "ee123472-f3ea-44a6-809f-1ca4fed6c16e"
                         },
                         new
                         {
-                            UserId = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
-                            RoleId = "71e725e3-e954-4d32-9f6f-732d5abb6f97"
+                            UserId = "db21789e-676b-4951-bd14-81c2aa2d1d07",
+                            RoleId = "7ab7df3c-21fc-4881-b136-6672746bb456"
                         },
                         new
                         {
-                            UserId = "aa35fb85-d0a7-4410-8cb2-802af2b81e0a",
-                            RoleId = "b202fac1-c7d9-4c14-91a0-baa7a57e27a5"
+                            UserId = "c02e3dc9-bab3-4ebe-8b86-50611f6baca0",
+                            RoleId = "ac4c06af-716e-4cd1-a39c-49672105ff7c"
                         },
                         new
                         {
-                            UserId = "3dad1e22-813a-484a-a606-2ce868718708",
-                            RoleId = "5dc40113-1f11-485d-aa3b-9559b5c077ae"
+                            UserId = "e83efdea-d974-413f-a2d7-410c371cdb7c",
+                            RoleId = "a24781ff-029a-4e92-8cc4-c8e6dd9f01c9"
                         });
                 });
 
@@ -304,7 +304,7 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8c9d244e-eb72-426f-9021-e3172c8eb459",
+                            Id = "00d001c2-1cc5-4c5a-a7a7-c1b08ba1dbfd",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -328,7 +328,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
+                            Id = "db21789e-676b-4951-bd14-81c2aa2d1d07",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -352,7 +352,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "aa35fb85-d0a7-4410-8cb2-802af2b81e0a",
+                            Id = "c02e3dc9-bab3-4ebe-8b86-50611f6baca0",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
@@ -376,7 +376,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "3dad1e22-813a-484a-a606-2ce868718708",
+                            Id = "e83efdea-d974-413f-a2d7-410c371cdb7c",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
@@ -966,6 +966,9 @@ namespace razor_gpa_web_app.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("AcademicYearID")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("DegreeID")
                         .HasColumnType("nvarchar(450)");
 
@@ -986,6 +989,8 @@ namespace razor_gpa_web_app.Migrations
 
                     b.HasKey("PaperID");
 
+                    b.HasIndex("AcademicYearID");
+
                     b.HasIndex("DegreeID");
 
                     b.HasIndex("GPAID");
@@ -1003,29 +1008,32 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            PaperID = "f304b6f4-c108-4999-a608-96164abdaf04",
+                            PaperID = "ej32i1123",
+                            AcademicYearID = "myud",
                             DegreeID = "ddwd232",
                             GradeID = "iiu2983",
                             SemesterID = "kjei3322",
-                            StudentID = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
+                            StudentID = "db21789e-676b-4951-bd14-81c2aa2d1d07",
                             SubjectModuleID = "th45hr"
                         },
                         new
                         {
-                            PaperID = "73da2731-c08d-4726-8132-9ca433e275e9",
+                            PaperID = "jbwfwi3t3223",
+                            AcademicYearID = "myud",
                             DegreeID = "ddwd232",
                             GradeID = "3r3f",
                             SemesterID = "kjei3322",
-                            StudentID = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
+                            StudentID = "db21789e-676b-4951-bd14-81c2aa2d1d07",
                             SubjectModuleID = "657j5j"
                         },
                         new
                         {
-                            PaperID = "cee20bf5-3a20-4170-898f-3e34621bb623",
+                            PaperID = "hjwbu232332",
+                            AcademicYearID = "myud",
                             DegreeID = "ddwd232",
                             GradeID = "wff33f",
                             SemesterID = "kjei3322",
-                            StudentID = "48b0bdb8-87b0-46a4-83a1-61bb9c14c69b",
+                            StudentID = "db21789e-676b-4951-bd14-81c2aa2d1d07",
                             SubjectModuleID = "23ftgw4t5"
                         });
                 });
@@ -1538,6 +1546,10 @@ namespace razor_gpa_web_app.Migrations
 
             modelBuilder.Entity("razor_gpa_web_app.Models.Paper", b =>
                 {
+                    b.HasOne("razor_gpa_web_app.Models.AcademicYear", "AcademicYear")
+                        .WithMany("Papers")
+                        .HasForeignKey("AcademicYearID");
+
                     b.HasOne("razor_gpa_web_app.Models.Degree", "Degree")
                         .WithMany("Papers")
                         .HasForeignKey("DegreeID");

@@ -19,6 +19,8 @@ namespace razor_gpa_web_app.Models
         //Navigation
         public string SemesterID { get; set; }
 
+        public string AcademicYearID { get; set; }
+
         [AllowNull]
         public string GPAID { get; set; }
 
@@ -30,22 +32,25 @@ namespace razor_gpa_web_app.Models
 
         public string GradeID { get; set; }
 
+        [ForeignKey("AcademicYearID")]
+        public virtual AcademicYear AcademicYear { get; set; }
+
         [ForeignKey("GradeID")]
-        public Grade Grade { get; set; }
+        public virtual Grade Grade { get; set; }
 
         [ForeignKey("SubjectModuleID")]
-        public SubjectModule SubjectModule { get; set; }
+        public virtual SubjectModule SubjectModule { get; set; }
 
         [ForeignKey("GPAID")]
-        public GPA GPA { get; set; }
+        public virtual GPA GPA { get; set; }
 
         [ForeignKey("StudentID")]
-        public ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         [ForeignKey("SemesterID")]
-        public Semester Semester { get; set; }
+        public virtual Semester Semester { get; set; }
 
         [ForeignKey("DegreeID")]
-        public Degree Degree { get; set; }
+        public virtual Degree Degree { get; set; }
     }
 }

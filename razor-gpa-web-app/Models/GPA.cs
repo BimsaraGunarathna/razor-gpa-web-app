@@ -33,16 +33,16 @@ namespace razor_gpa_web_app.Models
         public string AcademicYearID { get; set; }
 
         [ForeignKey("AcademicYearID")]
-        public AcademicYear AcademicYear { get; set; }
+        public virtual AcademicYear AcademicYear { get; set; }
 
         [ForeignKey("SemesterID")]
-        public Semester Semester { get; set; }
+        public virtual Semester Semester { get; set; }
 
         [ForeignKey("SubjectModuleID")]
-        public SubjectModule SubjectModule { get; set; }
+        public virtual SubjectModule SubjectModule { get; set; }
 
         [ForeignKey("StudentID")]
-        public ApplicationUser ApplicationUser { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public ICollection<Paper> Papers { get; set; }
 

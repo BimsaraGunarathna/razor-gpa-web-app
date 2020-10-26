@@ -30,10 +30,10 @@ namespace razor_gpa_web_app.Models
 
 
         [ForeignKey("SemesterID")]
-        public Semester Semester { get; set; }
+        public virtual Semester Semester { get; set; }
 
 
         [ForeignKey("AcademicYearID")]
-        public AcademicYear AcademicYear { get; set; }
+        public virtual AcademicYear AcademicYear { get; set; }
     }
 }

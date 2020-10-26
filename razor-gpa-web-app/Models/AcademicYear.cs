@@ -18,11 +18,14 @@ namespace razor_gpa_web_app.Models
         [Display(Name = "Academic start date")]
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
-
+        //StartDate.Year
+        
         //Navigation
         public ICollection<Semester> Semesters { get; set; }
         public ICollection<SGPA> SGPAs { get; set; }
         public ICollection<YGPA> YGPAs { get; set; }
         public ICollection<GPA> GPAs { get; set; }
+        public ICollection<Paper> Papers { get; set; }
+
     }
 }

@@ -22,8 +22,8 @@ namespace razor_gpa_web_app.Pages.YGPAs
 
         public IActionResult OnGet()
         {
-        ViewData["AcademicYearID"] = new SelectList(_context.Set<AcademicYear>(), "AcademicYearID", "AcademicYearID");
-        ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+        ViewData["AcademicYearID"] = new SelectList(_context.Set<AcademicYear>(), "AcademicYearID", "StartDate.Year");
+        ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "RegNum");
             return Page();
         }
 

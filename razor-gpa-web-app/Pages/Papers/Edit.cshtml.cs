@@ -43,12 +43,13 @@ namespace razor_gpa_web_app.Pages.Papers
             {
                 return NotFound();
             }
-           ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
-           ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeID");
-           ViewData["GPAID"] = new SelectList(_context.GPA, "GPAID", "GPAID");
-           ViewData["GradeID"] = new SelectList(_context.Grade, "GradeID", "GradeID");
-           ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
-           ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
+            ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "RegNum");
+            ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeName");
+            ViewData["GPAID"] = new SelectList(_context.GPA, "GPAID", "GPAID");
+            ViewData["GradeID"] = new SelectList(_context.Grade, "GradeID", "GradeName");
+            ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterName");
+            ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleName");
+            ViewData["AcademicYearID"] = new SelectList(_context.Set<AcademicYear>(), "AcademicYearID", "StartDate");
             return Page();
         }
 

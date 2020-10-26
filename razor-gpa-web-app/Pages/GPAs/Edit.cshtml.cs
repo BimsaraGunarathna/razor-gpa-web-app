@@ -41,10 +41,10 @@ namespace razor_gpa_web_app.Pages.GPAs
             {
                 return NotFound();
             }
-           ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "AcademicYearID");
-           ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
-           ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
-           ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
+            ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "StartDate.Year");
+            ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "RegNum");
+            ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterName");
+            ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleName");
             return Page();
         }
 

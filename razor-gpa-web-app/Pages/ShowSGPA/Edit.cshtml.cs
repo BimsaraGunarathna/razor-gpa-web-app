@@ -10,7 +10,7 @@ using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.YGPAs
+namespace razor_gpa_web_app.Pages.ShowSGPA
 {
     public class EditModel : PageModel
     {
@@ -22,7 +22,7 @@ namespace razor_gpa_web_app.Pages.YGPAs
         }
 
         [BindProperty]
-        public YGPA YGPA { get; set; }
+        public Paper Paper { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -31,16 +31,24 @@ namespace razor_gpa_web_app.Pages.YGPAs
                 return NotFound();
             }
 
-            YGPA = await _context.YGPA
-                .Include(y => y.AcademicYear)
-                .Include(y => y.ApplicationUser).FirstOrDefaultAsync(m => m.YGPAID == id);
+            Paper = await _context.Paper
+                .Include(p => p.ApplicationUser)
+                .Include(p => p.Degree)
+                .Include(p => p.GPA)
+                .Include(p => p.Grade)
+                .Include(p => p.Semester)
+                .Include(p => p.SubjectModule).FirstOrDefaultAsync(m => m.PaperID == id);
 
-            if (YGPA == null)
+            if (Paper == null)
             {
                 return NotFound();
             }
-            ViewData["AcademicYearID"] = new SelectList(_context.Set<AcademicYear>(), "AcademicYearID", "StartDate.Year");
-            ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "RegNum");
+           ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+           ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeID");
+           ViewData["GPAID"] = new SelectList(_context.GPA, "GPAID", "GPAID");
+           ViewData["GradeID"] = new SelectList(_context.Grade, "GradeID", "GradeID");
+           ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterID");
+           ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleID");
             return Page();
         }
 
@@ -53,7 +61,7 @@ namespace razor_gpa_web_app.Pages.YGPAs
                 return Page();
             }
 
-            _context.Attach(YGPA).State = EntityState.Modified;
+            _context.Attach(Paper).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +69,7 @@ namespace razor_gpa_web_app.Pages.YGPAs
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!YGPAExists(YGPA.YGPAID))
+                if (!PaperExists(Paper.PaperID))
                 {
                     return NotFound();
                 }
@@ -74,9 +82,9 @@ namespace razor_gpa_web_app.Pages.YGPAs
             return RedirectToPage("./Index");
         }
 
-        private bool YGPAExists(string id)
+        private bool PaperExists(string id)
         {
-            return _context.YGPA.Any(e => e.YGPAID == id);
+            return _context.Paper.Any(e => e.PaperID == id);
         }
     }
 }

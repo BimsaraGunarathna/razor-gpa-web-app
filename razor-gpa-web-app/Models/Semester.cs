@@ -27,7 +27,7 @@ namespace razor_gpa_web_app.Models
         public string AcademicYearID { get; set; }
 
         [ForeignKey("AcademicYearID")]
-        public AcademicYear AcademicYear { get; set; }
+        public virtual AcademicYear AcademicYear { get; set; }
 
         public ICollection<GPA> GPAs { get; set; }
 

@@ -233,9 +233,10 @@ namespace razor_gpa_web_app.Data
 
             //Papers
             builder.Entity<Paper>().HasData(
-                new Paper { PaperID = Guid.NewGuid().ToString(), SemesterID = sem01.SemesterID, DegreeID = deg01.DegreeID, StudentID = studentUser.Id, SubjectModuleID = submod12.SubjectModuleID, GradeID = grade01.GradeID },
-                new Paper { PaperID = Guid.NewGuid().ToString(), SemesterID = sem01.SemesterID, DegreeID = deg01.DegreeID, StudentID = studentUser.Id, SubjectModuleID = submod11.SubjectModuleID, GradeID = grade02.GradeID },
-                new Paper { PaperID = Guid.NewGuid().ToString(), SemesterID = sem01.SemesterID, DegreeID = deg01.DegreeID, StudentID = studentUser.Id, SubjectModuleID = submod10.SubjectModuleID, GradeID = grade03.GradeID }
+                //Guid.NewGuid().ToString()
+                new Paper { PaperID = "ej32i1123", SemesterID = sem01.SemesterID, AcademicYearID = "myud", DegreeID = deg01.DegreeID, StudentID = studentUser.Id, SubjectModuleID = submod12.SubjectModuleID, GradeID = grade01.GradeID },
+                new Paper { PaperID = "jbwfwi3t3223", SemesterID = sem01.SemesterID, AcademicYearID = "myud", DegreeID = deg01.DegreeID, StudentID = studentUser.Id, SubjectModuleID = submod11.SubjectModuleID, GradeID = grade02.GradeID },
+                new Paper { PaperID = "hjwbu232332", SemesterID = sem01.SemesterID, AcademicYearID = "myud", DegreeID = deg01.DegreeID, StudentID = studentUser.Id, SubjectModuleID = submod10.SubjectModuleID, GradeID = grade03.GradeID }
             );
         }
 

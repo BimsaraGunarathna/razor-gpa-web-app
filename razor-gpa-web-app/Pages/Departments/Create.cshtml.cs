@@ -21,7 +21,7 @@ namespace razor_gpa_web_app.Pages.Departments
 
         public IActionResult OnGet()
         {
-        ViewData["FacultyID"] = new SelectList(_context.Set<Faculty>(), "FacultyID", "FacultyID");
+        ViewData["FacultyID"] = new SelectList(_context.Set<Faculty>(), "FacultyID", "FacultyName");
             return Page();
         }
 

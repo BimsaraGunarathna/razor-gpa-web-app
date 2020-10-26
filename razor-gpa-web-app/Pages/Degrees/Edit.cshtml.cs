@@ -37,7 +37,7 @@ namespace razor_gpa_web_app.Pages.Degrees
             {
                 return NotFound();
             }
-           ViewData["DepartmentID"] = new SelectList(_context.Set<Department>(), "DepartmentID", "DepartmentID");
+           ViewData["DepartmentID"] = new SelectList(_context.Set<Department>(), "DepartmentID", "DepartmentName");
             return Page();
         }
 

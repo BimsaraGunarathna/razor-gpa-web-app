@@ -21,7 +21,7 @@ namespace razor_gpa_web_app.Pages.SubjectModules
 
         public IActionResult OnGet()
         {
-        ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeID");
+        ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeName");
             return Page();
         }
 

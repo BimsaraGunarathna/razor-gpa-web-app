@@ -36,7 +36,7 @@ namespace razor_gpa_web_app.Models
         public string DegreeID { get; set; }
 
         [ForeignKey("DegreeID")]
-        public Degree Degree { get; set; }
+        public virtual Degree Degree { get; set; }
 
         public ICollection<GPA> GPAs { get; set; }
 
