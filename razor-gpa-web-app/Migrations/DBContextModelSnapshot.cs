@@ -48,26 +48,26 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ee123472-f3ea-44a6-809f-1ca4fed6c16e",
-                            ConcurrencyStamp = "49723812-b59e-4389-8a0a-a0c34d1f9c98",
+                            Id = "00ed898f-5dfd-4501-a76b-4abd49db118a",
+                            ConcurrencyStamp = "b18c61ce-d888-4b58-b7ae-f184e80dfb67",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "ac4c06af-716e-4cd1-a39c-49672105ff7c",
-                            ConcurrencyStamp = "a4a9e6e0-d4b6-4b67-add6-9ff220d97cd7",
+                            Id = "b1a99fdc-6b6b-4eac-91e4-cc5963969422",
+                            ConcurrencyStamp = "d915589d-9274-4c5b-a863-2deadabeebb1",
                             Name = "Staff"
                         },
                         new
                         {
-                            Id = "a24781ff-029a-4e92-8cc4-c8e6dd9f01c9",
-                            ConcurrencyStamp = "165d61bb-eaae-455a-b73e-12328f40e26b",
+                            Id = "cc8c6958-a53e-46bb-812f-7125b9d2881c",
+                            ConcurrencyStamp = "aee7be9d-3ba8-4c04-855d-c762e7bd0b49",
                             Name = "HOD"
                         },
                         new
                         {
-                            Id = "7ab7df3c-21fc-4881-b136-6672746bb456",
-                            ConcurrencyStamp = "6c6bf673-79b5-43d8-a0c1-7c1336b78f9a",
+                            Id = "5bd5515c-7e01-4562-8464-df1a4e60e926",
+                            ConcurrencyStamp = "1da27597-c2d2-4106-aaff-c92f6b998c1e",
                             Name = "Student"
                         });
                 });
@@ -159,23 +159,23 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "00d001c2-1cc5-4c5a-a7a7-c1b08ba1dbfd",
-                            RoleId = "ee123472-f3ea-44a6-809f-1ca4fed6c16e"
+                            UserId = "a0c70d84-d1b3-44fb-b03b-4d75e00c9876",
+                            RoleId = "00ed898f-5dfd-4501-a76b-4abd49db118a"
                         },
                         new
                         {
-                            UserId = "db21789e-676b-4951-bd14-81c2aa2d1d07",
-                            RoleId = "7ab7df3c-21fc-4881-b136-6672746bb456"
+                            UserId = "1f724c8a-18c5-40e2-9b1b-1fb5a727d99e",
+                            RoleId = "5bd5515c-7e01-4562-8464-df1a4e60e926"
                         },
                         new
                         {
-                            UserId = "c02e3dc9-bab3-4ebe-8b86-50611f6baca0",
-                            RoleId = "ac4c06af-716e-4cd1-a39c-49672105ff7c"
+                            UserId = "518a6f6f-306a-4996-a2ce-33aa6865d076",
+                            RoleId = "b1a99fdc-6b6b-4eac-91e4-cc5963969422"
                         },
                         new
                         {
-                            UserId = "e83efdea-d974-413f-a2d7-410c371cdb7c",
-                            RoleId = "a24781ff-029a-4e92-8cc4-c8e6dd9f01c9"
+                            UserId = "0651920d-cb50-4665-854d-84a5ea116dc6",
+                            RoleId = "cc8c6958-a53e-46bb-812f-7125b9d2881c"
                         });
                 });
 
@@ -302,7 +302,7 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "00d001c2-1cc5-4c5a-a7a7-c1b08ba1dbfd",
+                            Id = "a0c70d84-d1b3-44fb-b03b-4d75e00c9876",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -318,7 +318,7 @@ namespace razor_gpa_web_app.Migrations
                             NormalizedUserName = "admin@gmail.com",
                             PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==",
                             PhoneNumberConfirmed = false,
-                            RegNum = "D/IT/18/0067",
+                            RegNum = "admin",
                             SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com",
@@ -326,7 +326,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "db21789e-676b-4951-bd14-81c2aa2d1d07",
+                            Id = "1f724c8a-18c5-40e2-9b1b-1fb5a727d99e",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -342,7 +342,7 @@ namespace razor_gpa_web_app.Migrations
                             NormalizedUserName = "student@gmail.com",
                             PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==",
                             PhoneNumberConfirmed = false,
-                            RegNum = "D/IT/18/0067",
+                            RegNum = "student",
                             SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU",
                             TwoFactorEnabled = false,
                             UserName = "student@gmail.com",
@@ -350,7 +350,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "c02e3dc9-bab3-4ebe-8b86-50611f6baca0",
+                            Id = "518a6f6f-306a-4996-a2ce-33aa6865d076",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
@@ -366,7 +366,7 @@ namespace razor_gpa_web_app.Migrations
                             NormalizedUserName = "staff@gmail.com",
                             PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==",
                             PhoneNumberConfirmed = false,
-                            RegNum = "D/IS/18/0015",
+                            RegNum = "staff",
                             SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU",
                             TwoFactorEnabled = false,
                             UserName = "staff@gmail.com",
@@ -374,7 +374,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "e83efdea-d974-413f-a2d7-410c371cdb7c",
+                            Id = "0651920d-cb50-4665-854d-84a5ea116dc6",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
@@ -390,7 +390,7 @@ namespace razor_gpa_web_app.Migrations
                             NormalizedUserName = "hod@gmail.com",
                             PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==",
                             PhoneNumberConfirmed = false,
-                            RegNum = "D/SE/18/0067",
+                            RegNum = "hod",
                             SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU",
                             TwoFactorEnabled = false,
                             UserName = "hod@gmail.com",
@@ -1002,38 +1002,6 @@ namespace razor_gpa_web_app.Migrations
                     b.HasIndex("SubjectModuleID");
 
                     b.ToTable("Paper");
-
-                    b.HasData(
-                        new
-                        {
-                            PaperID = "ej32i1123",
-                            AcademicYearID = "myud",
-                            DegreeID = "ddwd232",
-                            GradeID = "iiu2983",
-                            SemesterID = "kjei3322",
-                            StudentID = "db21789e-676b-4951-bd14-81c2aa2d1d07",
-                            SubjectModuleID = "th45hr"
-                        },
-                        new
-                        {
-                            PaperID = "jbwfwi3t3223",
-                            AcademicYearID = "myud",
-                            DegreeID = "ddwd232",
-                            GradeID = "3r3f",
-                            SemesterID = "kjei3322",
-                            StudentID = "db21789e-676b-4951-bd14-81c2aa2d1d07",
-                            SubjectModuleID = "657j5j"
-                        },
-                        new
-                        {
-                            PaperID = "hjwbu232332",
-                            AcademicYearID = "myud",
-                            DegreeID = "ddwd232",
-                            GradeID = "wff33f",
-                            SemesterID = "kjei3322",
-                            StudentID = "db21789e-676b-4951-bd14-81c2aa2d1d07",
-                            SubjectModuleID = "23ftgw4t5"
-                        });
                 });
 
             modelBuilder.Entity("razor_gpa_web_app.Models.SGPA", b =>
@@ -1071,9 +1039,6 @@ namespace razor_gpa_web_app.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("AcademicYearID")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("SemesterName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1083,192 +1048,68 @@ namespace razor_gpa_web_app.Migrations
 
                     b.HasKey("SemesterID");
 
-                    b.HasIndex("AcademicYearID");
-
                     b.ToTable("Semester");
 
                     b.HasData(
                         new
                         {
-                            SemesterID = "kjei3322",
-                            AcademicYearID = "myud",
-                            SemesterName = "Semester 01",
+                            SemesterID = "1",
+                            SemesterName = "Semester 1",
                             SemesterNumber = 1
                         },
                         new
                         {
-                            SemesterID = "d33",
-                            AcademicYearID = "myrfwfud",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "f3f3rfr",
-                            AcademicYearID = "eveefweveum",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "j4n343",
-                            AcademicYearID = "3d3emucdf",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "hjh4334432",
-                            AcademicYearID = "ecj235332",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "b32briu45",
-                            AcademicYearID = "3rcd535c",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "b3i24iu42",
-                            AcademicYearID = "ec3fej232",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "54b64",
-                            AcademicYearID = "veve353vv",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "5bhi23",
-                            AcademicYearID = "3ffv35efe33",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "j4kb52",
-                            AcademicYearID = "3dvevfve3ecdf",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "2b34jkbh",
-                            AcademicYearID = "3fee33fe33",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "hb4325kb",
-                            AcademicYearID = "3d3vevecdf",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "h2b45j",
-                            AcademicYearID = "3fevwefw34fe33",
-                            SemesterName = "Semester 01",
-                            SemesterNumber = 1
-                        },
-                        new
-                        {
-                            SemesterID = "34fr4",
-                            AcademicYearID = "myud",
-                            SemesterName = "Semester 02",
+                            SemesterID = "2",
+                            SemesterName = "Semester 2",
                             SemesterNumber = 2
                         },
                         new
                         {
-                            SemesterID = "h2b4f4f4fw5j",
-                            AcademicYearID = "myrfwfud",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
+                            SemesterID = "3",
+                            SemesterName = "Semester 3",
+                            SemesterNumber = 3
                         },
                         new
                         {
-                            SemesterID = "43ff34cr",
-                            AcademicYearID = "eveefweveum",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
+                            SemesterID = "4",
+                            SemesterName = "Semester 4",
+                            SemesterNumber = 4
                         },
                         new
                         {
-                            SemesterID = "fw43",
-                            AcademicYearID = "3d3emucdf",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
+                            SemesterID = "5",
+                            SemesterName = "Semester 5",
+                            SemesterNumber = 5
                         },
                         new
                         {
-                            SemesterID = "h2bcf34f45j",
-                            AcademicYearID = "ecj235332",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
+                            SemesterID = "6",
+                            SemesterName = "Semester 6",
+                            SemesterNumber = 6
                         },
                         new
                         {
-                            SemesterID = "h2b54gb45j",
-                            AcademicYearID = "3rcd535c",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
+                            SemesterID = "7",
+                            SemesterName = "Semester 7",
+                            SemesterNumber = 7
                         },
                         new
                         {
-                            SemesterID = "5egz",
-                            AcademicYearID = "ec3fej232",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
+                            SemesterID = "8",
+                            SemesterName = "Semester 8",
+                            SemesterNumber = 8
                         },
                         new
                         {
-                            SemesterID = "h2bg5e45j",
-                            AcademicYearID = "veve353vv",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
+                            SemesterID = "9",
+                            SemesterName = "Semester 9",
+                            SemesterNumber = 9
                         },
                         new
                         {
-                            SemesterID = "drz5",
-                            AcademicYearID = "3ffv35efe33",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
-                        },
-                        new
-                        {
-                            SemesterID = "tre5554",
-                            AcademicYearID = "3dvevfve3ecdf",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
-                        },
-                        new
-                        {
-                            SemesterID = "54hfrth",
-                            AcademicYearID = "3fee33fe33",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
-                        },
-                        new
-                        {
-                            SemesterID = "54yh6ht",
-                            AcademicYearID = "3d3vevecdf",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
-                        },
-                        new
-                        {
-                            SemesterID = "54y54gh",
-                            AcademicYearID = "3fevwefw34fe33",
-                            SemesterName = "Semester 02",
-                            SemesterNumber = 2
+                            SemesterID = "10",
+                            SemesterName = "Semester 10",
+                            SemesterNumber = 10
                         });
                 });
 
@@ -1586,13 +1427,6 @@ namespace razor_gpa_web_app.Migrations
                     b.HasOne("razor_gpa_web_app.Areas.Identity.Data.ApplicationUser", "User")
                         .WithMany("SGPAs")
                         .HasForeignKey("StudentID");
-                });
-
-            modelBuilder.Entity("razor_gpa_web_app.Models.Semester", b =>
-                {
-                    b.HasOne("razor_gpa_web_app.Models.AcademicYear", "AcademicYear")
-                        .WithMany("Semesters")
-                        .HasForeignKey("AcademicYearID");
                 });
 
             modelBuilder.Entity("razor_gpa_web_app.Models.SubjectModule", b =>

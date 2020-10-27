@@ -21,7 +21,6 @@ namespace razor_gpa_web_app.Models
         //StartDate.Year
         
         //Navigation
-        public ICollection<Semester> Semesters { get; set; }
         public ICollection<SGPA> SGPAs { get; set; }
         public ICollection<YGPA> YGPAs { get; set; }
         public ICollection<GPA> GPAs { get; set; }

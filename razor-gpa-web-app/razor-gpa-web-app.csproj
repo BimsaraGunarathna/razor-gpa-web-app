@@ -97,6 +97,26 @@
     <Compile Remove="Migrations\20201026065602_mig01.Designer.cs" />
     <Compile Remove="Migrations\20201026091942_mig01.cs" />
     <Compile Remove="Migrations\20201026091942_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201026093515_mig01.cs" />
+    <Compile Remove="Migrations\20201026093515_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201026131306_mig01.cs" />
+    <Compile Remove="Migrations\20201026131306_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201026141151_mig01.cs" />
+    <Compile Remove="Migrations\20201026141151_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201026141806_mig01.cs" />
+    <Compile Remove="Migrations\20201026141806_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201026142708_mig01.cs" />
+    <Compile Remove="Migrations\20201026142708_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201026143115_mig01.cs" />
+    <Compile Remove="Migrations\20201026143115_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201027050113_mig01.cs" />
+    <Compile Remove="Migrations\20201027050113_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201027052140_mig01.cs" />
+    <Compile Remove="Migrations\20201027052140_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201027062132_mig01.cs" />
+    <Compile Remove="Migrations\20201027062132_mig01.Designer.cs" />
+    <Compile Remove="Migrations\20201027072225_mig01.cs" />
+    <Compile Remove="Migrations\20201027072225_mig01.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -113,6 +133,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Semesters\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 

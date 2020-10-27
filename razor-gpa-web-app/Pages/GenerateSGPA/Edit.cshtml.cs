@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.Semesters
+namespace razor_gpa_web_app.Pages.GenerateSGPA
 {
     public class EditModel : PageModel
     {
@@ -21,7 +22,7 @@ namespace razor_gpa_web_app.Pages.Semesters
         }
 
         [BindProperty]
-        public Semester Semester { get; set; }
+        public Paper Paper { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -30,14 +31,25 @@ namespace razor_gpa_web_app.Pages.Semesters
                 return NotFound();
             }
 
-            Semester = await _context.Semester
-                .Include(s => s.AcademicYear).FirstOrDefaultAsync(m => m.SemesterID == id);
+            Paper = await _context.Paper
+                .Include(p => p.ApplicationUser)
+                .Include(p => p.Degree)
+                .Include(p => p.GPA)
+                .Include(p => p.Grade)
+                .Include(p => p.Semester)
+                .Include(p => p.SubjectModule).FirstOrDefaultAsync(m => m.PaperID == id);
 
-            if (Semester == null)
+            if (Paper == null)
             {
                 return NotFound();
             }
-           ViewData["AcademicYearID"] = new SelectList(_context.AcademicYear, "AcademicYearID", "StartDate.Year");
+            ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "RegNum");
+            ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeName");
+            ViewData["GPAID"] = new SelectList(_context.GPA, "GPAID", "GPAID");
+            ViewData["GradeID"] = new SelectList(_context.Grade, "GradeID", "GradeName");
+            ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterName");
+            ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleName");
+            ViewData["AcademicYearID"] = new SelectList(_context.Set<AcademicYear>(), "AcademicYearID", "StartDate");
             return Page();
         }
 
@@ -50,7 +62,7 @@ namespace razor_gpa_web_app.Pages.Semesters
                 return Page();
             }
 
-            _context.Attach(Semester).State = EntityState.Modified;
+            _context.Attach(Paper).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +70,7 @@ namespace razor_gpa_web_app.Pages.Semesters
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SemesterExists(Semester.SemesterID))
+                if (!PaperExists(Paper.PaperID))
                 {
                     return NotFound();
                 }
@@ -71,9 +83,9 @@ namespace razor_gpa_web_app.Pages.Semesters
             return RedirectToPage("./Index");
         }
 
-        private bool SemesterExists(string id)
+        private bool PaperExists(string id)
         {
-            return _context.Semester.Any(e => e.SemesterID == id);
+            return _context.Paper.Any(e => e.PaperID == id);
         }
     }
 }

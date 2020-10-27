@@ -1,0 +1,58 @@
+﻿@page
+@model razor_gpa_web_app.Pages.Papers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Paper</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Paper.SemesterID" class="control-label"></label>
+                <select asp-for="Paper.SemesterID" class="form-control" asp-items="ViewBag.SemesterID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paper.AcademicYearID" class="control-label"></label>
+                <select asp-for="Paper.AcademicYearID" class="form-control" asp-items="ViewBag.AcademicYearID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paper.GPAID" class="control-label"></label>
+                <select asp-for="Paper.GPAID" class="form-control" asp-items="ViewBag.GPAID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paper.DegreeID" class="control-label"></label>
+                <select asp-for="Paper.DegreeID" class="form-control" asp-items="ViewBag.DegreeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paper.StudentID" class="control-label"></label>
+                <select asp-for="Paper.StudentID" class="form-control" asp-items="ViewBag.StudentID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paper.SubjectModuleID" class="control-label"></label>
+                <select asp-for="Paper.SubjectModuleID" class="form-control" asp-items="ViewBag.SubjectModuleID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paper.GradeID" class="control-label"></label>
+                <select asp-for="Paper.GradeID" class="form-control" asp-items="ViewBag.GradeID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

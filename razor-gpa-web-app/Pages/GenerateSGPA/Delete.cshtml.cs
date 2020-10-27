@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.Semesters
+namespace razor_gpa_web_app.Pages.GenerateSGPA
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace razor_gpa_web_app.Pages.Semesters
         }
 
         [BindProperty]
-        public Semester Semester { get; set; }
+        public Paper Paper { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -29,10 +29,15 @@ namespace razor_gpa_web_app.Pages.Semesters
                 return NotFound();
             }
 
-            Semester = await _context.Semester
-                .Include(s => s.AcademicYear).FirstOrDefaultAsync(m => m.SemesterID == id);
+            Paper = await _context.Paper
+                .Include(p => p.ApplicationUser)
+                .Include(p => p.Degree)
+                .Include(p => p.GPA)
+                .Include(p => p.Grade)
+                .Include(p => p.Semester)
+                .Include(p => p.SubjectModule).FirstOrDefaultAsync(m => m.PaperID == id);
 
-            if (Semester == null)
+            if (Paper == null)
             {
                 return NotFound();
             }
@@ -46,11 +51,11 @@ namespace razor_gpa_web_app.Pages.Semesters
                 return NotFound();
             }
 
-            Semester = await _context.Semester.FindAsync(id);
+            Paper = await _context.Paper.FindAsync(id);
 
-            if (Semester != null)
+            if (Paper != null)
             {
-                _context.Semester.Remove(Semester);
+                _context.Paper.Remove(Paper);
                 await _context.SaveChangesAsync();
             }
 

@@ -63,18 +63,11 @@ namespace razor_gpa_web_app.Migrations
                 {
                     SemesterID = table.Column<string>(nullable: false),
                     SemesterNumber = table.Column<int>(nullable: false),
-                    SemesterName = table.Column<string>(nullable: false),
-                    AcademicYearID = table.Column<string>(nullable: true)
+                    SemesterName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Semester", x => x.SemesterID);
-                    table.ForeignKey(
-                        name: "FK_Semester_AcademicYear_AcademicYearID",
-                        column: x => x.AcademicYearID,
-                        principalTable: "AcademicYear",
-                        principalColumn: "AcademicYearID",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -520,10 +513,10 @@ namespace razor_gpa_web_app.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ee123472-f3ea-44a6-809f-1ca4fed6c16e", "49723812-b59e-4389-8a0a-a0c34d1f9c98", "Admin", null },
-                    { "a24781ff-029a-4e92-8cc4-c8e6dd9f01c9", "165d61bb-eaae-455a-b73e-12328f40e26b", "HOD", null },
-                    { "ac4c06af-716e-4cd1-a39c-49672105ff7c", "a4a9e6e0-d4b6-4b67-add6-9ff220d97cd7", "Staff", null },
-                    { "7ab7df3c-21fc-4881-b136-6672746bb456", "6c6bf673-79b5-43d8-a0c1-7c1336b78f9a", "Student", null }
+                    { "00ed898f-5dfd-4501-a76b-4abd49db118a", "b18c61ce-d888-4b58-b7ae-f184e80dfb67", "Admin", null },
+                    { "cc8c6958-a53e-46bb-812f-7125b9d2881c", "aee7be9d-3ba8-4c04-855d-c762e7bd0b49", "HOD", null },
+                    { "b1a99fdc-6b6b-4eac-91e4-cc5963969422", "d915589d-9274-4c5b-a863-2deadabeebb1", "Staff", null },
+                    { "5bd5515c-7e01-4562-8464-df1a4e60e926", "1da27597-c2d2-4106-aaff-c92f6b998c1e", "Student", null }
                 });
 
             migrationBuilder.InsertData(
@@ -554,13 +547,13 @@ namespace razor_gpa_web_app.Migrations
                     { "43f3d", 0.0, "PBCA <35%", "Ia", null, null },
                     { "67j6j", 0.0, "CA < 35", "Ia", null, null },
                     { "54gfge", 1.3, "35 –39", "D+", null, null },
-                    { "3r3f", 4.0, "75 –84", "A", null, null },
-                    { "56h56hbyg", 2.7000000000000002, "45 –49", "C", null, null },
                     { "6h6h5b", 2.2999999999999998, "50 –54", "C+", null, null },
+                    { "56h56hbyg", 2.7000000000000002, "45 –49", "C", null, null },
                     { "re43", 2.7000000000000002, "55 –59", "B-", null, null },
                     { "3ff3f", 3.0, "60 –64", "B", null, null },
                     { "3f3f3", 3.2999999999999998, "65 –69", "B+", null, null },
                     { "wff33f", 3.7000000000000002, "70 –74", "A-", null, null },
+                    { "3r3f", 4.0, "75 –84", "A", null, null },
                     { "iiu2983", 4.2000000000000002, "85 –100", "A+", null, null },
                     { "dfg5445gtf", 1.7, "40 –44", "C-", null, null }
                 });
@@ -570,18 +563,35 @@ namespace razor_gpa_web_app.Migrations
                 columns: new[] { "IntakeID", "IntakeNumber" },
                 values: new object[,]
                 {
+                    { "2jg3vrf", 29 },
+                    { "g423hfvy", 30 },
                     { "fvghwt", 31 },
                     { "oi765", 32 },
                     { "4u23v", 33 },
                     { "432vuv", 34 },
-                    { "43t65il", 35 },
-                    { "hjv32b", 39 },
+                    { "k5j34b3i", 36 },
                     { "53hb53", 37 },
                     { "jbk43l", 38 },
+                    { "hjv32b", 39 },
                     { "wde3", 40 },
-                    { "g423hfvy", 30 },
-                    { "k5j34b3i", 36 },
-                    { "2jg3vrf", 29 }
+                    { "43t65il", 35 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Semester",
+                columns: new[] { "SemesterID", "SemesterName", "SemesterNumber" },
+                values: new object[,]
+                {
+                    { "9", "Semester 9", 9 },
+                    { "1", "Semester 1", 1 },
+                    { "2", "Semester 2", 2 },
+                    { "3", "Semester 3", 3 },
+                    { "4", "Semester 4", 4 },
+                    { "5", "Semester 5", 5 },
+                    { "6", "Semester 6", 6 },
+                    { "7", "Semester 7", 7 },
+                    { "8", "Semester 8", 8 },
+                    { "10", "Semester 10", 10 }
                 });
 
             migrationBuilder.InsertData(
@@ -589,49 +599,16 @@ namespace razor_gpa_web_app.Migrations
                 columns: new[] { "DepartmentID", "DepartmentName", "FacultyID" },
                 values: new object[,]
                 {
-                    { "3vr3q", "Computational Mathematics", "23df2" },
+                    { "dwdw3", "Aeronautical Engineering", "432rf2" },
                     { "gerger", "Civil Engineering", "432rf2" },
                     { "rtebt", "Electronic & Telecommunication Engineering", "432rf2" },
                     { "3jkfqa", "Mathematics", "432rf2" },
-                    { "dwdw3", "Aeronautical Engineering", "432rf2" },
+                    { "dw22d", "Mechanical Engineering", "432rf2" },
                     { "312ju3dfn", "Marine engineering", "432rf2" },
                     { "3dfde3", "Information Technology", "23df2" },
                     { "qdw", "Computer Science", "23df2" },
-                    { "dw22d", "Mechanical Engineering", "432rf2" },
-                    { "32rfrv", "Computer Engineering", "23df2" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Semester",
-                columns: new[] { "SemesterID", "AcademicYearID", "SemesterName", "SemesterNumber" },
-                values: new object[,]
-                {
-                    { "j4kb52", "3dvevfve3ecdf", "Semester 01", 1 },
-                    { "54y54gh", "3fevwefw34fe33", "Semester 02", 2 },
-                    { "h2b45j", "3fevwefw34fe33", "Semester 01", 1 },
-                    { "54yh6ht", "3d3vevecdf", "Semester 02", 2 },
-                    { "hb4325kb", "3d3vevecdf", "Semester 01", 1 },
-                    { "54hfrth", "3fee33fe33", "Semester 02", 2 },
-                    { "2b34jkbh", "3fee33fe33", "Semester 01", 1 },
-                    { "tre5554", "3dvevfve3ecdf", "Semester 02", 2 },
-                    { "drz5", "3ffv35efe33", "Semester 02", 2 },
-                    { "h2bg5e45j", "veve353vv", "Semester 02", 2 },
-                    { "34fr4", "myud", "Semester 02", 2 },
-                    { "d33", "myrfwfud", "Semester 01", 1 },
-                    { "h2b4f4f4fw5j", "myrfwfud", "Semester 02", 2 },
-                    { "f3f3rfr", "eveefweveum", "Semester 01", 1 },
-                    { "43ff34cr", "eveefweveum", "Semester 02", 2 },
-                    { "j4n343", "3d3emucdf", "Semester 01", 1 },
-                    { "5bhi23", "3ffv35efe33", "Semester 01", 1 },
-                    { "fw43", "3d3emucdf", "Semester 02", 2 },
-                    { "h2bcf34f45j", "ecj235332", "Semester 02", 2 },
-                    { "b32briu45", "3rcd535c", "Semester 01", 1 },
-                    { "h2b54gb45j", "3rcd535c", "Semester 02", 2 },
-                    { "b3i24iu42", "ec3fej232", "Semester 01", 1 },
-                    { "5egz", "ec3fej232", "Semester 02", 2 },
-                    { "54b64", "veve353vv", "Semester 01", 1 },
-                    { "hjh4334432", "ecj235332", "Semester 01", 1 },
-                    { "kjei3322", "myud", "Semester 01", 1 }
+                    { "32rfrv", "Computer Engineering", "23df2" },
+                    { "3vr3q", "Computational Mathematics", "23df2" }
                 });
 
             migrationBuilder.InsertData(
@@ -651,10 +628,10 @@ namespace razor_gpa_web_app.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DegreeID", "DepartmentID", "Email", "EmailConfirmed", "FacultyID", "FirstName", "IntakeID", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RegNum", "SecurityStamp", "SubjectModuleID", "TwoFactorEnabled", "UserName", "UserRole" },
                 values: new object[,]
                 {
-                    { "00d001c2-1cc5-4c5a-a7a7-c1b08ba1dbfd", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ddwd232", "3dfde3", "admin@gmail.com", false, "23df2", "Bimsara", "43t65il", "Gunarathna", true, null, "ADMIN@GMAIL.COM", "admin@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "D/IT/18/0067", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "admin@gmail.com", 1 },
-                    { "db21789e-676b-4951-bd14-81c2aa2d1d07", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ddwd232", "3dfde3", "student@gmail.com", false, "23df2", "Bimsara", "43t65il", "Gunarathna", true, null, "STUDENT@GMAIL.COM", "student@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "D/IT/18/0067", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "student@gmail.com", 4 },
-                    { "c02e3dc9-bab3-4ebe-8b86-50611f6baca0", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ol433", "qdw", "staff@gmail.com", false, "23df2", "Harry", "k5j34b3i", "Potter", true, null, "STAFF@GMAIL.COM", "staff@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "D/IS/18/0015", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "staff@gmail.com", 2 },
-                    { "e83efdea-d974-413f-a2d7-410c371cdb7c", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ol433", "qdw", "hod@gmail.com", false, "23df2", "Elon", "k5j34b3i", "Musk", true, null, "HOD@GMAIL.COM", "hod@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "D/SE/18/0067", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "hod@gmail.com", 3 }
+                    { "a0c70d84-d1b3-44fb-b03b-4d75e00c9876", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ddwd232", "3dfde3", "admin@gmail.com", false, "23df2", "Bimsara", "43t65il", "Gunarathna", true, null, "ADMIN@GMAIL.COM", "admin@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "admin", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "admin@gmail.com", 1 },
+                    { "1f724c8a-18c5-40e2-9b1b-1fb5a727d99e", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ddwd232", "3dfde3", "student@gmail.com", false, "23df2", "Bimsara", "43t65il", "Gunarathna", true, null, "STUDENT@GMAIL.COM", "student@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "student", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "student@gmail.com", 4 },
+                    { "518a6f6f-306a-4996-a2ce-33aa6865d076", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ol433", "qdw", "staff@gmail.com", false, "23df2", "Harry", "k5j34b3i", "Potter", true, null, "STAFF@GMAIL.COM", "staff@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "staff", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "staff@gmail.com", 2 },
+                    { "0651920d-cb50-4665-854d-84a5ea116dc6", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ol433", "qdw", "hod@gmail.com", false, "23df2", "Elon", "k5j34b3i", "Musk", true, null, "HOD@GMAIL.COM", "hod@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "hod", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "hod@gmail.com", 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -681,20 +658,10 @@ namespace razor_gpa_web_app.Migrations
                 columns: new[] { "UserId", "RoleId" },
                 values: new object[,]
                 {
-                    { "00d001c2-1cc5-4c5a-a7a7-c1b08ba1dbfd", "ee123472-f3ea-44a6-809f-1ca4fed6c16e" },
-                    { "db21789e-676b-4951-bd14-81c2aa2d1d07", "7ab7df3c-21fc-4881-b136-6672746bb456" },
-                    { "c02e3dc9-bab3-4ebe-8b86-50611f6baca0", "ac4c06af-716e-4cd1-a39c-49672105ff7c" },
-                    { "e83efdea-d974-413f-a2d7-410c371cdb7c", "a24781ff-029a-4e92-8cc4-c8e6dd9f01c9" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Paper",
-                columns: new[] { "PaperID", "AcademicYearID", "DegreeID", "GPAID", "GradeID", "SemesterID", "StudentID", "SubjectModuleID" },
-                values: new object[,]
-                {
-                    { "hjwbu232332", "myud", "ddwd232", null, "wff33f", "kjei3322", "db21789e-676b-4951-bd14-81c2aa2d1d07", "23ftgw4t5" },
-                    { "jbwfwi3t3223", "myud", "ddwd232", null, "3r3f", "kjei3322", "db21789e-676b-4951-bd14-81c2aa2d1d07", "657j5j" },
-                    { "ej32i1123", "myud", "ddwd232", null, "iiu2983", "kjei3322", "db21789e-676b-4951-bd14-81c2aa2d1d07", "th45hr" }
+                    { "a0c70d84-d1b3-44fb-b03b-4d75e00c9876", "00ed898f-5dfd-4501-a76b-4abd49db118a" },
+                    { "1f724c8a-18c5-40e2-9b1b-1fb5a727d99e", "5bd5515c-7e01-4562-8464-df1a4e60e926" },
+                    { "518a6f6f-306a-4996-a2ce-33aa6865d076", "b1a99fdc-6b6b-4eac-91e4-cc5963969422" },
+                    { "0651920d-cb50-4665-854d-84a5ea116dc6", "cc8c6958-a53e-46bb-812f-7125b9d2881c" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -837,11 +804,6 @@ namespace razor_gpa_web_app.Migrations
                 column: "SubjectModuleID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Semester_AcademicYearID",
-                table: "Semester",
-                column: "AcademicYearID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_SGPA_AcademicYearID",
                 table: "SGPA",
                 column: "AcademicYearID");
@@ -908,6 +870,9 @@ namespace razor_gpa_web_app.Migrations
                 name: "Grade");
 
             migrationBuilder.DropTable(
+                name: "AcademicYear");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
@@ -918,9 +883,6 @@ namespace razor_gpa_web_app.Migrations
 
             migrationBuilder.DropTable(
                 name: "SubjectModule");
-
-            migrationBuilder.DropTable(
-                name: "AcademicYear");
 
             migrationBuilder.DropTable(
                 name: "Degree");
