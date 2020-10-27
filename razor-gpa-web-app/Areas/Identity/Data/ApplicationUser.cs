@@ -25,7 +25,6 @@ namespace razor_gpa_web_app.Areas.Identity.Data
         public int UserRole { get; set;  }
 
         //
-        public  ICollection<GPA> GPAs { get; set; }
         public  ICollection<SGPA> SGPAs { get; set; }
         public ICollection<YGPA> YGPAs { get; set; }
         public ICollection<Paper> Papers { get; set; }

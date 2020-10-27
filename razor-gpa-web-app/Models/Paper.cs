@@ -16,13 +16,13 @@ namespace razor_gpa_web_app.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string PaperID { get; set; }
 
+        [AllowNull]
+        public Double GPAValue { get; set; }
+
         //Navigation
         public string SemesterID { get; set; }
 
         public string AcademicYearID { get; set; }
-
-        [AllowNull]
-        public string GPAID { get; set; }
 
         public string DegreeID { get; set; }
 
@@ -40,9 +40,6 @@ namespace razor_gpa_web_app.Models
 
         [ForeignKey("SubjectModuleID")]
         public virtual SubjectModule SubjectModule { get; set; }
-
-        [ForeignKey("GPAID")]
-        public virtual GPA GPA { get; set; }
 
         [ForeignKey("StudentID")]
         public virtual ApplicationUser ApplicationUser { get; set; }

@@ -12,7 +12,7 @@ using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.GenerateSGPA
+namespace razor_gpa_web_app.Pages.HODPages
 {
     public class IndexModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         //
-        public string UserId { get; set; }
+        
         public Double SemesterOneGPA { get; set; }
         public Double SemesterTwoGPA { get; set; }
         public Double SemesterThreeGPA { get; set; }
@@ -33,6 +33,14 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
         public Double SemesterNineGPA { get; set; }
         public Double SemesterTenGPA { get; set; }
 
+        //
+        //public IList<FakeSGPA> StudentGPAList { get; set; }
+
+        //known issue: avoided null exception occurred: public IList<FakeSGPA> StudentGPAList { get; set; }
+        public IList<FakeSGPA> StudentGPAList = new List<FakeSGPA>();
+
+        public string UserId { get; set; }
+        public string userDeptID { get; set; }
 
         public IndexModel(
             DBContext context, 
@@ -48,34 +56,56 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
 
         public async Task OnGetAsync()
         {
-            //user id
+            //get the user id
             UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            
-            if (UserId == null)
+
+            //Get the user
+            var AppUser = await _userManager.GetUserAsync(User);
+
+            userDeptID = AppUser.DepartmentID;
+
+            if (UserId == null || userDeptID == null)
             {
                 RedirectToPage("./Index");
             }
 
-            SemesterOneGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "1");
 
-            SemesterTwoGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "2");
+            var studentListByDept = from n in _context.ApplicationUser
+                                    where n.DepartmentID == userDeptID
+                                    select n;
+            
+            //go throught users of the dept
+            foreach (var i in studentListByDept)
+            {
+                var fakesgpa = new FakeSGPA();
 
-            SemesterThreeGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "3");
+                //User
+                fakesgpa.FirstName = "jbf";
+                fakesgpa.LastName = "rbrwgw";
+                fakesgpa.RegNum = "vjhrvbe";
 
-            SemesterFourGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "4");
+                //Semester
+                fakesgpa.SGPAValueForSemOne =  123.09;
+                fakesgpa.SGPAValueForSemTwo =  123.09;
+                fakesgpa.SGPAValueForSemThree = 123.09;
+                fakesgpa.SGPAValueForSemFour = 123.09;
+                fakesgpa.SGPAValueForSemFive = 123.09;
+                fakesgpa.SGPAValueForSemSix =  123.09;
+                fakesgpa.SGPAValueForSemSeven = 123.09;
+                fakesgpa.SGPAValueForSemEight = 123.09;
+                fakesgpa.SGPAValueForSemNine = 123.09;
+                fakesgpa.SGPAValueForSemTen = 123.09;
 
-            SemesterFiveGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "5");
+                //Year
+                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemOne + fakesgpa.SGPAValueForSemTwo) / 2;
+                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemThree + fakesgpa.SGPAValueForSemFour) / 2;
+                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemFive + fakesgpa.SGPAValueForSemSix) / 2;
+                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemSeven + fakesgpa.SGPAValueForSemEight) / 2;
+                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemNine + fakesgpa.SGPAValueForSemTen) / 2;
 
-            SemesterSixGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "6");
-
-            SemesterSevenGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "7");
-
-            SemesterEightGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "8");
-
-            SemesterNineGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "9");
-
-            SemesterTenGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "10");
-
+                StudentGPAList.Add(fakesgpa);
+            }
+            
         }
 
         Double CalculateSGPA(DBContext _context, string _userId, string _semesterId)
@@ -105,9 +135,6 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
             //spgpaForSem01 = cumalativeGgpaForSem01 / cumalativeCreditForSem01;
             return sgpa = (cumalativeGgpaForSem01 / cumalativeCreditForSem01);
         }
-
-
     }
-
 }
 

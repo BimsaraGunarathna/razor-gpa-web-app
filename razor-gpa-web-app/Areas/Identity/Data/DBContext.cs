@@ -44,7 +44,7 @@ namespace razor_gpa_web_app.Data
 
         public DbSet<SubjectModule> SubjectModule { get; set; }
 
-        public DbSet<GPA> GPA { get; set; }
+        //public DbSet<GPA> GPA { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -364,8 +364,8 @@ namespace razor_gpa_web_app.Data
             //ApplicationUser
             var adminUser = new ApplicationUser { LockoutEnabled = true, ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1", SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", NormalizedUserName = "admin@gmail.com", NormalizedEmail = "ADMIN@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", UserName = "admin@gmail.com", Email = "admin@gmail.com", RegNum = "admin", FirstName = "Bimsara", LastName = "Gunarathna", UserRole = 1, IntakeID = "43t65il", DegreeID = "ddwd232", DepartmentID = "3dfde3", FacultyID = "23df2" };
             var studentUser = new ApplicationUser { LockoutEnabled = true, ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1", SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", NormalizedUserName = "student@gmail.com", NormalizedEmail = "STUDENT@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", UserName = "student@gmail.com", Email = "student@gmail.com", RegNum = "student", FirstName = "Bimsara", LastName = "Gunarathna", UserRole = 4, IntakeID = "43t65il", DegreeID = "ddwd232", DepartmentID = "3dfde3", FacultyID = "23df2" };
-            var staffUser = new ApplicationUser { LockoutEnabled = true, ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1", SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", NormalizedUserName = "staff@gmail.com", NormalizedEmail = "STAFF@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", UserName = "staff@gmail.com", Email = "staff@gmail.com", RegNum = "staff", FirstName = "Harry", LastName = "Potter", UserRole = 2, IntakeID = "k5j34b3i", DegreeID = "ol433", DepartmentID = "qdw", FacultyID = "23df2" };
-            var hODUser = new ApplicationUser { LockoutEnabled = true, ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1", SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", NormalizedUserName = "hod@gmail.com", NormalizedEmail = "HOD@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", UserName = "hod@gmail.com", Email = "hod@gmail.com", RegNum = "hod", FirstName = "Elon", LastName = "Musk", UserRole = 3, IntakeID = "k5j34b3i", DegreeID = "ol433", DepartmentID = "qdw", FacultyID = "23df2" };
+            var staffUser = new ApplicationUser { LockoutEnabled = true, ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1", SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", NormalizedUserName = "staff@gmail.com", NormalizedEmail = "STAFF@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", UserName = "staff@gmail.com", Email = "staff@gmail.com", RegNum = "staff", FirstName = "Harry", LastName = "Potter", UserRole = 2, IntakeID = "k5j34b3i", DegreeID = "ol433", DepartmentID = "3dfde3", FacultyID = "23df2" };
+            var hODUser = new ApplicationUser { LockoutEnabled = true, ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1", SecurityStamp = "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", NormalizedUserName = "hod@gmail.com", NormalizedEmail = "HOD@GMAIL.COM", PasswordHash = "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", UserName = "hod@gmail.com", Email = "hod@gmail.com", RegNum = "hod", FirstName = "Elon", LastName = "Musk", UserRole = 3, IntakeID = "k5j34b3i", DegreeID = "ol433", DepartmentID = "3dfde3", FacultyID = "23df2" };
 
             builder.Entity<ApplicationUser>().HasData(
                 adminUser,

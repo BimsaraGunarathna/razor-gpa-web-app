@@ -28,7 +28,6 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
         {
         ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "RegNum");
         ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeName");
-        ViewData["GPAID"] = new SelectList(_context.GPA, "GPAID", "GPAID");
         ViewData["GradeID"] = new SelectList(_context.Grade, "GradeID", "GradeName");
         ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterName");
         ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleName");
@@ -39,7 +38,7 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
         [BindProperty]
         public Paper Paper { get; set; }
 
-        public GPA GPA { get; set; }
+        //public GPA GPA { get; set; }
 
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -78,9 +77,9 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
 
             Double calculatedGPA = Convert.ToDouble(selectedSubject) * selectedGrade;
 
-            GPA = new GPA
+            Paper = new Paper
             {
-                GPAID = Guid.NewGuid().ToString(),
+                PaperID = Guid.NewGuid().ToString(),
                 SemesterID = Paper.SemesterID,
                 SubjectModuleID = Paper.SubjectModuleID,
                 StudentID = Paper.StudentID,
@@ -88,8 +87,6 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
                 GPAValue = calculatedGPA
             };
 
-
-            _context.GPA.Add(GPA);
             _context.Paper.Add(Paper);
 
             await _context.SaveChangesAsync();

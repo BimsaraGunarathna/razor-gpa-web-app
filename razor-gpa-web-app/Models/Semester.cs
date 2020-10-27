@@ -25,8 +25,6 @@ namespace razor_gpa_web_app.Models
 
         //
 
-        public ICollection<GPA> GPAs { get; set; }
-
         public ICollection<Paper> Papers { get; set; }
 
         public ICollection<SGPA> SGPAs { get; set; }

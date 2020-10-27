@@ -26,7 +26,6 @@ namespace razor_gpa_web_app.Pages.Papers
             Paper = await _context.Paper
                 .Include(p => p.ApplicationUser)
                 .Include(p => p.Degree)
-                .Include(p => p.GPA)
                 .Include(p => p.Grade)
                 .Include(p => p.Semester)
                 .Include(p => p.SubjectModule).ToListAsync();

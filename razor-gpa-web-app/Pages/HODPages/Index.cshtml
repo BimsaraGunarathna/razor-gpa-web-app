@@ -1,0 +1,22 @@
+﻿
+@page
+@model razor_gpa_web_app.Pages.HODPages.IndexModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="card-columns">
+    <h1>Hi</h1>
+    <h2>@Model.userDeptID</h2>
+    <h2>@Model.UserId</h2>
+    <h1>@Model.StudentGPAList[0].FirstName</h1>
+    <span></span>
+    <h1>@Model.StudentGPAList[0].LastName</h1>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <h1>@Model.StudentGPAList[0].SGPAValueForSemOne</h1>
+</div>

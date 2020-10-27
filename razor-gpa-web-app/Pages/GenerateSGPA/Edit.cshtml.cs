@@ -34,7 +34,6 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
             Paper = await _context.Paper
                 .Include(p => p.ApplicationUser)
                 .Include(p => p.Degree)
-                .Include(p => p.GPA)
                 .Include(p => p.Grade)
                 .Include(p => p.Semester)
                 .Include(p => p.SubjectModule).FirstOrDefaultAsync(m => m.PaperID == id);
@@ -45,7 +44,6 @@ namespace razor_gpa_web_app.Pages.GenerateSGPA
             }
             ViewData["StudentID"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "RegNum");
             ViewData["DegreeID"] = new SelectList(_context.Degree, "DegreeID", "DegreeName");
-            ViewData["GPAID"] = new SelectList(_context.GPA, "GPAID", "GPAID");
             ViewData["GradeID"] = new SelectList(_context.Grade, "GradeID", "GradeName");
             ViewData["SemesterID"] = new SelectList(_context.Set<Semester>(), "SemesterID", "SemesterName");
             ViewData["SubjectModuleID"] = new SelectList(_context.Set<SubjectModule>(), "SubjectModuleID", "SubjectModuleName");

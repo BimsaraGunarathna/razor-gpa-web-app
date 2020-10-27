@@ -48,26 +48,26 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "00ed898f-5dfd-4501-a76b-4abd49db118a",
-                            ConcurrencyStamp = "b18c61ce-d888-4b58-b7ae-f184e80dfb67",
+                            Id = "1e14cd65-a78e-400e-bd42-7d79ab1f5186",
+                            ConcurrencyStamp = "f7da5558-65a2-46c7-a20f-a375c9132d9c",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "b1a99fdc-6b6b-4eac-91e4-cc5963969422",
-                            ConcurrencyStamp = "d915589d-9274-4c5b-a863-2deadabeebb1",
+                            Id = "fac976a2-8efb-4775-8a94-08a4585dfc0f",
+                            ConcurrencyStamp = "af572b53-5bde-4153-9644-e9f874ef6c51",
                             Name = "Staff"
                         },
                         new
                         {
-                            Id = "cc8c6958-a53e-46bb-812f-7125b9d2881c",
-                            ConcurrencyStamp = "aee7be9d-3ba8-4c04-855d-c762e7bd0b49",
+                            Id = "37aec88c-d365-4de8-ba06-cbd83e26c614",
+                            ConcurrencyStamp = "405b08ee-8781-4f83-a18b-b34241b487f8",
                             Name = "HOD"
                         },
                         new
                         {
-                            Id = "5bd5515c-7e01-4562-8464-df1a4e60e926",
-                            ConcurrencyStamp = "1da27597-c2d2-4106-aaff-c92f6b998c1e",
+                            Id = "4b3906ec-a2aa-4c0f-9f1a-f01dc5e918e5",
+                            ConcurrencyStamp = "95eabae3-ddd9-4405-847b-c07eb4409a4a",
                             Name = "Student"
                         });
                 });
@@ -159,23 +159,23 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "a0c70d84-d1b3-44fb-b03b-4d75e00c9876",
-                            RoleId = "00ed898f-5dfd-4501-a76b-4abd49db118a"
+                            UserId = "968f769b-0cc5-4cd1-acde-2843db4fdb0c",
+                            RoleId = "1e14cd65-a78e-400e-bd42-7d79ab1f5186"
                         },
                         new
                         {
-                            UserId = "1f724c8a-18c5-40e2-9b1b-1fb5a727d99e",
-                            RoleId = "5bd5515c-7e01-4562-8464-df1a4e60e926"
+                            UserId = "58488210-d600-47c0-a04d-586e79c1415f",
+                            RoleId = "4b3906ec-a2aa-4c0f-9f1a-f01dc5e918e5"
                         },
                         new
                         {
-                            UserId = "518a6f6f-306a-4996-a2ce-33aa6865d076",
-                            RoleId = "b1a99fdc-6b6b-4eac-91e4-cc5963969422"
+                            UserId = "4d3c06c8-ccb5-42a8-b675-2af6237fc526",
+                            RoleId = "fac976a2-8efb-4775-8a94-08a4585dfc0f"
                         },
                         new
                         {
-                            UserId = "0651920d-cb50-4665-854d-84a5ea116dc6",
-                            RoleId = "cc8c6958-a53e-46bb-812f-7125b9d2881c"
+                            UserId = "2bcf85de-02ec-4f5d-b274-c9ce6fe56a4c",
+                            RoleId = "37aec88c-d365-4de8-ba06-cbd83e26c614"
                         });
                 });
 
@@ -302,7 +302,7 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a0c70d84-d1b3-44fb-b03b-4d75e00c9876",
+                            Id = "968f769b-0cc5-4cd1-acde-2843db4fdb0c",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -326,7 +326,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "1f724c8a-18c5-40e2-9b1b-1fb5a727d99e",
+                            Id = "58488210-d600-47c0-a04d-586e79c1415f",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -350,7 +350,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "518a6f6f-306a-4996-a2ce-33aa6865d076",
+                            Id = "4d3c06c8-ccb5-42a8-b675-2af6237fc526",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
@@ -374,7 +374,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "0651920d-cb50-4665-854d-84a5ea116dc6",
+                            Id = "2bcf85de-02ec-4f5d-b274-c9ce6fe56a4c",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
@@ -691,41 +691,6 @@ namespace razor_gpa_web_app.Migrations
                         });
                 });
 
-            modelBuilder.Entity("razor_gpa_web_app.Models.GPA", b =>
-                {
-                    b.Property<string>("GPAID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("AcademicYearID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("GPAValue")
-                        .HasColumnType("float")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("SemesterID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("StudentID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("SubjectModuleID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("GPAID");
-
-                    b.HasIndex("AcademicYearID");
-
-                    b.HasIndex("SemesterID");
-
-                    b.HasIndex("StudentID");
-
-                    b.HasIndex("SubjectModuleID");
-
-                    b.ToTable("GPA");
-                });
-
             modelBuilder.Entity("razor_gpa_web_app.Models.Grade", b =>
                 {
                     b.Property<string>("GradeID")
@@ -970,8 +935,8 @@ namespace razor_gpa_web_app.Migrations
                     b.Property<string>("DegreeID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("GPAID")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<double>("GPAValue")
+                        .HasColumnType("float");
 
                     b.Property<string>("GradeID")
                         .HasColumnType("nvarchar(450)");
@@ -990,8 +955,6 @@ namespace razor_gpa_web_app.Migrations
                     b.HasIndex("AcademicYearID");
 
                     b.HasIndex("DegreeID");
-
-                    b.HasIndex("GPAID");
 
                     b.HasIndex("GradeID");
 
@@ -1353,25 +1316,6 @@ namespace razor_gpa_web_app.Migrations
                         .HasForeignKey("FacultyID");
                 });
 
-            modelBuilder.Entity("razor_gpa_web_app.Models.GPA", b =>
-                {
-                    b.HasOne("razor_gpa_web_app.Models.AcademicYear", "AcademicYear")
-                        .WithMany("GPAs")
-                        .HasForeignKey("AcademicYearID");
-
-                    b.HasOne("razor_gpa_web_app.Models.Semester", "Semester")
-                        .WithMany("GPAs")
-                        .HasForeignKey("SemesterID");
-
-                    b.HasOne("razor_gpa_web_app.Areas.Identity.Data.ApplicationUser", "ApplicationUser")
-                        .WithMany("GPAs")
-                        .HasForeignKey("StudentID");
-
-                    b.HasOne("razor_gpa_web_app.Models.SubjectModule", "SubjectModule")
-                        .WithMany("GPAs")
-                        .HasForeignKey("SubjectModuleID");
-                });
-
             modelBuilder.Entity("razor_gpa_web_app.Models.Grade", b =>
                 {
                     b.HasOne("razor_gpa_web_app.Models.Semester", null)
@@ -1392,10 +1336,6 @@ namespace razor_gpa_web_app.Migrations
                     b.HasOne("razor_gpa_web_app.Models.Degree", "Degree")
                         .WithMany("Papers")
                         .HasForeignKey("DegreeID");
-
-                    b.HasOne("razor_gpa_web_app.Models.GPA", "GPA")
-                        .WithMany("Papers")
-                        .HasForeignKey("GPAID");
 
                     b.HasOne("razor_gpa_web_app.Models.Grade", "Grade")
                         .WithMany("Papers")
