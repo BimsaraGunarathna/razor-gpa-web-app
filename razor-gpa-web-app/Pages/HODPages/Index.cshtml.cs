@@ -21,19 +21,6 @@ namespace razor_gpa_web_app.Pages.HODPages
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         //
-        
-        public Double SemesterOneGPA { get; set; }
-        public Double SemesterTwoGPA { get; set; }
-        public Double SemesterThreeGPA { get; set; }
-        public Double SemesterFourGPA { get; set; }
-        public Double SemesterFiveGPA { get; set; }
-        public Double SemesterSixGPA { get; set; }
-        public Double SemesterSevenGPA { get; set; }
-        public Double SemesterEightGPA { get; set; }
-        public Double SemesterNineGPA { get; set; }
-        public Double SemesterTenGPA { get; set; }
-
-        //
         //public IList<FakeSGPA> StudentGPAList { get; set; }
 
         //known issue: avoided null exception occurred: public IList<FakeSGPA> StudentGPAList { get; set; }
@@ -73,39 +60,37 @@ namespace razor_gpa_web_app.Pages.HODPages
             var studentListByDept = from n in _context.ApplicationUser
                                     where n.DepartmentID == userDeptID
                                     select n;
-            
+
             //go throught users of the dept
             foreach (var i in studentListByDept)
             {
-                var fakesgpa = new FakeSGPA();
-
+                FakeSGPA fakesgpa = new FakeSGPA();
                 //User
-                fakesgpa.FirstName = "jbf";
-                fakesgpa.LastName = "rbrwgw";
-                fakesgpa.RegNum = "vjhrvbe";
-
+                fakesgpa.FirstName = i.FirstName;
+                fakesgpa.LastName = i.LastName;
+                fakesgpa.RegNum = i.RegNum;
                 //Semester
-                fakesgpa.SGPAValueForSemOne =  123.09;
-                fakesgpa.SGPAValueForSemTwo =  123.09;
-                fakesgpa.SGPAValueForSemThree = 123.09;
-                fakesgpa.SGPAValueForSemFour = 123.09;
-                fakesgpa.SGPAValueForSemFive = 123.09;
-                fakesgpa.SGPAValueForSemSix =  123.09;
-                fakesgpa.SGPAValueForSemSeven = 123.09;
-                fakesgpa.SGPAValueForSemEight = 123.09;
-                fakesgpa.SGPAValueForSemNine = 123.09;
-                fakesgpa.SGPAValueForSemTen = 123.09;
+                fakesgpa.SGPAValueForSemOne = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "1");
+                fakesgpa.SGPAValueForSemTwo = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "2");
+                fakesgpa.SGPAValueForSemThree = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "3");
+                fakesgpa.SGPAValueForSemFour = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "4");
+                fakesgpa.SGPAValueForSemFive = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "5");
+                fakesgpa.SGPAValueForSemSix = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "6");
+                fakesgpa.SGPAValueForSemSeven = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "7");
+                fakesgpa.SGPAValueForSemEight = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "8");
+                fakesgpa.SGPAValueForSemNine = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "9");
+                fakesgpa.SGPAValueForSemTen = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "10");
 
                 //Year
-                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemOne + fakesgpa.SGPAValueForSemTwo) / 2;
-                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemThree + fakesgpa.SGPAValueForSemFour) / 2;
-                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemFive + fakesgpa.SGPAValueForSemSix) / 2;
-                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemSeven + fakesgpa.SGPAValueForSemEight) / 2;
-                fakesgpa.SGPAValueForYearOne = (fakesgpa.SGPAValueForSemNine + fakesgpa.SGPAValueForSemTen) / 2;
+                fakesgpa.SGPAValueForYearOne = (double)(fakesgpa.SGPAValueForSemOne + fakesgpa.SGPAValueForSemTwo) / 2;
+                fakesgpa.SGPAValueForYearTwo = (double)(fakesgpa.SGPAValueForSemThree + fakesgpa.SGPAValueForSemFour) / 2;
+                fakesgpa.SGPAValueForYearThree = (double)(fakesgpa.SGPAValueForSemFive + fakesgpa.SGPAValueForSemSix) / 2;
+                fakesgpa.SGPAValueForYearFour = (double)(fakesgpa.SGPAValueForSemSeven + fakesgpa.SGPAValueForSemEight) / 2;
+                fakesgpa.SGPAValueForYearFive = (double)(fakesgpa.SGPAValueForSemNine + fakesgpa.SGPAValueForSemTen) / 2;
 
                 StudentGPAList.Add(fakesgpa);
             }
-            
+
         }
 
         Double CalculateSGPA(DBContext _context, string _userId, string _semesterId)
@@ -133,7 +118,7 @@ namespace razor_gpa_web_app.Pages.HODPages
             }
 
             //spgpaForSem01 = cumalativeGgpaForSem01 / cumalativeCreditForSem01;
-            return sgpa = (cumalativeGgpaForSem01 / cumalativeCreditForSem01);
+            return sgpa = Math.Round((cumalativeGgpaForSem01 / cumalativeCreditForSem01), 2);
         }
     }
 }
