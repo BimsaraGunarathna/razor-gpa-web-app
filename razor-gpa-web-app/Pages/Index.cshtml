@@ -5,13 +5,19 @@
 }
 
 <div class="text-center">
-    <img width="425" height="340" src="/img/kdu-logo.png"/>
+    <img width="425" height="340" src="/img/kdu-logo.png" />
     <h1 class="display-4">Welcome</h1>
     <p>
         to KDU GPA Management System.
         <!--
-        <a href="https://docs.microsoft.com/aspnet/core">to KDU GPA Management System</a>
-    -->
-        
+            <a href="https://docs.microsoft.com/aspnet/core">to KDU GPA Management System</a>
+        -->
+
     </p>
+    <div>
+        @if (@Model._signInManager.IsSignedIn(User) && User.IsInRole(razor_gpa_web_app.Utility.SD.StudentEndUser)) {
+        <button href="./GenerateSGPA/Index" type="button" class="btn btn-primary">Go to your GPA</button>
+        }
+    </div>
+
 </div>
