@@ -260,30 +260,30 @@ namespace razor_gpa_web_app.Data
             );
 
             //Grade
-            var grade01 = new Grade { GradeID = "iiu2983", GradeName = "A+", CreditValue = 4.20, FinalMarks = "85 –100" }       ;
-            var grade02 = new Grade { GradeID = "3r3f", GradeName = "A", CreditValue = 4.00, FinalMarks = "75 –84" }          ;
-            var grade03 = new Grade { GradeID = "wff33f", GradeName = "A-", CreditValue = 3.70, FinalMarks = "70 –74" }      ;
+            var grade01 = new Grade { GradeID = "A+", GradeName = "A+", CreditValue = 4.20, FinalMarks = "85 –100" }       ;
+            var grade02 = new Grade { GradeID = "A", GradeName = "A", CreditValue = 4.00, FinalMarks = "75 –84" }          ;
+            var grade03 = new Grade { GradeID = "A-", GradeName = "A-", CreditValue = 3.70, FinalMarks = "70 –74" }      ;
                                                                                                                                   ;
-            var grade04 = new Grade { GradeID = "3f3f3", GradeName = "B+", CreditValue = 3.30, FinalMarks = "65 –69" }          ;
-            var grade05 = new Grade { GradeID = "3ff3f", GradeName = "B", CreditValue = 3.00, FinalMarks = "60 –64" }          ;
-            var grade06 = new Grade { GradeID = "re43", GradeName = "B-", CreditValue = 2.70, FinalMarks = "55 –59" }        ;
+            var grade04 = new Grade { GradeID = "B+", GradeName = "B+", CreditValue = 3.30, FinalMarks = "65 –69" }          ;
+            var grade05 = new Grade { GradeID = "B", GradeName = "B", CreditValue = 3.00, FinalMarks = "60 –64" }          ;
+            var grade06 = new Grade { GradeID = "B-", GradeName = "B-", CreditValue = 2.70, FinalMarks = "55 –59" }        ;
                                                                                                                                  ;
-            var grade07 = new Grade { GradeID = "6h6h5b", GradeName = "C+", CreditValue = 2.30, FinalMarks = "50 –54" }          ;
-            var grade08 = new Grade { GradeID = "56h56hbyg", GradeName = "C", CreditValue = 2.70, FinalMarks = "45 –49" }       ;
-            var grade09 = new Grade { GradeID = "dfg5445gtf", GradeName = "C-", CreditValue = 1.70, FinalMarks = "40 –44" }      ;
+            var grade07 = new Grade { GradeID = "C+", GradeName = "C+", CreditValue = 2.30, FinalMarks = "50 –54" }          ;
+            var grade08 = new Grade { GradeID = "C", GradeName = "C", CreditValue = 2.70, FinalMarks = "45 –49" }       ;
+            var grade09 = new Grade { GradeID = "C-", GradeName = "C-", CreditValue = 1.70, FinalMarks = "40 –44" }      ;
                                                                                                                                   ;
-            var grade10 = new Grade { GradeID = "54gfge", GradeName = "D+", CreditValue = 1.30, FinalMarks = "35 –39" }        ;
+            var grade10 = new Grade { GradeID = "D+", GradeName = "D+", CreditValue = 1.30, FinalMarks = "35 –39" }        ;
                                                                                                                                   ;
-            var grade11 = new Grade { GradeID = "afg4t54", GradeName = "Ie", CreditValue = 0.00, FinalMarks = "ES <35" }        ;
+            var grade11 = new Grade { GradeID = "Ie", GradeName = "Ie", CreditValue = 0.00, FinalMarks = "ES <35" }        ;
                                                                                                                                   ;
-            var grade12 = new Grade { GradeID = "67j6j", GradeName = "Ia", CreditValue = 0.00, FinalMarks = "CA < 35" }       ;
-            var grade13 = new Grade { GradeID = "43f3d", GradeName = "Ia", CreditValue = 0.00, FinalMarks = "PBCA <35%" }       ;
+            var grade12 = new Grade { GradeID = "Ia", GradeName = "Ia", CreditValue = 0.00, FinalMarks = "CA < 35" }       ;
+            var grade13 = new Grade { GradeID = "Ia%", GradeName = "Ia", CreditValue = 0.00, FinalMarks = "PBCA <35%" }       ;
                                                                                                                                   ;
-            var grade14 = new Grade { GradeID = "43frg", GradeName = "Ib", CreditValue = 0.00, FinalMarks = "Both ES & CA < 35" };
+            var grade14 = new Grade { GradeID = "Ib", GradeName = "Ib", CreditValue = 0.00, FinalMarks = "Both ES & CA < 35" };
                                                                                                                                   ;
-            var grade15 = new Grade { GradeID = "43gfsdfgt", GradeName = "Ne", CreditValue = 0.00, FinalMarks = "Not eligible" } ;
-            var grade16 = new Grade { GradeID = "232fgfd", GradeName = "Ab", CreditValue = 0.00, FinalMarks = "Absent" }         ;
-            var grade17 = new Grade { GradeID = "432txgfge", GradeName = "Ex", CreditValue = 0.00, FinalMarks = "Excused" }       ;
+            var grade15 = new Grade { GradeID = "Ne", GradeName = "Ne", CreditValue = 0.00, FinalMarks = "Not eligible" } ;
+            var grade16 = new Grade { GradeID = "Ab", GradeName = "Ab", CreditValue = 0.00, FinalMarks = "Absent" }         ;
+            var grade17 = new Grade { GradeID = "Ex", GradeName = "Ex", CreditValue = 0.00, FinalMarks = "Excused" }       ;
             
             builder.Entity<Grade>().HasData(
                 grade01, grade02, grade03, grade04,  grade05, grade06, grade07, grade08, grade09, grade10, grade11,  grade12, grade13, grade14, grade15, grade16, grade17

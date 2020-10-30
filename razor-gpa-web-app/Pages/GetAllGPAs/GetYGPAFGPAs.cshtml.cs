@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.HODPages
+namespace razor_gpa_web_app.Pages.GetAllGPAs
 {
-    public class IndexModel : PageModel
+    public class GetYGPAFGPAs : PageModel
     {
         private readonly DBContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -29,8 +27,8 @@ namespace razor_gpa_web_app.Pages.HODPages
         public string UserId { get; set; }
         public string userDeptID { get; set; }
 
-        public IndexModel(
-            DBContext context, 
+        public GetYGPAFGPAs (
+            DBContext context,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager
             )
@@ -39,7 +37,7 @@ namespace razor_gpa_web_app.Pages.HODPages
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        
+
 
         public async Task OnGetAsync()
         {
@@ -60,6 +58,11 @@ namespace razor_gpa_web_app.Pages.HODPages
             var studentListByDept = from n in _context.ApplicationUser
                                     where n.DepartmentID == userDeptID
                                     select n;
+
+            var degreeDuration = (from r in _context.ApplicationUser
+                                  from u in _context.Degree
+                                  where r.DegreeID == u.DegreeID
+                                  select u.NumOfYears).FirstOrDefault();
 
             //go throught users of the dept
             foreach (var i in studentListByDept)
@@ -87,6 +90,16 @@ namespace razor_gpa_web_app.Pages.HODPages
                 fakesgpa.YGPAValueForYearThree = (double)(fakesgpa.SGPAValueForSemFive + fakesgpa.SGPAValueForSemSix) / 2;
                 fakesgpa.YGPAValueForYearFour = (double)(fakesgpa.SGPAValueForSemSeven + fakesgpa.SGPAValueForSemEight) / 2;
                 fakesgpa.YGPAValueForYearFive = (double)(fakesgpa.SGPAValueForSemNine + fakesgpa.SGPAValueForSemTen) / 2;
+                
+                //FGPA
+                if (degreeDuration == 4)
+                {
+                    fakesgpa.FGPAValue = (double)(fakesgpa.YGPAValueForYearOne + fakesgpa.YGPAValueForYearTwo + fakesgpa.YGPAValueForYearThree + fakesgpa.YGPAValueForYearFour) / 4;
+                }
+                else
+                {
+                    fakesgpa.FGPAValue = (double)(fakesgpa.YGPAValueForYearOne + fakesgpa.YGPAValueForYearTwo + fakesgpa.YGPAValueForYearThree + fakesgpa.YGPAValueForYearFour + fakesgpa.YGPAValueForYearFive) / 5;
+                }
 
                 StudentGPAList.Add(fakesgpa);
             }
@@ -122,4 +135,3 @@ namespace razor_gpa_web_app.Pages.HODPages
         }
     }
 }
-

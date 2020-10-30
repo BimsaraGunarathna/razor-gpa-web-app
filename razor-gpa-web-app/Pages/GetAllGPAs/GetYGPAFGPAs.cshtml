@@ -1,0 +1,81 @@
+﻿@page
+@model razor_gpa_web_app.Pages.GetAllGPAs.GetYGPAFGPAs
+@{
+}
+
+
+<h1>YGPA and FGPA</h1>
+
+<div class=".container">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].RegNum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].LastName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearOne)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearTwo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearThree)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearFour)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearFive)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGPAList[0].FGPAValue)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.StudentGPAList)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.YGPAValueForYearOne)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YGPAValueForYearTwo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YGPAValueForYearThree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YGPAValueForYearFour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YGPAValueForYearFive)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FGPAValue)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

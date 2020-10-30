@@ -467,10 +467,10 @@ namespace razor_gpa_web_app.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1e14cd65-a78e-400e-bd42-7d79ab1f5186", "f7da5558-65a2-46c7-a20f-a375c9132d9c", "Admin", null },
-                    { "37aec88c-d365-4de8-ba06-cbd83e26c614", "405b08ee-8781-4f83-a18b-b34241b487f8", "HOD", null },
-                    { "fac976a2-8efb-4775-8a94-08a4585dfc0f", "af572b53-5bde-4153-9644-e9f874ef6c51", "Staff", null },
-                    { "4b3906ec-a2aa-4c0f-9f1a-f01dc5e918e5", "95eabae3-ddd9-4405-847b-c07eb4409a4a", "Student", null }
+                    { "026496c1-5a69-4b91-81e8-40b127004017", "4a959ebe-f7a9-4b53-aa44-9124284aed14", "Admin", null },
+                    { "7a738faa-0e16-49a0-b977-614bbba4bb98", "27d3f305-c260-4061-b753-4fc504b5ac21", "HOD", null },
+                    { "74d4b42e-eafa-448e-a760-eaa9f781e710", "a4d266c0-f9b9-4cda-8998-16f66c563c68", "Staff", null },
+                    { "e5df59c9-caaa-4848-a36f-0916292535fe", "1fbd986b-ccb2-4997-8c06-6021b8203ab9", "Student", null }
                 });
 
             migrationBuilder.InsertData(
@@ -582,10 +582,10 @@ namespace razor_gpa_web_app.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DegreeID", "DepartmentID", "Email", "EmailConfirmed", "FacultyID", "FirstName", "IntakeID", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "RegNum", "SecurityStamp", "SubjectModuleID", "TwoFactorEnabled", "UserName", "UserRole" },
                 values: new object[,]
                 {
-                    { "968f769b-0cc5-4cd1-acde-2843db4fdb0c", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ddwd232", "3dfde3", "admin@gmail.com", false, "23df2", "Bimsara", "43t65il", "Gunarathna", true, null, "ADMIN@GMAIL.COM", "admin@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "admin", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "admin@gmail.com", 1 },
-                    { "58488210-d600-47c0-a04d-586e79c1415f", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ddwd232", "3dfde3", "student@gmail.com", false, "23df2", "Bimsara", "43t65il", "Gunarathna", true, null, "STUDENT@GMAIL.COM", "student@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "student", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "student@gmail.com", 4 },
-                    { "4d3c06c8-ccb5-42a8-b675-2af6237fc526", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ol433", "qdw", "staff@gmail.com", false, "23df2", "Harry", "k5j34b3i", "Potter", true, null, "STAFF@GMAIL.COM", "staff@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "staff", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "staff@gmail.com", 2 },
-                    { "2bcf85de-02ec-4f5d-b274-c9ce6fe56a4c", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ol433", "qdw", "hod@gmail.com", false, "23df2", "Elon", "k5j34b3i", "Musk", true, null, "HOD@GMAIL.COM", "hod@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "hod", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "hod@gmail.com", 3 }
+                    { "888a1fba-8f3a-4c0e-87d4-a8bb8ef5d1f9", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ddwd232", "3dfde3", "admin@gmail.com", false, "23df2", "Bimsara", "43t65il", "Gunarathna", true, null, "ADMIN@GMAIL.COM", "admin@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "admin", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "admin@gmail.com", 1 },
+                    { "b19f212c-a171-499f-ad5f-3f1480c3e742", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ddwd232", "3dfde3", "student@gmail.com", false, "23df2", "Bimsara", "43t65il", "Gunarathna", true, null, "STUDENT@GMAIL.COM", "student@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "student", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "student@gmail.com", 4 },
+                    { "c87a9ef6-5632-4215-8568-659a5014b6ef", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ol433", "3dfde3", "staff@gmail.com", false, "23df2", "Harry", "k5j34b3i", "Potter", true, null, "STAFF@GMAIL.COM", "staff@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "staff", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "staff@gmail.com", 2 },
+                    { "75ec5121-3575-4ac7-b037-2ad087bdbf3e", 0, "7a4e3c9a-406a-424c-ab38-d081219c83d1", "ol433", "3dfde3", "hod@gmail.com", false, "23df2", "Elon", "k5j34b3i", "Musk", true, null, "HOD@GMAIL.COM", "hod@gmail.com", "AQAAAAEAACcQAAAAEEN4Kep2mGX6mwUcQoNQgR18i6dXRQ1cLQ1k8bSIvikpEa3+b7sJidXa2tYEPREn2Q==", null, false, "hod", "WTYLCK3GBRNTTRTQIBHNKLMNLSRSBJJU", null, false, "hod@gmail.com", 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -612,10 +612,10 @@ namespace razor_gpa_web_app.Migrations
                 columns: new[] { "UserId", "RoleId" },
                 values: new object[,]
                 {
-                    { "968f769b-0cc5-4cd1-acde-2843db4fdb0c", "1e14cd65-a78e-400e-bd42-7d79ab1f5186" },
-                    { "58488210-d600-47c0-a04d-586e79c1415f", "4b3906ec-a2aa-4c0f-9f1a-f01dc5e918e5" },
-                    { "4d3c06c8-ccb5-42a8-b675-2af6237fc526", "fac976a2-8efb-4775-8a94-08a4585dfc0f" },
-                    { "2bcf85de-02ec-4f5d-b274-c9ce6fe56a4c", "37aec88c-d365-4de8-ba06-cbd83e26c614" }
+                    { "888a1fba-8f3a-4c0e-87d4-a8bb8ef5d1f9", "026496c1-5a69-4b91-81e8-40b127004017" },
+                    { "b19f212c-a171-499f-ad5f-3f1480c3e742", "e5df59c9-caaa-4848-a36f-0916292535fe" },
+                    { "c87a9ef6-5632-4215-8568-659a5014b6ef", "74d4b42e-eafa-448e-a760-eaa9f781e710" },
+                    { "75ec5121-3575-4ac7-b037-2ad087bdbf3e", "7a738faa-0e16-49a0-b977-614bbba4bb98" }
                 });
 
             migrationBuilder.CreateIndex(

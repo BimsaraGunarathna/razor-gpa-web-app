@@ -12,9 +12,9 @@ using razor_gpa_web_app.Areas.Identity.Data;
 using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
-namespace razor_gpa_web_app.Pages.HODPages
+namespace razor_gpa_web_app.Pages.GetAllGPAs
 {
-    public class IndexModel : PageModel
+    public class GetSGPAs : PageModel
     {
         private readonly DBContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -29,7 +29,7 @@ namespace razor_gpa_web_app.Pages.HODPages
         public string UserId { get; set; }
         public string userDeptID { get; set; }
 
-        public IndexModel(
+        public GetSGPAs(
             DBContext context, 
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager
@@ -61,6 +61,7 @@ namespace razor_gpa_web_app.Pages.HODPages
                                     where n.DepartmentID == userDeptID
                                     select n;
 
+
             //go throught users of the dept
             foreach (var i in studentListByDept)
             {
@@ -80,13 +81,6 @@ namespace razor_gpa_web_app.Pages.HODPages
                 fakesgpa.SGPAValueForSemEight = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "8");
                 fakesgpa.SGPAValueForSemNine = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "9");
                 fakesgpa.SGPAValueForSemTen = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "10");
-
-                //Year
-                fakesgpa.YGPAValueForYearOne = (double)(fakesgpa.SGPAValueForSemOne + fakesgpa.SGPAValueForSemTwo) / 2;
-                fakesgpa.YGPAValueForYearTwo = (double)(fakesgpa.SGPAValueForSemThree + fakesgpa.SGPAValueForSemFour) / 2;
-                fakesgpa.YGPAValueForYearThree = (double)(fakesgpa.SGPAValueForSemFive + fakesgpa.SGPAValueForSemSix) / 2;
-                fakesgpa.YGPAValueForYearFour = (double)(fakesgpa.SGPAValueForSemSeven + fakesgpa.SGPAValueForSemEight) / 2;
-                fakesgpa.YGPAValueForYearFive = (double)(fakesgpa.SGPAValueForSemNine + fakesgpa.SGPAValueForSemTen) / 2;
 
                 StudentGPAList.Add(fakesgpa);
             }

@@ -17,21 +17,25 @@ namespace razor_gpa_web_app.Models
         [Display(Name = "Last name")]
         public string LastName { get; set; }
 
-        //
+        //FGPA
+        [Display(Name = "FGPA")]
+        public double FGPAValue { get; set; }
+
+        //YGPA
         [Display(Name = "YGPA 1")]
-        public double SGPAValueForYearOne { get; set; }
+        public double YGPAValueForYearOne { get; set; }
 
         [Display(Name = "YGPA 2")]
-        public double SGPAValueForYearTwo { get; set; }
+        public double YGPAValueForYearTwo { get; set; }
 
         [Display(Name = "YGPA 3")]
-        public double SGPAValueForYearThree { get; set; }
+        public double YGPAValueForYearThree { get; set; }
 
         [Display(Name = "YGPA 4")]
-        public double SGPAValueForYearFour { get; set; }
+        public double YGPAValueForYearFour { get; set; }
 
         [Display(Name = "YGPA 5")]
-        public double SGPAValueForYearFive { get; set; }
+        public double YGPAValueForYearFive { get; set; }
 
 
         //

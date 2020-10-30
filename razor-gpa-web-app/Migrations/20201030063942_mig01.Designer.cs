@@ -10,7 +10,7 @@ using razor_gpa_web_app.Data;
 namespace razor_gpa_web_app.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20201027112939_mig01")]
+    [Migration("20201030063942_mig01")]
     partial class mig01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,26 +50,26 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1e14cd65-a78e-400e-bd42-7d79ab1f5186",
-                            ConcurrencyStamp = "f7da5558-65a2-46c7-a20f-a375c9132d9c",
+                            Id = "026496c1-5a69-4b91-81e8-40b127004017",
+                            ConcurrencyStamp = "4a959ebe-f7a9-4b53-aa44-9124284aed14",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = "fac976a2-8efb-4775-8a94-08a4585dfc0f",
-                            ConcurrencyStamp = "af572b53-5bde-4153-9644-e9f874ef6c51",
+                            Id = "74d4b42e-eafa-448e-a760-eaa9f781e710",
+                            ConcurrencyStamp = "a4d266c0-f9b9-4cda-8998-16f66c563c68",
                             Name = "Staff"
                         },
                         new
                         {
-                            Id = "37aec88c-d365-4de8-ba06-cbd83e26c614",
-                            ConcurrencyStamp = "405b08ee-8781-4f83-a18b-b34241b487f8",
+                            Id = "7a738faa-0e16-49a0-b977-614bbba4bb98",
+                            ConcurrencyStamp = "27d3f305-c260-4061-b753-4fc504b5ac21",
                             Name = "HOD"
                         },
                         new
                         {
-                            Id = "4b3906ec-a2aa-4c0f-9f1a-f01dc5e918e5",
-                            ConcurrencyStamp = "95eabae3-ddd9-4405-847b-c07eb4409a4a",
+                            Id = "e5df59c9-caaa-4848-a36f-0916292535fe",
+                            ConcurrencyStamp = "1fbd986b-ccb2-4997-8c06-6021b8203ab9",
                             Name = "Student"
                         });
                 });
@@ -161,23 +161,23 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "968f769b-0cc5-4cd1-acde-2843db4fdb0c",
-                            RoleId = "1e14cd65-a78e-400e-bd42-7d79ab1f5186"
+                            UserId = "888a1fba-8f3a-4c0e-87d4-a8bb8ef5d1f9",
+                            RoleId = "026496c1-5a69-4b91-81e8-40b127004017"
                         },
                         new
                         {
-                            UserId = "58488210-d600-47c0-a04d-586e79c1415f",
-                            RoleId = "4b3906ec-a2aa-4c0f-9f1a-f01dc5e918e5"
+                            UserId = "b19f212c-a171-499f-ad5f-3f1480c3e742",
+                            RoleId = "e5df59c9-caaa-4848-a36f-0916292535fe"
                         },
                         new
                         {
-                            UserId = "4d3c06c8-ccb5-42a8-b675-2af6237fc526",
-                            RoleId = "fac976a2-8efb-4775-8a94-08a4585dfc0f"
+                            UserId = "c87a9ef6-5632-4215-8568-659a5014b6ef",
+                            RoleId = "74d4b42e-eafa-448e-a760-eaa9f781e710"
                         },
                         new
                         {
-                            UserId = "2bcf85de-02ec-4f5d-b274-c9ce6fe56a4c",
-                            RoleId = "37aec88c-d365-4de8-ba06-cbd83e26c614"
+                            UserId = "75ec5121-3575-4ac7-b037-2ad087bdbf3e",
+                            RoleId = "7a738faa-0e16-49a0-b977-614bbba4bb98"
                         });
                 });
 
@@ -304,7 +304,7 @@ namespace razor_gpa_web_app.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "968f769b-0cc5-4cd1-acde-2843db4fdb0c",
+                            Id = "888a1fba-8f3a-4c0e-87d4-a8bb8ef5d1f9",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -328,7 +328,7 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "58488210-d600-47c0-a04d-586e79c1415f",
+                            Id = "b19f212c-a171-499f-ad5f-3f1480c3e742",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ddwd232",
@@ -352,11 +352,11 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "4d3c06c8-ccb5-42a8-b675-2af6237fc526",
+                            Id = "c87a9ef6-5632-4215-8568-659a5014b6ef",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
-                            DepartmentID = "qdw",
+                            DepartmentID = "3dfde3",
                             Email = "staff@gmail.com",
                             EmailConfirmed = false,
                             FacultyID = "23df2",
@@ -376,11 +376,11 @@ namespace razor_gpa_web_app.Migrations
                         },
                         new
                         {
-                            Id = "2bcf85de-02ec-4f5d-b274-c9ce6fe56a4c",
+                            Id = "75ec5121-3575-4ac7-b037-2ad087bdbf3e",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "7a4e3c9a-406a-424c-ab38-d081219c83d1",
                             DegreeID = "ol433",
-                            DepartmentID = "qdw",
+                            DepartmentID = "3dfde3",
                             Email = "hod@gmail.com",
                             EmailConfirmed = false,
                             FacultyID = "23df2",

@@ -1,0 +1,93 @@
+﻿
+@page
+@model razor_gpa_web_app.Pages.GetSingleGPAs.GetSingleGPAs
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h1>Hi</h1>
+    <div class="col-md-12">
+        <div></div>
+        <h1>Semester 1</h1>
+        @if (!Double.IsNaN(Model.SemesterOneGPA) && !Double.IsInfinity(Model.SemesterOneGPA))
+        {
+            <h1>@Model.SemesterOneGPA</h1>
+        }
+        else
+        {
+            <h1>Not yet published.</h1>
+        }
+        <div></div>
+        <div></div>
+        <h1>Semester 2</h1>
+        <h1>@Model.SemesterTwoGPA</h1>
+        <div></div>
+        <div></div>
+        <h1>Semester 3</h1>
+        <h1>@Model.SemesterThreeGPA</h1>
+        <div></div>
+        <div></div>
+        <h1>Semester 4</h1>
+        <h1>@Model.SemesterFourGPA</h1>
+        <div></div>
+        <div></div>
+        <h1>Semester 5</h1>
+        <h1>@Model.SemesterFiveGPA</h1>
+        <div></div>
+        <div></div>
+        <h1>Semester 6</h1>
+        <h1>@Model.SemesterSixGPA</h1>
+        <div></div>
+        <div></div>
+        <h1>Semester 7</h1>
+        @if (!Double.IsNaN(Model.SemesterSevenGPA) && !Double.IsInfinity(Model.SemesterSevenGPA))
+        {
+            <h1>@Model.SemesterSevenGPA</h1>
+        }
+        else
+        {
+            <h1>Not yet published.</h1>
+        }
+        <div></div>
+        <div></div>
+        <h1>Semester 8</h1>
+        <h1>@Model.SemesterEightGPA</h1>
+        <div></div>
+        <div></div>
+        <h1>Semester 9</h1>
+        <h1>@Model.SemesterNineGPA</h1>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<div class=".container">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterOneList[0].SubjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterOneList[0].SubjectGrade)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.StudentPaperGradeForSemesterOneList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubjectName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubjectGrade)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

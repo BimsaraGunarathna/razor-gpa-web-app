@@ -1,17 +1,14 @@
 ﻿
 @page
-@model razor_gpa_web_app.Pages.HODPages.IndexModel
+@model razor_gpa_web_app.Pages.GetAllGPAs.GetSGPAs
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>SGPA</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <div class=".container">
     <table class="table table-striped">
         <thead class="thead-dark">
@@ -55,22 +52,6 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.StudentGPAList[0].SGPAValueForSemTen)
-                </th>
-
-                <th>
-                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearOne)
-                </th>                                                     
-                <th>                                                      
-                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearTwo)
-                </th>                                                     
-                <th>                                                      
-                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearThree)
-                </th>                                                     
-                <th>                                                      
-                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearFour)
-                </th>                                                     
-                <th>                                                      
-                    @Html.DisplayNameFor(model => model.StudentGPAList[0].YGPAValueForYearFive)
                 </th>
             </tr>
         </thead>
@@ -118,21 +99,6 @@
                         @Html.DisplayFor(modelItem => item.SGPAValueForSemTen)
                     </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.YGPAValueForYearOne)
-                    </td>                                  
-                    <td>                                   
-                        @Html.DisplayFor(modelItem => item.YGPAValueForYearTwo)
-                    </td>                                  
-                    <td>                                   
-                        @Html.DisplayFor(modelItem => item.YGPAValueForYearThree)
-                    </td>                                  
-                    <td>                                   
-                        @Html.DisplayFor(modelItem => item.YGPAValueForYearFour)
-                    </td>                                  
-                    <td>                                   
-                        @Html.DisplayFor(modelItem => item.YGPAValueForYearFive)
-                    </td>
                 </tr>
             }
         </tbody>
