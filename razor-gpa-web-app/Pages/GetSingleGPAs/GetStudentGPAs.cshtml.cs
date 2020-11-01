@@ -20,8 +20,13 @@ namespace razor_gpa_web_app.Pages.GetSingleGPAs
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        //
+        //user's id
         public string UserId { get; set; }
+
+        //Years in degree
+        public int YearsInDegree { get; set; }
+
+
         public Double SemesterOneGPA { get; set; }
         public Double SemesterTwoGPA { get; set; }
         public Double SemesterThreeGPA { get; set; }
@@ -71,11 +76,6 @@ namespace razor_gpa_web_app.Pages.GetSingleGPAs
             {
                 RedirectToPage("./Index");
             }
-
-            var studentListByDept = from n in _context.ApplicationUser
-                                    where n.DepartmentID == userDeptID
-                                    select n;
-
 
             //Get semester 01
             var papersBySemByStudentSem01 = from p in _context.Set<Paper>()
@@ -165,135 +165,159 @@ namespace razor_gpa_web_app.Pages.GetSingleGPAs
                 }
             }
 
-            //Get semester 05
-            var papersBySemByStudentSem05 = from p in _context.Set<Paper>()
-                                            from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
-                                            from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
-                                            where p.StudentID == UserId
-                                            where p.SemesterID == "5"
-                                            select new { s.SubjectModuleName, g.GradeName };
+            /*
+            int yearsInDegree = (from n in _context.ApplicationUser
+                                 from r in _context.Degree
+                                 where n.DegreeID == r.DegreeID
+                                 select r.NumOfYears).Single();
+            */
+            YearsInDegree = (from d in _context.Degree
+                                from u in _context.ApplicationUser
+                                where u.Id == UserId
+                                where d.DegreeID == u.DegreeID
+                                select d.NumOfYears).Single();
 
-            if (papersBySemByStudentSem05 != null)
+            //3 years degree
+            if (YearsInDegree == 3 || YearsInDegree ==  4 || YearsInDegree == 5)
             {
-                SemesterFiveGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "5");
+                //Get semester 05
+                var papersBySemByStudentSem05 = from p in _context.Set<Paper>()
+                                                from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
+                                                from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
+                                                where p.StudentID == UserId
+                                                where p.SemesterID == "5"
+                                                select new { s.SubjectModuleName, g.GradeName };
 
-                foreach (var i in papersBySemByStudentSem05)
+                if (papersBySemByStudentSem05 != null)
                 {
-                    FakeSubject fakeSubject = new FakeSubject();
-                    //Semesters
-                    fakeSubject.SubjectGrade = i.GradeName;
-                    fakeSubject.SubjectName = i.SubjectModuleName;
-                    StudentPaperGradeForSemesterFiveList.Add(fakeSubject);
+                    SemesterFiveGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "5");
+
+                    foreach (var i in papersBySemByStudentSem05)
+                    {
+                        FakeSubject fakeSubject = new FakeSubject();
+                        //Semesters
+                        fakeSubject.SubjectGrade = i.GradeName;
+                        fakeSubject.SubjectName = i.SubjectModuleName;
+                        StudentPaperGradeForSemesterFiveList.Add(fakeSubject);
+                    }
+                }
+
+                //Get semester 06
+                var papersBySemByStudentSem06 = from p in _context.Set<Paper>()
+                                                from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
+                                                from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
+                                                where p.StudentID == UserId
+                                                where p.SemesterID == "6"
+                                                select new { s.SubjectModuleName, g.GradeName };
+
+                if (papersBySemByStudentSem06 != null)
+                {
+                    SemesterSixGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "6");
+
+                    foreach (var i in papersBySemByStudentSem06)
+                    {
+                        FakeSubject fakeSubject = new FakeSubject();
+                        //Semesters
+                        fakeSubject.SubjectGrade = i.GradeName;
+                        fakeSubject.SubjectName = i.SubjectModuleName;
+                        StudentPaperGradeForSemesterSixList.Add(fakeSubject);
+                    }
                 }
             }
 
-            //Get semester 06
-            var papersBySemByStudentSem06 = from p in _context.Set<Paper>()
-                                            from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
-                                            from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
-                                            where p.StudentID == UserId
-                                            where p.SemesterID == "6"
-                                            select new { s.SubjectModuleName, g.GradeName };
-
-            if (papersBySemByStudentSem06 != null)
+            //4 years degree
+            if (YearsInDegree == 4 || YearsInDegree == 5)
             {
-                SemesterSixGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "6");
+                //Get semester 07
+                var papersBySemByStudentSem07 = from p in _context.Set<Paper>()
+                                                from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
+                                                from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
+                                                where p.StudentID == UserId
+                                                where p.SemesterID == "7"
+                                                select new { s.SubjectModuleName, g.GradeName };
 
-                foreach (var i in papersBySemByStudentSem06)
+                if (papersBySemByStudentSem07 != null)
                 {
-                    FakeSubject fakeSubject = new FakeSubject();
-                    //Semesters
-                    fakeSubject.SubjectGrade = i.GradeName;
-                    fakeSubject.SubjectName = i.SubjectModuleName;
-                    StudentPaperGradeForSemesterSixList.Add(fakeSubject);
+                    SemesterSevenGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "7");
+
+                    foreach (var i in papersBySemByStudentSem07)
+                    {
+                        FakeSubject fakeSubject = new FakeSubject();
+                        //Semesters
+                        fakeSubject.SubjectGrade = i.GradeName;
+                        fakeSubject.SubjectName = i.SubjectModuleName;
+                        StudentPaperGradeForSemesterSevenList.Add(fakeSubject);
+                    }
+                }
+
+                //Get semester 08
+                var papersBySemByStudentSem08 = from p in _context.Set<Paper>()
+                                                from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
+                                                from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
+                                                where p.StudentID == UserId
+                                                where p.SemesterID == "8"
+                                                select new { s.SubjectModuleName, g.GradeName };
+
+                if (papersBySemByStudentSem08 != null)
+                {
+                    SemesterEightGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "8");
+
+                    foreach (var i in papersBySemByStudentSem08)
+                    {
+                        FakeSubject fakeSubject = new FakeSubject();
+                        //Semesters
+                        fakeSubject.SubjectGrade = i.GradeName;
+                        fakeSubject.SubjectName = i.SubjectModuleName;
+                        StudentPaperGradeForSemesterEightList.Add(fakeSubject);
+                    }
                 }
             }
-
-            //Get semester 07
-            var papersBySemByStudentSem07 = from p in _context.Set<Paper>()
-                                            from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
-                                            from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
-                                            where p.StudentID == UserId
-                                            where p.SemesterID == "7"
-                                            select new { s.SubjectModuleName, g.GradeName };
-
-            if (papersBySemByStudentSem07 != null)
+            
+            // 5 years degree
+            if (YearsInDegree == 5)
             {
-                SemesterSevenGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "7");
+                //Get semester 09
+                var papersBySemByStudentSem09 = from p in _context.Set<Paper>()
+                                                from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
+                                                from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
+                                                where p.StudentID == UserId
+                                                where p.SemesterID == "9"
+                                                select new { s.SubjectModuleName, g.GradeName };
 
-                foreach (var i in papersBySemByStudentSem07)
+                if (papersBySemByStudentSem09 != null)
                 {
-                    FakeSubject fakeSubject = new FakeSubject();
-                    //Semesters
-                    fakeSubject.SubjectGrade = i.GradeName;
-                    fakeSubject.SubjectName = i.SubjectModuleName;
-                    StudentPaperGradeForSemesterSevenList.Add(fakeSubject);
+                    SemesterNineGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "9");
+
+                    foreach (var i in papersBySemByStudentSem09)
+                    {
+                        FakeSubject fakeSubject = new FakeSubject();
+                        //Semesters
+                        fakeSubject.SubjectGrade = i.GradeName;
+                        fakeSubject.SubjectName = i.SubjectModuleName;
+                        StudentPaperGradeForSemesterNineList.Add(fakeSubject);
+                    }
                 }
-            }
 
-            //Get semester 08
-            var papersBySemByStudentSem08 = from p in _context.Set<Paper>()
-                                            from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
-                                            from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
-                                            where p.StudentID == UserId
-                                            where p.SemesterID == "8"
-                                            select new { s.SubjectModuleName, g.GradeName };
+                //Get semester 10
+                var papersBySemByStudentSem10 = from p in _context.Set<Paper>()
+                                                from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
+                                                from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
+                                                where p.StudentID == UserId
+                                                where p.SemesterID == "10"
+                                                select new { s.SubjectModuleName, g.GradeName };
 
-            if (papersBySemByStudentSem08 != null)
-            {
-                SemesterEightGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "8");
-
-                foreach (var i in papersBySemByStudentSem08)
+                if (papersBySemByStudentSem10 != null)
                 {
-                    FakeSubject fakeSubject = new FakeSubject();
-                    //Semesters
-                    fakeSubject.SubjectGrade = i.GradeName;
-                    fakeSubject.SubjectName = i.SubjectModuleName;
-                    StudentPaperGradeForSemesterEightList.Add(fakeSubject);
-                }
-            }
+                    SemesterTenGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "10");
 
-            //Get semester 09
-            var papersBySemByStudentSem09 = from p in _context.Set<Paper>()
-                                            from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
-                                            from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
-                                            where p.StudentID == UserId
-                                            where p.SemesterID == "9"
-                                            select new { s.SubjectModuleName, g.GradeName };
-
-            if (papersBySemByStudentSem09 != null)
-            {
-                SemesterNineGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "9");
-
-                foreach (var i in papersBySemByStudentSem09)
-                {
-                    FakeSubject fakeSubject = new FakeSubject();
-                    //Semesters
-                    fakeSubject.SubjectGrade = i.GradeName;
-                    fakeSubject.SubjectName = i.SubjectModuleName;
-                    StudentPaperGradeForSemesterNineList.Add(fakeSubject);
-                }
-            }
-
-            //Get semester 10
-            var papersBySemByStudentSem10 = from p in _context.Set<Paper>()
-                                            from g in _context.Set<Grade>().Where(g => g.GradeID == p.GradeID)
-                                            from s in _context.Set<SubjectModule>().Where(s => s.SubjectModuleID == p.SubjectModuleID)
-                                            where p.StudentID == UserId
-                                            where p.SemesterID == "10"
-                                            select new { s.SubjectModuleName, g.GradeName };
-
-            if (papersBySemByStudentSem10 != null)
-            {
-                SemesterTenGPA = CalculateSGPA(_context: _context, _userId: UserId, _semesterId: "10");
-
-                foreach (var i in papersBySemByStudentSem10)
-                {
-                    FakeSubject fakeSubject = new FakeSubject();
-                    //Semesters
-                    fakeSubject.SubjectGrade = i.GradeName;
-                    fakeSubject.SubjectName = i.SubjectModuleName;
-                    StudentPaperGradeForSemesterTenList.Add(fakeSubject);
+                    foreach (var i in papersBySemByStudentSem10)
+                    {
+                        FakeSubject fakeSubject = new FakeSubject();
+                        //Semesters
+                        fakeSubject.SubjectGrade = i.GradeName;
+                        fakeSubject.SubjectName = i.SubjectModuleName;
+                        StudentPaperGradeForSemesterTenList.Add(fakeSubject);
+                    }
                 }
             }
         }
@@ -304,7 +328,7 @@ namespace razor_gpa_web_app.Pages.GetSingleGPAs
                               where m.StudentID == _userId
                               where m.SemesterID == _semesterId
                               select m;
-
+            //thre could be a problem.
             var creditFrSem01 = from n in _context.Paper
                                 from s in _context.Grade
                                 where n.SemesterID == _semesterId

@@ -347,7 +347,7 @@
                             </td>
                         </tr>
                         <tr class="bg-danger">
-                            <td>
+                            <td class="text-white" >
                                 Year 03 YGPA :
                             </td>
                             <td class="text-white ">
@@ -356,6 +356,19 @@
                                 </h4>
                             </td>
                         </tr>
+                        @if (@Model.YearsInDegree == 3)
+                        {
+                            <tr class="bg-success">
+                                <td class="text-white">
+                                    Your final gap(FGPA) :
+                                </td>
+                                <td class="text-white ">
+                                    <h4>
+                                        @(Math.Round(((@Model.SemesterOneGPA + @Model.SemesterTwoGPA + @Model.SemesterThreeGPA + @Model.SemesterFourGPA + @Model.SemesterFiveGPA + @Model.SemesterSixGPA) / 6), 2))
+                                    </h4>
+                                </td>
+                            </tr>
+                         }
                     </tbody>
                 </table>
             </div>
@@ -467,7 +480,7 @@
                             </td>
                         </tr>
                         <tr class="bg-danger">
-                            <td>
+                            <td class="text-white ">
                                 Year 04 YGPA :
                             </td>
                             <td class="text-white ">
@@ -476,6 +489,21 @@
                                 </h4>
                             </td>
                         </tr>
+                        @if (@Model.YearsInDegree == 4)
+                        {
+                            <tr class="bg-success">
+                                <td class="text-white">
+                                    Your final gap(FGPA) :
+                                </td>
+                                <td class="text-white ">
+
+                                    <h4>
+                                        @(Math.Round(((@Model.SemesterOneGPA + @Model.SemesterTwoGPA + @Model.SemesterThreeGPA + @Model.SemesterFourGPA + @Model.SemesterFiveGPA + @Model.SemesterSixGPA + @Model.SemesterSevenGPA + @Model.SemesterEightGPA) / 8), 2))
+                                    </h4>
+                                    
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -596,6 +624,21 @@
                                 </h4>
                             </td>
                         </tr>
+                        @if (@Model.YearsInDegree == 5)
+                        {
+                            <tr class="bg-success">
+                                <td class="text-white">
+                                    Your final gap(FGPA) :
+                                </td>
+                                <td class="text-white ">
+
+                                    <h4>
+                                        @(Math.Round(((@Model.SemesterOneGPA + @Model.SemesterTwoGPA + @Model.SemesterThreeGPA + @Model.SemesterFourGPA + @Model.SemesterFiveGPA + @Model.SemesterSixGPA + @Model.SemesterSevenGPA + @Model.SemesterEightGPA + @Model.SemesterNineGPA + @Model.SemesterTenGPA) / 10), 2))
+                                    </h4>
+                                    
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
