@@ -94,19 +94,26 @@
                 </tbody>
                 <tbody class="bg-secondary">
                     <tr>
-                        <td>
+                        <td class="text-white">
                             Semester 02 SGPA  :
                         </td>
-                        <td>
-                            @Model.SemesterTwoGPA
+                        <td class="text-white">
+                            @if (!Double.IsNaN(Model.SemesterTwoGPA) && !Double.IsInfinity(Model.SemesterTwoGPA))
+                            {
+                                <h4>
+                                    @Model.SemesterTwoGPA
+                                </h4>
+                            }
                         </td>
                     </tr>
-                    <tr>
-                        <td>
+                    <tr class="bg-danger">
+                        <td class="text-white">
                             Year 01 YGPA :
                         </td>
-                        <td>
-                            @(Math.Round(((@Model.SemesterOneGPA + @Model.SemesterTwoGPA)/2), 2 ))
+                        <td class="text-white ">
+                            <h4>
+                                @(Math.Round(((@Model.SemesterOneGPA + @Model.SemesterTwoGPA)/2), 2 ))
+                            </h4>
                         </td>
                     </tr>
                 </tbody>
@@ -152,11 +159,16 @@
                     </tbody>
                     <tbody class="bg-secondary">
                         <tr>
-                            <td>
+                            <td class="text-white">
                                 Semester 03 SGPA  :
                             </td>
-                            <td>
-                                @Model.SemesterThreeGPA
+                            <td class="text-white">
+                                @if (!Double.IsNaN(Model.SemesterThreeGPA) && !Double.IsInfinity(Model.SemesterThreeGPA))
+                                {
+                                    <h4>
+                                        @Model.SemesterThreeGPA
+                                    </h4>
+                                }
                             </td>
                         </tr>
                     </tbody>
@@ -173,7 +185,7 @@
 
         @if (@Model.StudentPaperGradeForSemesterFourList.Any())
         {
-            <h2>Semester 03</h2>
+            <h2>Semester 04</h2>
 
             <div class=".container">
                 <table class="table table-striped">
@@ -202,19 +214,26 @@
                     </tbody>
                     <tbody class="bg-secondary">
                         <tr>
-                            <td>
+                            <td class="text-white">
                                 Semester 04 SGPA  :
                             </td>
-                            <td>
-                                @Model.SemesterFourGPA
+                            <td class="text-white">
+                                @if (!Double.IsNaN(Model.SemesterFourGPA) && !Double.IsInfinity(Model.SemesterFourGPA))
+                                {
+                                    <h4>
+                                        @Model.SemesterFourGPA
+                                    </h4>
+                                }
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr class="bg-danger">
+                            <td class="text-white">
                                 Year 02 YGPA :
                             </td>
-                            <td>
-                                @(Math.Round(((@Model.SemesterThreeGPA + @Model.SemesterFourGPA) / 2), 2 ))
+                            <td class="text-white ">
+                                <h4>
+                                    @(Math.Round(((@Model.SemesterThreeGPA + @Model.SemesterFourGPA)/2), 2 ))
+                                </h4>
                             </td>
                         </tr>
                     </tbody>
@@ -260,11 +279,16 @@
                     </tbody>
                     <tbody class="bg-secondary">
                         <tr>
-                            <td>
+                            <td class="text-white">
                                 Semester 05 SGPA  :
                             </td>
-                            <td>
-                                @Model.SemesterFiveGPA
+                            <td class="text-white">
+                                @if (!Double.IsNaN(Model.SemesterFiveGPA) && !Double.IsInfinity(Model.SemesterFiveGPA))
+                                {
+                                    <h4>
+                                        @Model.SemesterFiveGPA
+                                    </h4>
+                                }
                             </td>
                         </tr>
                     </tbody>
@@ -310,19 +334,26 @@
                     </tbody>
                     <tbody class="bg-secondary">
                         <tr>
-                            <td>
+                            <td class="text-white">
                                 Semester 06 SGPA  :
                             </td>
-                            <td>
-                                @Model.SemesterSixGPA
+                            <td class="text-white">
+                                @if (!Double.IsNaN(Model.SemesterSixGPA) && !Double.IsInfinity(Model.SemesterSixGPA))
+                                {
+                                    <h4>
+                                        @Model.SemesterSixGPA
+                                    </h4>
+                                }
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="bg-danger">
                             <td>
                                 Year 03 YGPA :
                             </td>
-                            <td>
-                                @(Math.Round(((@Model.SemesterFiveGPA + @Model.SemesterSixGPA) / 2), 2 ))
+                            <td class="text-white ">
+                                <h4>
+                                    @(Math.Round(((@Model.SemesterFiveGPA + @Model.SemesterSixGPA) / 2), 2 ))
+                                </h4>
                             </td>
                         </tr>
                     </tbody>
@@ -368,11 +399,16 @@
                     </tbody>
                     <tbody class="bg-secondary">
                         <tr>
-                            <td>
+                            <td class="text-white">
                                 Semester 07 SGPA  :
                             </td>
-                            <td>
-                                @Model.SemesterSevenGPA
+                            <td class="text-white">
+                                @if (!Double.IsNaN(Model.SemesterSevenGPA) && !Double.IsInfinity(Model.SemesterSevenGPA))
+                                {
+                                    <h4>
+                                        @Model.SemesterSevenGPA
+                                    </h4>
+                                }
                             </td>
                         </tr>
                     </tbody>
@@ -418,19 +454,26 @@
                     </tbody>
                     <tbody class="bg-secondary">
                         <tr>
-                            <td>
+                            <td class="text-white">
                                 Semester 08 SGPA  :
                             </td>
-                            <td>
-                                @Model.SemesterEightGPA
+                            <td class="text-white">
+                                @if (!Double.IsNaN(Model.SemesterEightGPA) && !Double.IsInfinity(Model.SemesterEightGPA))
+                                {
+                                    <h4>
+                                        @Model.SemesterEightGPA
+                                    </h4>
+                                }
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="bg-danger">
                             <td>
                                 Year 04 YGPA :
                             </td>
-                            <td>
-                                @(Math.Round(((@Model.SemesterSevenGPA + @Model.SemesterEightGPA) / 2), 2 ))
+                            <td class="text-white ">
+                                <h4>
+                                    @(Math.Round(((@Model.SemesterSevenGPA + @Model.SemesterEightGPA) / 2), 2 ))
+                                </h4>
                             </td>
                         </tr>
                     </tbody>
@@ -476,11 +519,16 @@
                     </tbody>
                     <tbody class="bg-secondary">
                         <tr>
-                            <td>
+                            <td class="text-white">
                                 Semester 09 SGPA  :
                             </td>
-                            <td>
-                                @Model.SemesterNineGPA
+                            <td class="text-white">
+                                @if (!Double.IsNaN(Model.SemesterNineGPA) && !Double.IsInfinity(Model.SemesterNineGPA))
+                                {
+                                    <h4>
+                                        @Model.SemesterNineGPA
+                                    </h4>
+                                }
                             </td>
                         </tr>
                     </tbody>
@@ -526,19 +574,26 @@
                     </tbody>
                     <tbody class="bg-secondary">
                         <tr>
-                            <td>
+                            <td class="text-white">
                                 Semester 10 SGPA  :
                             </td>
-                            <td>
-                                @Model.SemesterTenGPA
+                            <td class="text-white">
+                                @if (!Double.IsNaN(Model.SemesterTenGPA) && !Double.IsInfinity(Model.SemesterTenGPA))
+                                {
+                                    <h4>
+                                        @Model.SemesterTenGPA
+                                    </h4>
+                                }
                             </td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr class="bg-danger">
+                            <td class="text-white">
                                 Year 05 YGPA :
                             </td>
-                            <td>
-                                @(Math.Round(((@Model.SemesterNineGPA + @Model.SemesterTenGPA) / 2), 2 ))
+                            <td class="text-white ">
+                                <h4>
+                                    @(Math.Round(((@Model.SemesterNineGPA + @Model.SemesterTenGPA) / 2), 2 ))
+                                </h4>
                             </td>
                         </tr>
                     </tbody>
