@@ -7,87 +7,546 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <h1>Hi</h1>
-    <div class="col-md-12">
-        <div></div>
-        <h1>Semester 1</h1>
-        @if (!Double.IsNaN(Model.SemesterOneGPA) && !Double.IsInfinity(Model.SemesterOneGPA))
-        {
-            <h1>@Model.SemesterOneGPA</h1>
-        }
-        else
-        {
-            <h1>Not yet published.</h1>
-        }
-        <div></div>
-        <div></div>
-        <h1>Semester 2</h1>
-        <h1>@Model.SemesterTwoGPA</h1>
-        <div></div>
-        <div></div>
-        <h1>Semester 3</h1>
-        <h1>@Model.SemesterThreeGPA</h1>
-        <div></div>
-        <div></div>
-        <h1>Semester 4</h1>
-        <h1>@Model.SemesterFourGPA</h1>
-        <div></div>
-        <div></div>
-        <h1>Semester 5</h1>
-        <h1>@Model.SemesterFiveGPA</h1>
-        <div></div>
-        <div></div>
-        <h1>Semester 6</h1>
-        <h1>@Model.SemesterSixGPA</h1>
-        <div></div>
-        <div></div>
-        <h1>Semester 7</h1>
-        @if (!Double.IsNaN(Model.SemesterSevenGPA) && !Double.IsInfinity(Model.SemesterSevenGPA))
-        {
-            <h1>@Model.SemesterSevenGPA</h1>
-        }
-        else
-        {
-            <h1>Not yet published.</h1>
-        }
-        <div></div>
-        <div></div>
-        <h1>Semester 8</h1>
-        <h1>@Model.SemesterEightGPA</h1>
-        <div></div>
-        <div></div>
-        <h1>Semester 9</h1>
-        <h1>@Model.SemesterNineGPA</h1>
-        <div></div>
-        <div></div>
-    </div>
-</div>
 
-<div class=".container">
-    <table class="table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterOneList[0].SubjectName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterOneList[0].SubjectGrade)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.StudentPaperGradeForSemesterOneList)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SubjectName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SubjectGrade)
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+    @if (@Model.StudentPaperGradeForSemesterOneList.Any())
+    {
+        <h2>Semester 01</h2>
+
+        <div class=".container">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterOneList[0].SubjectName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterOneList[0].SubjectGrade)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.StudentPaperGradeForSemesterOneList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubjectName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubjectGrade)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tbody class="bg-secondary">
+                    <tr>
+                        <td class="text-white">
+                            Semester 01 SGPA  : 
+                        </td>
+                        <td class="text-white">
+                            @if (!Double.IsNaN(Model.SemesterOneGPA) && !Double.IsInfinity(Model.SemesterOneGPA))
+                            {
+                            <h4>
+                                @Model.SemesterOneGPA
+                            </h4>
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h2>Semester 01</h2>
+        <h3>Not yet published.</h3>
+    }
+
+    <span class="padding-left padding-right padding-top padding-bottom"></span>
+
+    @if (@Model.StudentPaperGradeForSemesterTwoList.Any())
+    {
+        <h2>Semester 02</h2>
+
+        <div class=".container">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterTwoList[0].SubjectName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterTwoList[0].SubjectGrade)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.StudentPaperGradeForSemesterTwoList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubjectName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubjectGrade)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tbody class="bg-secondary">
+                    <tr>
+                        <td>
+                            Semester 02 SGPA  :
+                        </td>
+                        <td>
+                            @Model.SemesterTwoGPA
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Year 01 YGPA :
+                        </td>
+                        <td>
+                            @(Math.Round(((@Model.SemesterOneGPA + @Model.SemesterTwoGPA)/2), 2 ))
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h2>Semester 02</h2>
+        <h3>Not yet published.</h3>
+    }
+    
+    <span stye="padding: 5px;"></span>
+
+        @if (@Model.StudentPaperGradeForSemesterThreeList.Any())
+        {
+            <h2>Semester 03</h2>
+
+            <div class=".container">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterThreeList[0].SubjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterThreeList[0].SubjectGrade)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StudentPaperGradeForSemesterThreeList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectGrade)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tbody class="bg-secondary">
+                        <tr>
+                            <td>
+                                Semester 03 SGPA  :
+                            </td>
+                            <td>
+                                @Model.SemesterThreeGPA
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>Semester 03</h2>
+            <h3>Not yet published.</h3>
+        }
+
+        <span class="padding-left padding-right padding-top padding-bottom"></span>
+
+        @if (@Model.StudentPaperGradeForSemesterFourList.Any())
+        {
+            <h2>Semester 03</h2>
+
+            <div class=".container">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterFourList[0].SubjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterFourList[0].SubjectGrade)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StudentPaperGradeForSemesterFourList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectGrade)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tbody class="bg-secondary">
+                        <tr>
+                            <td>
+                                Semester 04 SGPA  :
+                            </td>
+                            <td>
+                                @Model.SemesterFourGPA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Year 02 YGPA :
+                            </td>
+                            <td>
+                                @(Math.Round(((@Model.SemesterThreeGPA + @Model.SemesterFourGPA) / 2), 2 ))
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>Semester 04</h2>
+            <h3>Not yet published.</h3>
+        }
+
+        <span class="padding-left padding-right padding-top padding-bottom"></span>
+
+        @if (@Model.StudentPaperGradeForSemesterFiveList.Any())
+        {
+            <h2>Semester 05</h2>
+
+            <div class=".container">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterFiveList[0].SubjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterFiveList[0].SubjectGrade)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StudentPaperGradeForSemesterFiveList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectGrade)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tbody class="bg-secondary">
+                        <tr>
+                            <td>
+                                Semester 05 SGPA  :
+                            </td>
+                            <td>
+                                @Model.SemesterFiveGPA
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>Semester 05</h2>
+            <h3>Not yet published.</h3>
+        }
+
+        <span class="padding-left padding-right padding-top padding-bottom"></span>
+
+        @if (@Model.StudentPaperGradeForSemesterSixList.Any())
+        {
+            <h2>Semester 06</h2>
+
+            <div class=".container">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterSixList[0].SubjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterSixList[0].SubjectGrade)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StudentPaperGradeForSemesterSixList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectGrade)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tbody class="bg-secondary">
+                        <tr>
+                            <td>
+                                Semester 06 SGPA  :
+                            </td>
+                            <td>
+                                @Model.SemesterSixGPA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Year 03 YGPA :
+                            </td>
+                            <td>
+                                @(Math.Round(((@Model.SemesterFiveGPA + @Model.SemesterSixGPA) / 2), 2 ))
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>Semester 06</h2>
+            <h3>Not yet published.</h3>
+        }
+
+        <span class="padding-left padding-right padding-top padding-bottom"></span>
+
+        @if (@Model.StudentPaperGradeForSemesterSevenList.Any())
+        {
+            <h2>Semester 07</h2>
+
+            <div class=".container">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterSevenList[0].SubjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterSevenList[0].SubjectGrade)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StudentPaperGradeForSemesterSevenList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectGrade)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tbody class="bg-secondary">
+                        <tr>
+                            <td>
+                                Semester 07 SGPA  :
+                            </td>
+                            <td>
+                                @Model.SemesterSevenGPA
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>Semester 07</h2>
+            <h3>Not yet published.</h3>
+        }
+
+        <span class="padding-left padding-right padding-top padding-bottom"></span>
+
+        @if (@Model.StudentPaperGradeForSemesterEightList.Any())
+        {
+            <h2>Semester 08</h2>
+
+            <div class=".container">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterEightList[0].SubjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterEightList[0].SubjectGrade)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StudentPaperGradeForSemesterEightList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectGrade)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tbody class="bg-secondary">
+                        <tr>
+                            <td>
+                                Semester 08 SGPA  :
+                            </td>
+                            <td>
+                                @Model.SemesterEightGPA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Year 04 YGPA :
+                            </td>
+                            <td>
+                                @(Math.Round(((@Model.SemesterSevenGPA + @Model.SemesterEightGPA) / 2), 2 ))
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>Semester 08</h2>
+            <h3>Not yet published.</h3>
+        }
+
+        <span class="padding-left padding-right padding-top padding-bottom"></span>
+
+        @if (@Model.StudentPaperGradeForSemesterNineList.Any())
+        {
+            <h2>Semester 09</h2>
+
+            <div class=".container">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterNineList[0].SubjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterNineList[0].SubjectGrade)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StudentPaperGradeForSemesterNineList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectGrade)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tbody class="bg-secondary">
+                        <tr>
+                            <td>
+                                Semester 09 SGPA  :
+                            </td>
+                            <td>
+                                @Model.SemesterNineGPA
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>Semester 09</h2>
+            <h3>Not yet published.</h3>
+        }
+
+        <span class="padding-left padding-right padding-top padding-bottom"></span>
+
+        @if (@Model.StudentPaperGradeForSemesterTenList.Any())
+        {
+            <h2>Semester 10</h2>
+
+            <div class=".container">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterTenList[0].SubjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StudentPaperGradeForSemesterTenList[0].SubjectGrade)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StudentPaperGradeForSemesterTenList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubjectGrade)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tbody class="bg-secondary">
+                        <tr>
+                            <td>
+                                Semester 10 SGPA  :
+                            </td>
+                            <td>
+                                @Model.SemesterTenGPA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Year 05 YGPA :
+                            </td>
+                            <td>
+                                @(Math.Round(((@Model.SemesterNineGPA + @Model.SemesterTenGPA) / 2), 2 ))
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>Semester 10</h2>
+            <h3>Not yet published.</h3>
+        }
