@@ -34,24 +34,36 @@
                                 <a class="nav-link text-white" asp-area="" asp-page="/Index">Home</a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/GetSingleGPAs/GetStudentGPAs">Your GPA</a>
-                            </li>
+                            @if (User.IsInRole(razor_gpa_web_app.Utility.SD.StudentEndUser))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/GetSingleGPAs/GetStudentGPAs">Your GPA</a>
+                                </li>
+                            }
 
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/GetAllGPAs/GetSGPAs">HOD SGPA</a>
-                            </li>
+                            @if (User.IsInRole(razor_gpa_web_app.Utility.SD.HODEndUser))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/GetAllGPAs/GetSGPAs">HOD SGPA</a>
+                                </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/GetAllGPAs/GetYGPAFGPAs">HOD YGPA & YGPA</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/GetAllGPAs/GetYGPAFGPAs">HOD YGPA & YGPA</a>
+                                </li>
+                            }
 
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/Papers/Index">Papers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/UserModels/Index">Users</a>
-                            </li>
+                            @if (User.IsInRole(razor_gpa_web_app.Utility.SD.AdminEndUser) || User.IsInRole(razor_gpa_web_app.Utility.SD.StaffEndUser))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Papers/Index">Papers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/UserModels/Index">Users</a>
+                                </li>
+                            }
+
+
+
                         }
 
                     </ul>

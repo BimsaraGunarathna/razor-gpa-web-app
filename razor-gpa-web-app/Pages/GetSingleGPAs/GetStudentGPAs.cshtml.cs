@@ -165,12 +165,6 @@ namespace razor_gpa_web_app.Pages.GetSingleGPAs
                 }
             }
 
-            /*
-            int yearsInDegree = (from n in _context.ApplicationUser
-                                 from r in _context.Degree
-                                 where n.DegreeID == r.DegreeID
-                                 select r.NumOfYears).Single();
-            */
             YearsInDegree = (from d in _context.Degree
                                 from u in _context.ApplicationUser
                                 where u.Id == UserId

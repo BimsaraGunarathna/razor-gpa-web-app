@@ -59,10 +59,12 @@ namespace razor_gpa_web_app.Pages.GetAllGPAs
                                     where n.DepartmentID == userDeptID
                                     select n;
 
-            var degreeDuration = (from r in _context.ApplicationUser
-                                  from u in _context.Degree
-                                  where r.DegreeID == u.DegreeID
-                                  select u.NumOfYears).FirstOrDefault();
+            var degreeDuration = (from d in _context.Degree
+                                 from u in _context.ApplicationUser
+                                 where u.Id == UserId
+                                 where d.DegreeID == u.DegreeID
+                                 select d.NumOfYears).Single();
+
 
             //go throught users of the dept
             foreach (var i in studentListByDept)
@@ -85,21 +87,27 @@ namespace razor_gpa_web_app.Pages.GetAllGPAs
                 fakesgpa.SGPAValueForSemTen = CalculateSGPA(_context: _context, _userId: i.Id, _semesterId: "10");
 
                 //Year
-                fakesgpa.YGPAValueForYearOne = (double)(fakesgpa.SGPAValueForSemOne + fakesgpa.SGPAValueForSemTwo) / 2;
-                fakesgpa.YGPAValueForYearTwo = (double)(fakesgpa.SGPAValueForSemThree + fakesgpa.SGPAValueForSemFour) / 2;
-                fakesgpa.YGPAValueForYearThree = (double)(fakesgpa.SGPAValueForSemFive + fakesgpa.SGPAValueForSemSix) / 2;
-                fakesgpa.YGPAValueForYearFour = (double)(fakesgpa.SGPAValueForSemSeven + fakesgpa.SGPAValueForSemEight) / 2;
-                fakesgpa.YGPAValueForYearFive = (double)(fakesgpa.SGPAValueForSemNine + fakesgpa.SGPAValueForSemTen) / 2;
+                fakesgpa.YGPAValueForYearOne = Math.Round((double)(fakesgpa.SGPAValueForSemOne + fakesgpa.SGPAValueForSemTwo) / 2, 2);
+                fakesgpa.YGPAValueForYearTwo = Math.Round((double)(fakesgpa.SGPAValueForSemThree + fakesgpa.SGPAValueForSemFour) / 2, 2);
+                fakesgpa.YGPAValueForYearThree = Math.Round((double)(fakesgpa.SGPAValueForSemFive + fakesgpa.SGPAValueForSemSix) / 2, 2);
+                fakesgpa.YGPAValueForYearFour = Math.Round((double)(fakesgpa.SGPAValueForSemSeven + fakesgpa.SGPAValueForSemEight) / 2, 2);
+                fakesgpa.YGPAValueForYearFive = Math.Round((double)(fakesgpa.SGPAValueForSemNine + fakesgpa.SGPAValueForSemTen) / 2, 2);
                 
                 //FGPA
                 if (degreeDuration == 4)
                 {
-                    fakesgpa.FGPAValue = (double)(fakesgpa.YGPAValueForYearOne + fakesgpa.YGPAValueForYearTwo + fakesgpa.YGPAValueForYearThree + fakesgpa.YGPAValueForYearFour) / 4;
+                    fakesgpa.FGPAValue = Math.Round((double)(fakesgpa.YGPAValueForYearOne + fakesgpa.YGPAValueForYearTwo + fakesgpa.YGPAValueForYearThree + fakesgpa.YGPAValueForYearFour) / 4, 2);
                 }
-                else
+                if (degreeDuration == 5)
                 {
-                    fakesgpa.FGPAValue = (double)(fakesgpa.YGPAValueForYearOne + fakesgpa.YGPAValueForYearTwo + fakesgpa.YGPAValueForYearThree + fakesgpa.YGPAValueForYearFour + fakesgpa.YGPAValueForYearFive) / 5;
+                    fakesgpa.FGPAValue = Math.Round((double)(fakesgpa.YGPAValueForYearOne + fakesgpa.YGPAValueForYearTwo + fakesgpa.YGPAValueForYearThree + fakesgpa.YGPAValueForYearFour + fakesgpa.YGPAValueForYearFive) / 5, 2);
                 }
+
+                if (degreeDuration == 3)
+                {
+                    fakesgpa.FGPAValue = Math.Round((double)(fakesgpa.YGPAValueForYearOne + fakesgpa.YGPAValueForYearTwo + fakesgpa.YGPAValueForYearThree ) / 3, 2);
+                }
+
 
                 StudentGPAList.Add(fakesgpa);
             }
