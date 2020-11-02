@@ -15,6 +15,7 @@ using razor_gpa_web_app.Utility;
 namespace SparkAuto.Pages.Users
 {
     [Authorize(Roles = SD.AdminEndUser)]
+    [Authorize(Roles = SD.StaffEndUser)]
     public class IndexModel : PageModel
     {
         private readonly DBContext _db;
