@@ -94,16 +94,19 @@ namespace razor_gpa_web_app.Pages.GetAllGPAs
                               where m.SemesterID == _semesterId
                               select m;
 
+            //subject module should be returned
+            //thre could be a problem.
             var creditFrSem01 = from n in _context.Paper
-                                from s in _context.Grade
+                                from s in _context.SubjectModule
                                 where n.SemesterID == _semesterId
-                                where n.GradeID == s.GradeID
+                                where n.SubjectModuleID == s.SubjectModuleID
+                                where n.StudentID == _userId
                                 select s;
 
             Double cumalativeCreditForSem01 = 0.00, cumalativeGgpaForSem01 = 0.00, sgpa = 0.00;
             foreach (var q in creditFrSem01)
             {
-                cumalativeCreditForSem01 += q.CreditValue;
+                cumalativeCreditForSem01 += q.SubjectModuleCreditUnit;
             }
 
             foreach (var i in gpaForSem01)
