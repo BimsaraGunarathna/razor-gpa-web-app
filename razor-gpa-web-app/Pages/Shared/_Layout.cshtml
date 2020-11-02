@@ -44,19 +44,45 @@
                             @if (User.IsInRole(razor_gpa_web_app.Utility.SD.HODEndUser))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-page="/GetAllGPAs/GetSGPAs">HOD SGPA</a>
+                                    <a class="nav-link text-white" asp-area="" asp-page="/GetAllGPAs/GetSGPAs">SGPA</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-page="/GetAllGPAs/GetYGPAFGPAs">HOD YGPA & YGPA</a>
+                                    <a class="nav-link text-white" asp-area="" asp-page="/GetAllGPAs/GetYGPAFGPAs">YGPA & FGPA</a>
                                 </li>
                             }
 
-                            @if (User.IsInRole(razor_gpa_web_app.Utility.SD.AdminEndUser) || User.IsInRole(razor_gpa_web_app.Utility.SD.StaffEndUser))
-                            {
+                            @if (User.IsInRole(razor_gpa_web_app.Utility.SD.StaffEndUser)) { 
+                                                                                        
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="" asp-page="/Papers/Index">Papers</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/UserModels/Index">Users</a>
+                                </li>
+                            }
+
+                            @if (User.IsInRole(razor_gpa_web_app.Utility.SD.AdminEndUser))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/AcademicYears/Index">Academic Year</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Degrees/Index">Degree</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Departments/Index">Department</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Faculties/Index">Faculty</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/Intakes/Index">Intake</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-area="" asp-page="/SubjectModules/Index">Subjects</a>
+                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="" asp-page="/UserModels/Index">Users</a>
                                 </li>

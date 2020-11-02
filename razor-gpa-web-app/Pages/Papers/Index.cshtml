@@ -15,19 +15,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Paper[0].Grade)
+                @Html.DisplayNameFor(model => model.Paper[0].Grade.GradeName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Paper[0].SubjectModule)
+                @Html.DisplayNameFor(model => model.Paper[0].SubjectModule.SubjectModuleName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Paper[0].ApplicationUser)
+                @Html.DisplayNameFor(model => model.Paper[0].ApplicationUser.RegNum)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Paper[0].Semester)
+                @Html.DisplayNameFor(model => model.Paper[0].Semester.SemesterName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Paper[0].Degree)
+                @Html.DisplayNameFor(model => model.Paper[0].Degree.DegreeName)
             </th>
             <th></th>
         </tr>
@@ -36,19 +36,19 @@
 @foreach (var item in Model.Paper) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Grade.GradeID)
+                @Html.DisplayFor(modelItem => item.Grade.GradeName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SubjectModule.SubjectModuleID)
+                @Html.DisplayFor(modelItem => item.SubjectModule.SubjectModuleName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
+                @Html.DisplayFor(modelItem => item.ApplicationUser.RegNum)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Semester.SemesterID)
+                @Html.DisplayFor(modelItem => item.Semester.SemesterName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Degree.DegreeID)
+                @Html.DisplayFor(modelItem => item.Degree.DegreeName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.PaperID">Edit</a> |

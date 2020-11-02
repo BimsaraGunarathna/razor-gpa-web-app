@@ -27,7 +27,10 @@ namespace razor_gpa_web_app.Pages.UserModels
 
         public async Task OnGetAsync()
         {
-            ApplicationUser = await _context.ApplicationUser.ToListAsync();
+            ApplicationUser = await _context.ApplicationUser
+                .Include(p => p.Degree)
+                .Include(p => p.Department)
+                .ToListAsync();
         }
     }
 }

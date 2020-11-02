@@ -18,6 +18,38 @@
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Input.RegNum"></label>
+                <input asp-for="Input.RegNum" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.FirstName"></label>
+                <input asp-for="Input.FirstName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LastName"></label>
+                <input asp-for="Input.LastName" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Input.IntakeID"></label>
+                <select asp-for="Input.IntakeID" class="form-control" asp-items="ViewBag.IntakeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.FacultyID"></label>
+                <select asp-for="Input.FacultyID" class="form-control" asp-items="ViewBag.FacultyID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.DepartmentID"></label>
+                <select asp-for="Input.DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.DegreeID" class="control-label"></label>
+                <select asp-for="Input.DegreeID" class="form-control" asp-items="ViewBag.DegreeID"></select>
+            </div>
+
+
+            <div class="form-group">
                 <label asp-for="Input.Password"></label>
                 <input asp-for="Input.Password" class="form-control" />
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
