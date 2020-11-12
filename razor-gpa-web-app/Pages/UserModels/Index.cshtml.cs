@@ -13,7 +13,7 @@ using razor_gpa_web_app.Utility;
 
 namespace razor_gpa_web_app.Pages.UserModels
 {
-    [Authorize(Roles = SD.AdminEndUser )]
+    
     public class IndexModel : PageModel
     {
         private readonly razor_gpa_web_app.Data.DBContext _context;

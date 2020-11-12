@@ -22,13 +22,14 @@ using razor_gpa_web_app.Utility;
 
 namespace razor_gpa_web_app.Pages.UserModels
 {
-    [Authorize(Roles = SD.AdminEndUser)]
     public class CreateModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+
+        //later added.
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly DBContext _db;
 
@@ -61,10 +62,6 @@ namespace razor_gpa_web_app.Pages.UserModels
         public class InputModel
         {
 
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
 
             //Custom attribute definitions
             [Required]
@@ -82,39 +79,35 @@ namespace razor_gpa_web_app.Pages.UserModels
             [Display(Name = "Last name")]
             public string LastName { get; set; }
 
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Degree name")]
-            public string DegreeName { get; set; }
 
             [Required]
             [DataType(DataType.Text)]
-            [Display(Name = "Intake")]
-            public int IntakeNumber { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Faculty")]
-            public string FacultyName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "Department")]
-            public string DepartmentName { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
-            [Display(Name = "User role")]
-            public int UserRole { get; set; }
-
-            [Required]
-            [DataType(DataType.Text)]
+            [Display(Name = "Degree")]
             public string DegreeID { get; set; }
 
             [Required]
             [DataType(DataType.Text)]
+            [Display(Name = "Intake")]
+            public string IntakeID { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Faculty")]
+            public string FacultyID { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Department")]
             public string DepartmentID { get; set; }
+
+            public int UserRole { get; set; }
+
             //
+
+            [Required]
+            [EmailAddress]
+            [Display(Name = "Email")]
+            public string Email { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -132,13 +125,15 @@ namespace razor_gpa_web_app.Pages.UserModels
         {
             ViewData["DegreeID"] = new SelectList(_db.Set<Degree>(), "DegreeID", "DegreeName");
             ViewData["DepartmentID"] = new SelectList(_db.Set<Department>(), "DepartmentID", "DepartmentName");
+            ViewData["IntakeID"] = new SelectList(_db.Set<Intake>(), "IntakeID", "IntakeNumber");
+            ViewData["FacultyID"] = new SelectList(_db.Set<Faculty>(), "FacultyID", "FacultyName");
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/UserModels");
+            returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
@@ -150,39 +145,40 @@ namespace razor_gpa_web_app.Pages.UserModels
                     RegNum = Input.RegNum,
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
-                    //IntakeNumber = Input.IntakeNumber,
-                    UserRole = Input.UserRole,
+                    //UserRole = Input.UserRole,
+                    IntakeID = Input.IntakeID,
+                    FacultyID = Input.FacultyID,
+                    DepartmentID = Input.DepartmentID,
                     DegreeID = Input.DegreeID,
-                    DepartmentID = Input.DepartmentID
                 };
-                Console.WriteLine("Hi!");
-                Console.WriteLine("Hi!");
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    if (user.UserRole == 1)
+                    if (Input.UserRole == 1)
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.StudentEndUser));
                         await _userManager.AddToRoleAsync(user, SD.StudentEndUser);
-                    } 
-                    else if (user.UserRole == 2) {
+                    }
+                    else if (Input.UserRole == 2)
+                    {
                         await _roleManager.CreateAsync(new IdentityRole(SD.HODEndUser));
                         await _userManager.AddToRoleAsync(user, SD.HODEndUser);
                     }
-                    else if (user.UserRole == 3)
+                    else if (Input.UserRole == 3)
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.StaffEndUser));
                         await _userManager.AddToRoleAsync(user, SD.StaffEndUser);
                     }
-                    else if (user.UserRole == 4)
+                    else if (Input.UserRole == 4)
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser));
                         await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
                     }
 
-                        //create an Staff accounts as Admin.
-                       // await _userManager.AddToRoleAsync(user, SD.StaffEndUser);
-
+                    //create an Staff accounts as Admin.
+                    // await _userManager.AddToRoleAsync(user, SD.StaffEndUser);
+                    /*
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -198,13 +194,14 @@ namespace razor_gpa_web_app.Pages.UserModels
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return LocalRedirect(returnUrl);
                     }
                     else
                     {
                         //await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }
+                    */
                 }
                 foreach (var error in result.Errors)
                 {
@@ -213,7 +210,7 @@ namespace razor_gpa_web_app.Pages.UserModels
             }
 
             // If we got this far, something failed, redisplay form
-            return Page();
+            return Redirect("UserModels/Index");
         }
     }
 }

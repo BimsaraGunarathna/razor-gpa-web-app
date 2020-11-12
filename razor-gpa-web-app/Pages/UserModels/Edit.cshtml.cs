@@ -11,7 +11,7 @@ using razor_gpa_web_app.Data;
 using razor_gpa_web_app.Models;
 
 using Microsoft.AspNetCore.Authorization;
-
+using razor_gpa_web_app.Utility;
 
 namespace razor_gpa_web_app.Pages.UserModels
 {
